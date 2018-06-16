@@ -1,0 +1,10 @@
+PROCEDURE BindingIcebox(jsonData Object)
+
+UPSERT icebox(id:jsonData.iceboxId, userId:jsonData.userId, customerId:jsonData.customerId,workStatus:"USEING",status:"START") 
+//where id == jsonData.iceboxId  
+//serialno == msg.serialno
+
+//return msg.serialno
+var result = select * FROM icebox where id == jsonData.iceboxId
+return result
+

@@ -1,0 +1,6 @@
+PROCEDURE helloPatient()
+//
+// Load objects of type 'Patient' from the database.
+// The result set can be accessed using the correlation variable 's'.
+//
+SELECT FROM Patient AS s WHERE (name == "A String Constant")

@@ -1,0 +1,3 @@
+PROCEDURE updateName(myName string)
+var myName=myName
+upsert myType_a(id:"1",name:myName)

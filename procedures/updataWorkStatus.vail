@@ -1,0 +1,6 @@
+PROCEDURE updataWorkStatus(jsonData Object)
+
+UPDATE icebox(id:jsonData.iceboxId, workStatus:jsonData.workStatus) where id ==jsonData.iceboxId
+
+var result = select * FROM icebox where id == jsonData.iceboxId
+return result

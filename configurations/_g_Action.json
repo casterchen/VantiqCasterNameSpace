@@ -1,0 +1,10 @@
+{
+  "name" : "_g_Action",
+  "action" : "graphonly",
+  "rules" : [ ],
+  "isHidden" : true,
+  "provisioningConstraint" : "{type:{\"$ne\":\"self\"}}",
+  "provisionAsTree" : true,
+  "globalId" : "c79a635b-3535-4851-9bae-1934d6600f74",
+  "inProgressId" : "c79a635b-3535-4851-9bae-1934d6600f74"
+}

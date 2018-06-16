@@ -1,0 +1,13 @@
+PROCEDURE queryEmpByName(empid)
+
+
+
+var emp = SELECT * FROM emp1 where empid == empid 
+
+
+
+var output = emp[0]["empname"]
+
+
+return {empname:output}
+

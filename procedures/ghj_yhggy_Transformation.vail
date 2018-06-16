@@ -1,0 +1,5 @@
+PROCEDURE ghj_yhggy_Transformation(event) HIDDEN WITH ars_dependentResource="/collaborationtypes/ghj"
+var newEvent = {}
+newEvent.rex = event.a
+
+return newEvent
