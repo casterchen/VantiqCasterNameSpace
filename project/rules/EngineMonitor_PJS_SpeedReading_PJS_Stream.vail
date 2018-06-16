@@ -1,0 +1,18 @@
+// This rule was generated to produce events for the task: SpeedReading_PJS in the app: EngineMonitor_PJS
+RULE EngineMonitor_PJS_SpeedReading_PJS_Stream HIDDEN WITH ars_dependentResource="/collaborationtypes/EngineMonitor_PJS"
+WHEN  EVENT OCCURS ON "/eventstreams/EngineMonitor_PJS_SpeedReading_PJS" AS event
+
+event = event.value
+
+log.debug("app.EngineMonitor_PJS.SpeedReading_PJS.producer:  Producing outbound event for: {}", [event])
+
+try {
+      
+    PUBLISH event TO TOPIC "/apps/EngineMonitor_PJS/SpeedReading_PJS"
+    log.debug("app.EngineMonitor_PJS.SpeedReading_PJS.producer:  produced outbound event: {}", [event])
+} catch (ex) {
+    exception("io.vantiq.app.EngineMonitor_PJS.SpeedReading_PJS.EngineMonitor_PJS_SpeedReading_PJS_Stream.failed",
+              "The generated rule: {0} failed because: {1}", ["EngineMonitor_PJS_SpeedReading_PJS_Stream", ex.message])
+}
+
+log.debug("app.EngineMonitor_PJS.SpeedReading_PJS.producer:  Done")

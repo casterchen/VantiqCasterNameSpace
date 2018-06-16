@@ -1,0 +1,48 @@
+{
+  "payload" : {
+    "responseTopic" : "/mymode01",
+    "fields" : [ {
+      "id" : "地图显示器2",
+      "type" : "map"
+    }, {
+      "id" : "标签2",
+      "type" : "text",
+      "label" : "标签"
+    }, {
+      "id" : "按钮连1",
+      "type" : "buttonCluster",
+      "values" : [ {
+        "value" : 1,
+        "label" : "第一按钮"
+      } ]
+    }, {
+      "id" : "单选按钮1",
+      "type" : "radioButtons",
+      "default" : 1,
+      "values" : [ {
+        "value" : 1,
+        "label" : "红色"
+      }, {
+        "value" : 2,
+        "label" : "绿色"
+      }, {
+        "value" : 3,
+        "label" : "蓝色"
+      } ]
+    }, {
+      "id" : "按钮连2",
+      "type" : "buttonCluster",
+      "values" : [ {
+        "value" : 1,
+        "label" : "第一按钮"
+      } ]
+    }, {
+      "id" : "按钮3",
+      "type" : "inlineButton",
+      "buttonLabel" : "请按",
+      "value" : 100
+    } ]
+  },
+  "title" : "mymode01",
+  "body" : "mymode01"
+}

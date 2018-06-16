@@ -1,0 +1,18 @@
+// This rule was generated to produce events for the task: fgh in the app: ghj
+RULE ghj_fgh_Stream HIDDEN WITH ars_dependentResource="/collaborationtypes/ghj"
+WHEN  EVENT OCCURS ON "/eventstreams/ghj_fgh" AS event
+
+event = event.value
+
+log.debug("app.ghj.fgh.producer:  Producing outbound event for: {}", [event])
+
+try {
+      
+    PUBLISH event TO TOPIC "/apps/ghj/fgh"
+    log.debug("app.ghj.fgh.producer:  produced outbound event: {}", [event])
+} catch (ex) {
+    exception("io.vantiq.app.ghj.fgh.ghj_fgh_Stream.failed",
+              "The generated rule: {0} failed because: {1}", ["ghj_fgh_Stream", ex.message])
+}
+
+log.debug("app.ghj.fgh.producer:  Done")

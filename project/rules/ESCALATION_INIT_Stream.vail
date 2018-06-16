@@ -1,0 +1,18 @@
+// This rule was generated to produce events for the task: INIT in the app: ESCALATION
+RULE ESCALATION_INIT_Stream HIDDEN WITH ars_dependentResource="/collaborationtypes/ESCALATION"
+WHEN  EVENT OCCURS ON "/eventstreams/ESCALATION_INIT" AS event
+
+event = event.value
+
+log.debug("app.ESCALATION.INIT.producer:  Producing outbound event for: {}", [event])
+
+try {
+      
+    PUBLISH event TO TOPIC "/apps/ESCALATION/INIT"
+    log.debug("app.ESCALATION.INIT.producer:  produced outbound event: {}", [event])
+} catch (ex) {
+    exception("io.vantiq.app.ESCALATION.INIT.ESCALATION_INIT_Stream.failed",
+              "The generated rule: {0} failed because: {1}", ["ESCALATION_INIT_Stream", ex.message])
+}
+
+log.debug("app.ESCALATION.INIT.producer:  Done")

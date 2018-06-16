@@ -1,0 +1,18 @@
+// This rule was generated to produce events for the task: test in the app: APPTEST
+RULE APPTEST_test_Stream HIDDEN WITH ars_dependentResource="/collaborationtypes/APPTEST"
+WHEN  EVENT OCCURS ON "/eventstreams/APPTEST_test" AS event
+
+event = event.value
+
+log.debug("app.APPTEST.test.producer:  Producing outbound event for: {}", [event])
+
+try {
+      
+    PUBLISH event TO TOPIC "/apps/APPTEST/test"
+    log.debug("app.APPTEST.test.producer:  produced outbound event: {}", [event])
+} catch (ex) {
+    exception("io.vantiq.app.APPTEST.test.APPTEST_test_Stream.failed",
+              "The generated rule: {0} failed because: {1}", ["APPTEST_test_Stream", ex.message])
+}
+
+log.debug("app.APPTEST.test.producer:  Done")

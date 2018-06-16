@@ -1,0 +1,9 @@
+PROCEDURE EngineMonitor_PJS_UpdateSystemHUD_PJS_Transformation(event) HIDDEN WITH ars_dependentResource="/collaborationtypes/EngineMonitor_PJS"
+var newEvent = {}
+newEvent.systemId = event.systemId
+newEvent.alertMsg = ((event.temperature >= 210) && (event.speed >= 45)) ?
+    "Your engine is overheating, please reduce your speed." :
+    (((event.temperature >= 210) && (event.speed < 45)) ?
+    "Your engine is overheating: check for a malfunctioning fan or a coolant leak." : "")
+
+return newEvent

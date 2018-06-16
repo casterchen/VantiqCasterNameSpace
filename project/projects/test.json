@@ -1,0 +1,126 @@
+{
+  "name" : "TEST",
+  "options" : {
+    "v" : 2,
+    "filterMask" : 4294967295,
+    "showGrid" : true,
+    "isModeloProject" : true
+  },
+  "type" : "dev",
+  "resources" : [ {
+    "name" : "GetHeartRate",
+    "type" : 4,
+    "timestamp" : "2018-05-31T23:42:21.056Z",
+    "node" : {
+      "x" : 297.38473829508445,
+      "y" : 182.1232038216532
+    }
+  }, {
+    "name" : "Patient",
+    "type" : 1,
+    "timestamp" : "2018-03-19T04:18:55.154Z",
+    "node" : {
+      "x" : 227.66334611176532,
+      "y" : 213.75603711999827
+    }
+  }, {
+    "name" : "PatineService",
+    "type" : 12,
+    "timestamp" : "2018-06-01T00:04:04.519Z",
+    "inventory" : {
+      "types" : [ "Patient" ],
+      "typeHash" : [ "out" ],
+      "sources" : [ ],
+      "sourceHash" : [ ],
+      "topics" : [ ],
+      "topicHash" : [ ],
+      "procedures" : [ ],
+      "procedureHash" : [ ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 514.0835505998018,
+      "y" : 213.04664432725565
+    }
+  }, {
+    "name" : "Sentiment",
+    "type" : 13,
+    "timestamp" : "2018-03-19T10:32:49.348Z",
+    "node" : {
+      "x" : 264.75420443504333,
+      "y" : 344.6954365666495
+    }
+  }, {
+    "name" : "UpdatePatient",
+    "type" : 3,
+    "timestamp" : "2018-05-31T23:58:00.111Z",
+    "inventory" : {
+      "types" : [ "Patient" ],
+      "typeHash" : [ "out" ],
+      "sources" : [ "GetHeartRate" ],
+      "sourceHash" : [ "in" ],
+      "topics" : [ ],
+      "topicHash" : [ ],
+      "procedures" : [ ],
+      "procedureHash" : [ ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 357.282200320233,
+      "y" : 122.14008471559448
+    }
+  } ],
+  "links" : [ {
+    "source" : "procedure/UpdatePatient",
+    "target" : "type/Patient"
+  }, {
+    "source" : "source/GetHeartRate",
+    "target" : "procedure/UpdatePatient"
+  }, {
+    "source" : "app/PatineService",
+    "target" : "type/Patient"
+  } ],
+  "tools" : [ {
+    "name" : "Project Resource Graph",
+    "type" : 1,
+    "toolOptions" : {
+      "scaleAndTranslationState" : {
+        "scale" : 0.6925547239837729,
+        "translate" : [ 59.29604998711227, 32.885318963586286 ],
+        "lastZoomRequest" : 0
+      }
+    },
+    "pane" : {
+      "x" : 20,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "UpdatePatient",
+    "type" : 24,
+    "resourceKey" : "procedure/UpdatePatient",
+    "pane" : {
+      "x" : 640,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "PatineService",
+    "type" : 15,
+    "resourceKey" : "app/PatineService",
+    "pane" : {
+      "x" : 20,
+      "y" : 440,
+      "h" : 500,
+      "w" : 800
+    }
+  } ],
+  "views" : [ {
+    "name" : "Main",
+    "projectToolKeys" : [ "graph/Project Resource Graph", "cmeditorprocedure/UpdatePatient", "app/PatineService" ]
+  } ]
+}

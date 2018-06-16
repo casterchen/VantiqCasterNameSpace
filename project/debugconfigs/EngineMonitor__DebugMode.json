@@ -1,0 +1,7 @@
+{
+  "name" : "EngineMonitor__DebugMode",
+  "type" : "log",
+  "value" : "DEBUG",
+  "resources" : [ "/collaborationtypes/EngineMonitor" ],
+  "isGlobal" : false
+}

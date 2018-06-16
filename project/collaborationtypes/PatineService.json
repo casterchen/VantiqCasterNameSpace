@@ -1,0 +1,33 @@
+{
+  "name" : "PatineService",
+  "assembly" : {
+    "INIT" : {
+      "pattern" : "EventStream",
+      "configuration" : {
+        "childStreams" : [ "ACTION" ],
+        "inboundResource" : "types",
+        "inboundResourceId" : "Patient",
+        "op" : null,
+        "outboundResource" : "topics",
+        "outboundResourceId" : null,
+        "upsert" : false
+      }
+    },
+    "ACTION" : {
+      "pattern" : "DetectSituation",
+      "configuration" : {
+        "condition" : null,
+        "entityType" : null,
+        "entityConstraint" : null
+      }
+    }
+  },
+  "collaboratorRoles" : [ ],
+  "entityRoles" : [ ],
+  "keyTypes" : [ "system.collaborations" ],
+  "active" : true,
+  "appType" : true,
+  "currentState" : {
+    "code" : "success"
+  }
+}

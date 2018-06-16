@@ -1,0 +1,4 @@
+RULE ACTIONCollaborationType_Initiate_NewCollaboration HIDDEN WITH ars_dependentResource="/collaborationtypes/ACTIONCollaborationType"
+WHEN INSERT OCCURS ON ArsCollaboration as collaboration WHERE collaboration.collaborationType == "ACTIONCollaborationType"
+
+log.debug("collaboration.ACTIONCollaborationType.Initiate: New collaboration created: {}", [collaboration])

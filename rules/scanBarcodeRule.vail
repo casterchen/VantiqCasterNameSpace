@@ -1,0 +1,16 @@
+RULE scanBarcodeRule
+//
+// RCS Request object 'scan'
+//
+when PUBLISH OCCURS ON "/scan/barcode" as trigger
+var payload = {
+   "responseTopic": "/scan/barcode",
+   "fields": [
+      {
+         "id": "读取条纹码FF2",
+         "type": "barcode"
+      }
+   ]
+}
+
+

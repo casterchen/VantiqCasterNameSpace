@@ -1,0 +1,18 @@
+// This rule was generated to produce events for the task: TransferNameAndClass in the app: joinClass
+RULE joinClass_TransferNameAndClass_Transformation HIDDEN WITH ars_dependentResource="/collaborationtypes/joinClass"
+WHEN  EVENT OCCURS ON "/eventstreams/joinClass_TransferNameAndClass" AS event
+
+event = event.value
+
+log.debug("app.joinClass.TransferNameAndClass.producer:  Producing outbound event for: {}", [event])
+
+try {
+      
+    PUBLISH event TO TOPIC "/apps/joinClass/TransferNameAndClass"
+    log.debug("app.joinClass.TransferNameAndClass.producer:  produced outbound event: {}", [event])
+} catch (ex) {
+    exception("io.vantiq.app.joinClass.TransferNameAndClass.joinClass_TransferNameAndClass_Transformation.failed",
+              "The generated rule: {0} failed because: {1}", ["joinClass_TransferNameAndClass_Transformation", ex.message])
+}
+
+log.debug("app.joinClass.TransferNameAndClass.producer:  Done")

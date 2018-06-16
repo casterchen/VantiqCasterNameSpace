@@ -1,0 +1,155 @@
+{
+  "name" : "EngineMonitor_demo",
+  "options" : {
+    "v" : 2,
+    "filterMask" : 4294967295,
+    "showGrid" : true,
+    "isModeloProject" : true
+  },
+  "type" : "dev",
+  "resources" : [ {
+    "name" : "EngineMonitor_demo",
+    "type" : 12,
+    "label" : "EngineMonitor_demo",
+    "timestamp" : "2018-04-16T14:50:57.675Z",
+    "inventory" : {
+      "types" : [ "EngineTemp_demo", "EngineSpeed_demo", "SystemStatus_demo", "SystemHUD_demo" ],
+      "typeHash" : [ "out", "out", "out", "out" ],
+      "sources" : [ ],
+      "sourceHash" : [ ],
+      "topics" : [ ],
+      "topicHash" : [ ],
+      "procedures" : [ ],
+      "procedureHash" : [ ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 299.84644632404684,
+      "y" : 108.50767892314357
+    }
+  }, {
+    "name" : "EngineSimulation_demo",
+    "type" : 15,
+    "label" : "EngineSimulation_demo",
+    "timestamp" : "2018-04-08T14:36:48.002Z",
+    "node" : {
+      "x" : 721.1472785490479,
+      "y" : 8.855649220636423
+    }
+  }, {
+    "name" : "EngineSpeed_demo",
+    "type" : 1,
+    "label" : "EngineSpeed_demo",
+    "timestamp" : "2018-04-08T12:21:26.327Z",
+    "node" : {
+      "x" : 538.5715716509867,
+      "y" : 254.23138970920877
+    }
+  }, {
+    "name" : "EngineTemp_demo",
+    "type" : 1,
+    "label" : "EngineTemp_demo",
+    "timestamp" : "2018-04-08T10:18:54.413Z",
+    "node" : {
+      "x" : 233.97729352156557,
+      "y" : 247.48607549740976
+    }
+  }, {
+    "name" : "SystemHUD_demo",
+    "type" : 9,
+    "label" : "SystemHUD_demo",
+    "timestamp" : "2018-04-08T13:42:47.580Z",
+    "inventory" : {
+      "types" : [ "SystemHUD_demo" ],
+      "typeHash" : [ "in" ],
+      "sources" : [ ],
+      "sourceHash" : [ ],
+      "topics" : [ ],
+      "topicHash" : [ ],
+      "procedures" : [ ],
+      "procedureHash" : [ ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 527.0817593466159,
+      "y" : 369.91331825799733
+    }
+  }, {
+    "name" : "SystemHUD_demo",
+    "type" : 1,
+    "label" : "SystemHUD_demo",
+    "timestamp" : "2018-04-08T13:22:34.723Z",
+    "node" : {
+      "x" : 385.06305549327686,
+      "y" : 391.875795894931
+    }
+  }, {
+    "name" : "SystemStatus_demo",
+    "type" : 1,
+    "label" : "SystemStatus_demo",
+    "timestamp" : "2018-04-08T13:21:17.383Z",
+    "node" : {
+      "x" : 550.4500660535844,
+      "y" : 108.19414618801557
+    }
+  } ],
+  "links" : [ {
+    "source" : "app/EngineMonitor_demo",
+    "target" : "type/EngineTemp_demo"
+  }, {
+    "source" : "app/EngineMonitor_demo",
+    "target" : "type/EngineSpeed_demo"
+  }, {
+    "source" : "app/EngineMonitor_demo",
+    "target" : "type/SystemStatus_demo"
+  }, {
+    "source" : "app/EngineMonitor_demo",
+    "target" : "type/SystemHUD_demo"
+  }, {
+    "source" : "type/SystemHUD_demo",
+    "target" : "subscription/SystemHUD_demo"
+  } ],
+  "tools" : [ {
+    "name" : "Project Resource Graph",
+    "type" : 1,
+    "toolOptions" : {
+      "scaleAndTranslationState" : {
+        "scale" : 0.8705505632961242,
+        "translate" : [ -3.4642997596115492, 55.49872187096358 ],
+        "lastZoomRequest" : 0
+      }
+    },
+    "pane" : {
+      "x" : 20,
+      "y" : 20,
+      "h" : 510,
+      "w" : 780
+    }
+  }, {
+    "name" : "EngineMonitor_demo",
+    "type" : 15,
+    "resourceKey" : "app/EngineMonitor_demo",
+    "pane" : {
+      "x" : 820,
+      "y" : 20,
+      "h" : 500,
+      "w" : 800
+    }
+  }, {
+    "name" : "EngineSpeed_demo",
+    "type" : 6,
+    "resourceKey" : "type/EngineSpeed_demo",
+    "pane" : {
+      "x" : 20,
+      "y" : 550,
+      "h" : 400,
+      "w" : 780
+    }
+  } ],
+  "views" : [ {
+    "name" : "Main",
+    "projectToolKeys" : [ "graph/Project Resource Graph", "app/EngineMonitor_demo", "subtypeeditor/EngineSpeed_demo" ]
+  } ]
+}

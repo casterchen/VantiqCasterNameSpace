@@ -1,0 +1,60 @@
+{
+  "name" : "TESTPROJECT",
+  "options" : {
+    "v" : 2,
+    "filterMask" : 4294967295,
+    "showGrid" : true,
+    "isModeloProject" : true
+  },
+  "type" : "dev",
+  "resources" : [ {
+    "name" : "user1",
+    "type" : 1,
+    "timestamp" : "2018-03-19T02:21:30.738Z",
+    "node" : {
+      "x" : 294.3103720472155,
+      "y" : 143.07766073361344
+    }
+  } ],
+  "links" : [ ],
+  "tools" : [ {
+    "name" : "Project Resource Graph",
+    "type" : 1,
+    "toolOptions" : {
+      "scaleAndTranslationState" : {
+        "scale" : 2,
+        "translate" : [ -305, -140.32998657226562 ],
+        "lastZoomRequest" : 0
+      }
+    },
+    "pane" : {
+      "x" : 20,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "user1",
+    "type" : 6,
+    "resourceKey" : "type/user1",
+    "pane" : {
+      "x" : 640,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "Add Record",
+    "type" : 43,
+    "pane" : {
+      "x" : 20,
+      "y" : 440,
+      "h" : 400,
+      "w" : 600
+    }
+  } ],
+  "views" : [ {
+    "name" : "Main",
+    "projectToolKeys" : [ "graph/Project Resource Graph", "subtypeeditor/user1", "addrecord/Add Record" ]
+  } ]
+}

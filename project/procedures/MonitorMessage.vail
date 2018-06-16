@@ -1,0 +1,11 @@
+PROCEDURE MonitorMessage(computerId string, memory Integer, cpu Integer)
+var computerId=computerId
+var memory=memory
+var cpu=cpu
+UPSERT ComputerMemory(computerId:computerId, percent:memory)
+UPSERT ComputerCpu(computerId:computerId, percent:cpu)
+var msg = {}
+msg.computerId = computerId
+msg.memory = memory
+msg.cpu = cpu
+publish msg to TOPIC "/MyTopic"

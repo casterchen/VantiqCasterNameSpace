@@ -1,0 +1,5 @@
+{
+  "name" : "/MyTopic",
+  "description" : "网关注册GatewayRegister（联网即触发）",
+  "messageType" : "Gateway"
+}

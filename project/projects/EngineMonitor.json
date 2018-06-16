@@ -1,0 +1,189 @@
+{
+  "name" : "EngineMonitor",
+  "options" : {
+    "v" : 2,
+    "filterMask" : 4294967295,
+    "showGrid" : true,
+    "isModeloProject" : true
+  },
+  "type" : "dev",
+  "resources" : [ {
+    "name" : "EngineSimulation",
+    "type" : 15,
+    "label" : "EngineSimulation",
+    "timestamp" : "2018-04-16T14:11:30.986Z",
+    "node" : {
+      "x" : 387.4409641832557,
+      "y" : 6.965517473975515
+    }
+  }, {
+    "name" : "EngineSpeed",
+    "type" : 1,
+    "label" : "EngineSpeed",
+    "timestamp" : "2018-03-14T08:45:39.422Z",
+    "node" : {
+      "x" : 326.6882600637638,
+      "y" : 262.7559861947785
+    }
+  }, {
+    "name" : "EngineTemp",
+    "type" : 1,
+    "label" : "EngineTemp",
+    "timestamp" : "2018-03-14T08:44:09.299Z",
+    "node" : {
+      "x" : 297.97726300398745,
+      "y" : 182.48607549740976
+    }
+  }, {
+    "name" : "EngineeMonitor",
+    "type" : 12,
+    "label" : "EngineeMonitor",
+    "timestamp" : "2018-04-16T14:02:29.729Z",
+    "inventory" : {
+      "types" : [ "EngineSpeed", "EngineTemp", "SystemStatus", "SystemHUD" ],
+      "typeHash" : [ "out", "out", "out", "out" ],
+      "sources" : [ ],
+      "sourceHash" : [ ],
+      "topics" : [ ],
+      "topicHash" : [ ],
+      "procedures" : [ ],
+      "procedureHash" : [ ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 75.21330074556417,
+      "y" : 232.52689705181683
+    }
+  }, {
+    "name" : "SystemHUD",
+    "type" : 1,
+    "label" : "SystemHUD",
+    "timestamp" : "2018-03-14T08:51:29.654Z",
+    "node" : {
+      "x" : 61.129666881616686,
+      "y" : 320.9649278040889
+    }
+  }, {
+    "name" : "SystemHub",
+    "type" : 9,
+    "label" : "SystemHub",
+    "timestamp" : "2018-03-14T10:41:26.132Z",
+    "inventory" : {
+      "types" : [ "SystemHUD" ],
+      "typeHash" : [ "in" ],
+      "sources" : [ ],
+      "sourceHash" : [ ],
+      "topics" : [ ],
+      "topicHash" : [ ],
+      "procedures" : [ ],
+      "procedureHash" : [ ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 425.070982921306,
+      "y" : 316.4159787239517
+    }
+  }, {
+    "name" : "SystemStatus",
+    "type" : 1,
+    "label" : "SystemStatus",
+    "timestamp" : "2018-03-14T08:51:54.129Z",
+    "node" : {
+      "x" : 303.62520447569256,
+      "y" : 80.4893798610317
+    }
+  } ],
+  "links" : [ {
+    "source" : "app/EngineMonitor",
+    "target" : "type/EngineTemp"
+  }, {
+    "source" : "app/EngineMonitor",
+    "target" : "type/EngineSpeed"
+  }, {
+    "source" : "app/EngineMonitor",
+    "target" : "type/SystemStatus"
+  }, {
+    "source" : "type/SystemHUD",
+    "target" : "subscription/SystemHub"
+  }, {
+    "source" : "app/EngineMonitor",
+    "target" : "type/SystemHUD"
+  }, {
+    "source" : "app/EngineeMonitor",
+    "target" : "type/EngineSpeed"
+  }, {
+    "source" : "app/EngineeMonitor",
+    "target" : "type/EngineTemp"
+  }, {
+    "source" : "app/EngineeMonitor",
+    "target" : "type/SystemHUD"
+  }, {
+    "source" : "app/EngineeMonitor",
+    "target" : "type/SystemStatus"
+  } ],
+  "tools" : [ {
+    "name" : "Project Resource Graph",
+    "type" : 1,
+    "toolOptions" : {
+      "scaleAndTranslationState" : {
+        "scale" : 1.059952783397282,
+        "translate" : [ 9.367129765596928, 13.730790436685751 ],
+        "lastZoomRequest" : 0
+      }
+    },
+    "pane" : {
+      "x" : 20,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "Data Generators",
+    "type" : 47,
+    "pane" : {
+      "x" : 20,
+      "y" : 500,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "EngineSimulation",
+    "type" : 63,
+    "toolOptions" : {
+      "isRunning" : true
+    },
+    "resourceKey" : "client/EngineSimulation",
+    "pane" : {
+      "x" : 650,
+      "y" : 20,
+      "h" : 880,
+      "w" : 1030
+    }
+  }, {
+    "name" : "EngineeMonitor",
+    "type" : 15,
+    "resourceKey" : "app/EngineeMonitor",
+    "pane" : {
+      "x" : 20,
+      "y" : 950,
+      "h" : 500,
+      "w" : 800
+    }
+  }, {
+    "name" : "EngineTemp",
+    "type" : 6,
+    "resourceKey" : "type/EngineTemp",
+    "pane" : {
+      "x" : 20,
+      "y" : 1470,
+      "h" : 400,
+      "w" : 600
+    }
+  } ],
+  "views" : [ {
+    "name" : "Main",
+    "projectToolKeys" : [ "graph/Project Resource Graph", "datagenerators/Data Generators", "client/EngineSimulation", "app/EngineeMonitor", "subtypeeditor/EngineTemp" ]
+  } ]
+}

@@ -1,0 +1,26 @@
+RULE datagenTemp
+WHEN PUBLISH OCCURS ON "/gen/temp"
+
+SELECT FROM democontrol AS dc {
+
+	var temp
+
+	if (dc.state == 1) {
+	temp = random(180,199)
+	} else if (dc.state == 2) {
+	temp = random(220,240)
+	} else if (dc.state == 3) {
+		temp = random(180,199)
+	} else if (dc.state == 4) {
+	temp = random(200,219)
+	}
+
+	var data = {}
+	data.TempSensorID = "tempSensor" + dc.id
+	data.Temp = temp
+	data.Time = now()
+
+
+	PUBLISH {message:data} TO SOURCE TempMQTT USING { topic: "/Nioces_luo/pump/temp" }
+
+}

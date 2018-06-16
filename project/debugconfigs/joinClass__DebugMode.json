@@ -1,0 +1,7 @@
+{
+  "name" : "joinClass__DebugMode",
+  "type" : "log",
+  "value" : "DEBUG",
+  "resources" : [ "/collaborationtypes/joinClass" ],
+  "isGlobal" : false
+}

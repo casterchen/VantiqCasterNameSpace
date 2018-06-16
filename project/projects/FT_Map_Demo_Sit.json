@@ -1,0 +1,41 @@
+{
+  "name" : "FT_Map_Demo_Sit",
+  "options" : {
+    "v" : 2,
+    "filterMask" : 4294967295,
+    "showGrid" : true,
+    "isModeloProject" : true
+  },
+  "type" : "dev",
+  "resources" : [ {
+    "name" : "FT_MAP_SIT",
+    "type" : 15,
+    "timestamp" : "2018-05-18T14:19:30.041Z",
+    "node" : {
+      "x" : 307.8223216019778,
+      "y" : 188.51534796094285
+    }
+  } ],
+  "links" : [ ],
+  "tools" : [ {
+    "name" : "Project Resource Graph",
+    "type" : 1,
+    "toolOptions" : {
+      "scaleAndTranslationState" : {
+        "scale" : 1,
+        "translate" : [ 0, 0 ],
+        "lastZoomRequest" : 0
+      }
+    },
+    "pane" : {
+      "x" : 20,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  } ],
+  "views" : [ {
+    "name" : "Main",
+    "projectToolKeys" : [ "graph/Project Resource Graph" ]
+  } ]
+}

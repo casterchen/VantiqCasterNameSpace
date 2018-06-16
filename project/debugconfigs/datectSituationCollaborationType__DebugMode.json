@@ -1,0 +1,7 @@
+{
+  "name" : "datectSituationCollaborationType__DebugMode",
+  "type" : "log",
+  "value" : "DEBUG",
+  "resources" : [ "/collaborationtypes/datectSituationCollaborationType" ],
+  "isGlobal" : false
+}

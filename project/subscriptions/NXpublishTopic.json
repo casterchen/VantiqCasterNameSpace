@@ -1,0 +1,9 @@
+{
+  "name" : "NXpublishTopic",
+  "properties" : [ {
+    "name" : "/NXTopic",
+    "type" : ""
+  } ],
+  "type" : "",
+  "operation" : "publish"
+}

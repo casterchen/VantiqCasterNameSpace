@@ -1,0 +1,6 @@
+PROCEDURE Helloworld(a object)
+var class = {}
+
+publish a to TOPIC "/helloworld"
+return a
+

@@ -1,0 +1,11 @@
+{
+  "payload" : {
+    "responseTopic" : "/testLocation",
+    "fields" : [ {
+      "id" : "当前位置1",
+      "type" : "currentLocation"
+    } ]
+  },
+  "title" : "myLocation",
+  "body" : ""
+}

@@ -1,0 +1,18 @@
+// This rule was generated to produce events for the task: INIT in the app: PatineService
+RULE PatineService_INIT_Stream HIDDEN WITH ars_dependentResource="/collaborationtypes/PatineService"
+WHEN  EVENT OCCURS ON "/eventstreams/PatineService_INIT" AS event
+
+event = event.value
+
+log.debug("app.PatineService.INIT.producer:  Producing outbound event for: {}", [event])
+
+try {
+      
+    PUBLISH event TO TOPIC "/apps/PatineService/INIT"
+    log.debug("app.PatineService.INIT.producer:  produced outbound event: {}", [event])
+} catch (ex) {
+    exception("io.vantiq.app.PatineService.INIT.PatineService_INIT_Stream.failed",
+              "The generated rule: {0} failed because: {1}", ["PatineService_INIT_Stream", ex.message])
+}
+
+log.debug("app.PatineService.INIT.producer:  Done")

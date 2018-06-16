@@ -1,0 +1,116 @@
+{
+  "name" : "useUI",
+  "options" : {
+    "v" : 2,
+    "filterMask" : 4294967295,
+    "showGrid" : true,
+    "isModeloProject" : true
+  },
+  "type" : "dev",
+  "resources" : [ {
+    "name" : "MyClient",
+    "type" : 15,
+    "timestamp" : "2018-03-20T08:34:07.364Z",
+    "node" : {
+      "x" : 414.1837845446949,
+      "y" : 183.9481202789493
+    }
+  }, {
+    "name" : "emp1",
+    "type" : 1,
+    "label" : "emp1",
+    "timestamp" : "2018-03-20T03:48:01.379Z",
+    "node" : {
+      "x" : 325.43825770890777,
+      "y" : 259.2215218767265
+    }
+  }, {
+    "name" : "name",
+    "type" : 20,
+    "label" : "name",
+    "timestamp" : "2018-03-20T02:17:23.587Z",
+    "node" : {
+      "x" : 193.4457078282062,
+      "y" : 174.44518194272226
+    }
+  }, {
+    "name" : "queryEmpByName",
+    "type" : 3,
+    "label" : "queryEmpByName",
+    "timestamp" : "2018-03-20T05:08:38.733Z",
+    "inventory" : {
+      "types" : [ "emp1" ],
+      "typeHash" : [ "in" ],
+      "sources" : [ ],
+      "sourceHash" : [ ],
+      "topics" : [ ],
+      "topicHash" : [ ],
+      "procedures" : [ ],
+      "procedureHash" : [ ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 324.94146129575137,
+      "y" : 81.60263517520711
+    }
+  } ],
+  "links" : [ {
+    "source" : "type/emp1",
+    "target" : "procedure/queryEmpByName"
+  } ],
+  "tools" : [ {
+    "name" : "Project Resource Graph",
+    "type" : 1,
+    "toolOptions" : {
+      "scaleAndTranslationState" : {
+        "scale" : 0.7578582832552003,
+        "translate" : [ -13.782669627401276, 132.41272839640106 ],
+        "lastZoomRequest" : 0
+      }
+    },
+    "pane" : {
+      "x" : 20,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "emp1",
+    "type" : 6,
+    "resourceKey" : "type/emp1",
+    "pane" : {
+      "x" : 640,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "queryEmpByName",
+    "type" : 24,
+    "resourceKey" : "procedure/queryEmpByName",
+    "pane" : {
+      "x" : 20,
+      "y" : 440,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "MyClient",
+    "type" : 63,
+    "toolOptions" : {
+      "isRunning" : false
+    },
+    "resourceKey" : "client/MyClient",
+    "pane" : {
+      "x" : 20,
+      "y" : 860,
+      "h" : 700,
+      "w" : 1000
+    }
+  } ],
+  "views" : [ {
+    "name" : "Main",
+    "projectToolKeys" : [ "graph/Project Resource Graph", "subtypeeditor/emp1", "cmeditorprocedure/queryEmpByName", "client/MyClient" ]
+  } ]
+}

@@ -1,0 +1,8 @@
+RULE wxPostMsg
+
+WHEN UPDATE OCCURS ON ComputerHUD
+if ( ComputerHUD.alertMsg != "") {
+	var content = "收到您账号关联的服务器预警:" + ComputerHUD.alertMsg + "，请及时处理"
+	PUBLISH { body: {    "touser" : "FanJiaQi|kalorr.|WangYongGang",    "toparty" : "1",    "totag" : "",    "msgtype" : "text",    "agentid" : 1000002,    "text" : {        "content" : content    },    "safe":0 } } TO SOURCE WXPostMsg USING { method : "POST", contentType : "application/json"  }
+    
+}

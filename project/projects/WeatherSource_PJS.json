@@ -1,0 +1,127 @@
+{
+  "name" : "WeatherSource_PJS",
+  "options" : {
+    "v" : 2,
+    "filterMask" : 4294967295,
+    "showGrid" : true,
+    "isModeloProject" : true
+  },
+  "type" : "dev",
+  "resources" : [ {
+    "name" : "weather",
+    "type" : 4,
+    "label" : "weather",
+    "timestamp" : "2018-04-28T14:49:29.573Z",
+    "node" : {
+      "x" : 343.5061326328937,
+      "y" : 77.49092779233163
+    }
+  }, {
+    "name" : "weatherReading_PJS",
+    "type" : 1,
+    "label" : "weatherReading_PJS",
+    "timestamp" : "2018-04-28T09:52:45.624Z",
+    "node" : {
+      "x" : 331.24678762200165,
+      "y" : 241.0362719484367
+    }
+  }, {
+    "name" : "weatherReading_PJS",
+    "type" : 2,
+    "label" : "weatherReading_PJS",
+    "timestamp" : "2018-04-28T09:54:31.923Z",
+    "inventory" : {
+      "types" : [ "weatherReading_PJS" ],
+      "typeHash" : [ "out" ],
+      "sources" : [ "weather" ],
+      "sourceHash" : [ "in" ],
+      "topics" : [ ],
+      "topicHash" : [ ],
+      "procedures" : [ ],
+      "procedureHash" : [ ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 157.94864233058954,
+      "y" : 173.5238446983014
+    }
+  } ],
+  "links" : [ {
+    "source" : "source/weather",
+    "target" : "rule/weatherReading_PJS"
+  }, {
+    "source" : "rule/weatherReading_PJS",
+    "target" : "type/weatherReading_PJS"
+  } ],
+  "tools" : [ {
+    "name" : "Project Resource Graph",
+    "type" : 1,
+    "toolOptions" : {
+      "scaleAndTranslationState" : {
+        "scale" : 0.8913104958969716,
+        "translate" : [ 71.37330449951651, -33.65338615375771 ],
+        "lastZoomRequest" : 0
+      }
+    },
+    "pane" : {
+      "x" : 20,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "weather",
+    "type" : 5,
+    "resourceKey" : "source/weather",
+    "pane" : {
+      "x" : 640,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "weatherReading_PJS",
+    "type" : 3,
+    "resourceKey" : "rule/weatherReading_PJS",
+    "pane" : {
+      "x" : 30,
+      "y" : 460,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "weatherReading_PJS",
+    "type" : 6,
+    "resourceKey" : "type/weatherReading_PJS",
+    "pane" : {
+      "x" : 650,
+      "y" : 450,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "weather",
+    "type" : 11,
+    "resourceKey" : "source/weather",
+    "pane" : {
+      "x" : 40,
+      "y" : 1330,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "Find Records",
+    "type" : 41,
+    "pane" : {
+      "x" : 40,
+      "y" : 1750,
+      "h" : 400,
+      "w" : 600
+    }
+  } ],
+  "views" : [ {
+    "name" : "Main",
+    "projectToolKeys" : [ "graph/Project Resource Graph", "subsourceeditor/weather", "cmeditorrule/weatherReading_PJS", "subtypeeditor/weatherReading_PJS", "findrecordresults/All Objects of type weatherReading_PJS", "dataviewer/weather", "findrecords/Find Records", "updaterecord/weatherReading_PJS with _id: 5ae485d390e8b361ec195f75" ]
+  } ]
+}

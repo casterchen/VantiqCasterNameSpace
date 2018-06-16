@@ -1,0 +1,26 @@
+RULE onRPMS when MESSAGE ARRIVES FROM RPMSMQTT AS RPMSReading
+log.debug("onRPMS: RPMSReading :"+ stringify(RPMSReading))
+// Insert the new reading into the time series type
+// This will cause the time series to calculate all of the aggregate properties
+INSERT INTO SERIES RPMSSeries(RPMSReading)
+// select the data back out of the series 
+var RPMSSeriesCurrentState = select from series RPMSSeries where RPMSSensorID == RPMSReading.RPMSSensorID
+
+log.debug("onRPMS:RPMSSeriesCurrentState"+stringify(RPMSSeriesCurrentState))
+
+var newRPMS = {}
+newRPMS.RPMSSensorID = RPMSReading.RPMSSensorID
+
+// use a built in function to generate a time stamp
+newRPMS.Time = now()
+newRPMS.RPMS = RPMSReading.RPMS
+newRPMS.RPMRise = RPMSSeriesCurrentState.RPMRise
+newRPMS.RPMSMax = RPMSSeriesCurrentState.RPMSMax
+newRPMS.RPMMin = RPMSSeriesCurrentState.RPMMin
+
+
+log.debug("newRPMS:"+stringify(newRPMS))
+
+// Publish the new rpms event onto the topic we created earlier
+
+ PUBLISH newRPMS to TOPIC "/stream/rpms"

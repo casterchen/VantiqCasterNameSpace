@@ -1,0 +1,10 @@
+
+RULE WXPostMsgResponse
+
+
+WHEN MESSAGE ARRIVES FROM WXPostMsg
+IF (WXPostMsg.errmsg == "ok") {
+    SELECT * FROM WXGetToken
+} ELSE {
+    UPSERT WXPostMsgResponse(errcode:WXPostMsg.errcode, errmsg:WXPostMsg.errmsg, invalidparty:WXPostMsg.invalidparty, invaliduser:WXPostMsg.invaliduser)
+}

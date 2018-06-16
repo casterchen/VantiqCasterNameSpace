@@ -1,0 +1,26 @@
+{
+  "name" : "ACTIONCollaborationType",
+  "assembly" : {
+    "Initiate" : {
+      "pattern" : "InitiateCollaboration",
+      "configuration" : {
+        "initialTrigger" : "WHEN INSERT OCCURS ON ArsSituation AS situation WHERE situation.name == \"PatineService_ACTION\"",
+        "entityRole" : null
+      },
+      "instanceParameters" : [ ],
+      "additionalBehaviors" : [ ],
+      "continuationCondition" : [ ],
+      "completionCondition" : [ ],
+      "cancellationCondition" : [ ],
+      "name" : "Initiate"
+    }
+  },
+  "collaboratorRoles" : [ ],
+  "entityRoles" : [ ],
+  "keyTypes" : [ "system.collaborations" ],
+  "active" : true,
+  "appType" : false,
+  "currentState" : {
+    "code" : "success"
+  }
+}

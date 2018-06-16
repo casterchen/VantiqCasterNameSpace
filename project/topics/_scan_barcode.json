@@ -1,0 +1,5 @@
+{
+  "name" : "/scan/barcode",
+  "description" : "扫描条码",
+  "messageType" : "icebox"
+}

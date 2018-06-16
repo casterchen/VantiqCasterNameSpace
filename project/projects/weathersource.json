@@ -1,0 +1,277 @@
+{
+  "name" : "WeatherSource",
+  "options" : {
+    "v" : 2,
+    "filterMask" : 4294967295,
+    "showGrid" : true,
+    "isModeloProject" : true
+  },
+  "type" : "dev",
+  "resources" : [ {
+    "name" : "/MyTopic",
+    "type" : 10,
+    "label" : "/MyTopic",
+    "timestamp" : "2018-03-21T03:23:12.759Z",
+    "node" : {
+      "x" : 128.31285511989904,
+      "y" : 268.6360324049424
+    }
+  }, {
+    "name" : "ComputerHUD",
+    "type" : 1,
+    "label" : "ComputerHUD",
+    "timestamp" : "2018-05-01T14:53:17.545Z",
+    "node" : {
+      "x" : 409.01754218591907,
+      "y" : 373.3593984567418
+    }
+  }, {
+    "name" : "ComputerMonitor",
+    "type" : 12,
+    "label" : "ComputerMonitor",
+    "timestamp" : "2018-05-10T08:51:52.109Z",
+    "inventory" : {
+      "types" : [ "ComputerHUD", "ComputerStatus" ],
+      "typeHash" : [ "out", "out" ],
+      "sources" : [ ],
+      "sourceHash" : [ ],
+      "topics" : [ "/MyTopic" ],
+      "topicHash" : [ "in" ],
+      "procedures" : [ ],
+      "procedureHash" : [ ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 170.21429047390797,
+      "y" : 358.19587120543497
+    }
+  }, {
+    "name" : "ComputerStatus",
+    "type" : 1,
+    "label" : "ComputerStatus",
+    "timestamp" : "2018-05-01T15:25:51.432Z",
+    "node" : {
+      "x" : 212.83958645896354,
+      "y" : 430.3091184895015
+    }
+  }, {
+    "name" : "WXAccessToken",
+    "type" : 1,
+    "label" : "WXAccessToken",
+    "timestamp" : "2018-05-08T08:19:48.145Z",
+    "node" : {
+      "x" : 166.97726300398745,
+      "y" : 51.48607549740976
+    }
+  }, {
+    "name" : "WXGetToken",
+    "type" : 4,
+    "label" : "WXGetToken",
+    "timestamp" : "2018-05-10T07:52:32.075Z",
+    "node" : {
+      "x" : 160.78756175264743,
+      "y" : 169.7204101941976
+    }
+  }, {
+    "name" : "WXPostMsg",
+    "type" : 4,
+    "label" : "WXPostMsg",
+    "timestamp" : "2018-05-11T05:54:00.026Z",
+    "node" : {
+      "x" : 640.4364064878396,
+      "y" : 263.4155741908476
+    }
+  }, {
+    "name" : "WXPostMsgResponse",
+    "type" : 2,
+    "label" : "WXPostMsgResponse",
+    "timestamp" : "2018-05-10T07:52:08.399Z",
+    "inventory" : {
+      "types" : [ "WXPostMsgResponse", "WXGetToken" ],
+      "typeHash" : [ "out", "in" ],
+      "sources" : [ "WXPostMsg" ],
+      "sourceHash" : [ "in" ],
+      "topics" : [ ],
+      "topicHash" : [ ],
+      "procedures" : [ ],
+      "procedureHash" : [ ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 637.7791684029188,
+      "y" : 195.7726224746051
+    }
+  }, {
+    "name" : "WXPostMsgResponse",
+    "type" : 1,
+    "label" : "WXPostMsgResponse",
+    "timestamp" : "2018-05-08T09:48:09.237Z",
+    "node" : {
+      "x" : 637.4648463327221,
+      "y" : 133.3157000540918
+    }
+  }, {
+    "name" : "wxPostMsg",
+    "type" : 2,
+    "label" : "wxPostMsg",
+    "timestamp" : "2018-05-10T14:59:44.971Z",
+    "inventory" : {
+      "types" : [ "ComputerHUD" ],
+      "typeHash" : [ "in" ],
+      "sources" : [ "WXPostMsg" ],
+      "sourceHash" : [ "out" ],
+      "topics" : [ ],
+      "topicHash" : [ ],
+      "procedures" : [ ],
+      "procedureHash" : [ ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 642.1936214592383,
+      "y" : 369.5612462658806
+    }
+  }, {
+    "name" : "wxTokenReading",
+    "type" : 2,
+    "label" : "wxTokenReading",
+    "timestamp" : "2018-05-10T07:52:41.484Z",
+    "inventory" : {
+      "types" : [ "WXAccessToken" ],
+      "typeHash" : [ "out" ],
+      "sources" : [ "WXGetToken" ],
+      "sourceHash" : [ "in" ],
+      "topics" : [ ],
+      "topicHash" : [ ],
+      "procedures" : [ ],
+      "procedureHash" : [ ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 159.6026763096646,
+      "y" : 113.78879711442869
+    }
+  } ],
+  "links" : [ {
+    "source" : "source/WXGetToken",
+    "target" : "rule/wxTokenReading"
+  }, {
+    "source" : "rule/wxTokenReading",
+    "target" : "type/WXAccessToken"
+  }, {
+    "source" : "rule/wxPostMsg",
+    "target" : "source/WXPostMsg"
+  }, {
+    "source" : "rule/WXPostMsgResponse",
+    "target" : "type/WXPostMsgResponse"
+  }, {
+    "source" : "source/WXPostMsg",
+    "target" : "rule/WXPostMsgResponse"
+  }, {
+    "source" : "type/ComputerHUD",
+    "target" : "rule/wxPostMsg"
+  }, {
+    "source" : "app/ComputerMonitor",
+    "target" : "type/ComputerHUD"
+  }, {
+    "source" : "app/ComputerMonitor",
+    "target" : "type/ComputerStatus"
+  }, {
+    "source" : "topic//MyTopic",
+    "target" : "app/ComputerMonitor"
+  } ],
+  "tools" : [ {
+    "name" : "ComputerMonitor",
+    "type" : 15,
+    "resourceKey" : "app/ComputerMonitor",
+    "pane" : {
+      "x" : 20,
+      "y" : 530,
+      "h" : 500,
+      "w" : 800
+    }
+  }, {
+    "name" : "wxPostMsg",
+    "type" : 3,
+    "resourceKey" : "rule/wxPostMsg",
+    "pane" : {
+      "x" : 20,
+      "y" : 1050,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "WXPostMsg",
+    "type" : 5,
+    "resourceKey" : "source/WXPostMsg",
+    "pane" : {
+      "x" : 20,
+      "y" : 1470,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "WXPostMsgResponse",
+    "type" : 3,
+    "resourceKey" : "rule/WXPostMsgResponse",
+    "pane" : {
+      "x" : 20,
+      "y" : 1890,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "WXPostMsgResponse",
+    "type" : 6,
+    "resourceKey" : "type/WXPostMsgResponse",
+    "pane" : {
+      "x" : 20,
+      "y" : 2310,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "Project Resource Graph",
+    "type" : 1,
+    "toolOptions" : {
+      "scaleAndTranslationState" : {
+        "scale" : 0.9999999999999997,
+        "translate" : [ 58.8101201013626, -1.8633067965964756 ],
+        "lastZoomRequest" : 0
+      }
+    },
+    "pane" : {
+      "x" : 0,
+      "y" : 0,
+      "h" : 520,
+      "w" : 880
+    }
+  }, {
+    "name" : "ComputerStatus",
+    "type" : 6,
+    "resourceKey" : "type/ComputerStatus",
+    "pane" : {
+      "x" : 20,
+      "y" : 2730,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "ComputerHUD",
+    "type" : 6,
+    "resourceKey" : "type/ComputerHUD",
+    "pane" : {
+      "x" : 20,
+      "y" : 3150,
+      "h" : 400,
+      "w" : 600
+    }
+  } ],
+  "views" : [ {
+    "name" : "Main",
+    "projectToolKeys" : [ "app/ComputerMonitor", "cmeditorrule/wxPostMsg", "subsourceeditor/WXPostMsg", "cmeditorrule/WXPostMsgResponse", "subtypeeditor/WXPostMsgResponse", "graph/Project Resource Graph", "subtypeeditor/ComputerStatus", "subtypeeditor/ComputerHUD" ]
+  } ]
+}

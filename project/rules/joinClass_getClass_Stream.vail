@@ -1,0 +1,18 @@
+// This rule was generated to produce events for the task: getClass in the app: joinClass
+RULE joinClass_getClass_Stream HIDDEN WITH ars_dependentResource="/collaborationtypes/joinClass"
+WHEN  EVENT OCCURS ON "/eventstreams/joinClass_getClass" AS event
+
+event = event.value
+
+log.debug("app.joinClass.getClass.producer:  Producing outbound event for: {}", [event])
+
+try {
+      
+    PUBLISH event TO TOPIC "/apps/joinClass/getClass"
+    log.debug("app.joinClass.getClass.producer:  produced outbound event: {}", [event])
+} catch (ex) {
+    exception("io.vantiq.app.joinClass.getClass.joinClass_getClass_Stream.failed",
+              "The generated rule: {0} failed because: {1}", ["joinClass_getClass_Stream", ex.message])
+}
+
+log.debug("app.joinClass.getClass.producer:  Done")

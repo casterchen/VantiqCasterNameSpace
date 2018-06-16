@@ -1,0 +1,31 @@
+PROCEDURE startA_RateCollaboration_EscalatePatient(collaboration) HIDDEN WITH ars_dependentResource="/collaborationtypes/RateCollaboration"
+
+log.debug("collaboration.RateCollaboration.EscalatePatient: Starting an escalation for collaboration id: {}", collaboration.id)
+
+var escalation = {
+    collaborationType    : "RateCollaboration",
+    activityType         : "EscalatePatient",
+    collaborationId      : collaboration.id,
+    escalationDeadline   : now().plusMillis(5 * 1000),
+    state                : "waiting",
+    ars_dependentResource: "/collaborations/" + collaboration.id
+}
+
+log.debug("collaboration.RateCollaboration.EscalatePatient: Creating escalation deadline {} for collaboration id: {}", [escalation, collaboration.id])
+
+UPSERT ArsEscalationDeadline(escalation)
+
+var activityResults = collaboration.results["EscalatePatient"]
+if (!activityResults) {
+    activityResults = {}
+}
+activityResults.state = "waiting"
+activityResults.updateTime = now()
+collaboration.results["EscalatePatient"] = activityResults
+// Save the change to results
+ALTER collaboration ({results: collaboration.results, id: collaboration.id})
+
+// Schedule publication of this escalation for the escalation time
+PUBLISH escalation TO TOPIC "/RateCollaboration/EscalatePatient/expiration" SCHEDULE {interval: 5 * 1000}
+
+log.debug("collaboration.RateCollaboration.EscalatePatient: Successfully created escalation for collaboration id: {}", [collaboration.id])

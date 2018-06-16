@@ -1,0 +1,3 @@
+PROCEDURE Insertname(myName string)
+var myName=myName
+UPSERT myType_tan(id:"10", name:myName)

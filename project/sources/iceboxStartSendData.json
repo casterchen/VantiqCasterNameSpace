@@ -1,0 +1,17 @@
+{
+  "name" : "iceboxStartSendData",
+  "type" : "MQTT",
+  "active" : false,
+  "messageType" : "icebox",
+  "activationConstraint" : "",
+  "config" : {
+    "contentType" : "application/json",
+    "keepAliveInterval" : 15,
+    "connectionTimeout" : 15,
+    "cleanSession" : true,
+    "automaticReconnect" : true,
+    "serverURIs" : [ "tcp://public.vantiq.cn:1883" ],
+    "topics" : [ "icebox/start/sent/data" ]
+  },
+  "direction" : "BOTH"
+}

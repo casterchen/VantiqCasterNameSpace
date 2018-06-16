@@ -1,0 +1,71 @@
+{
+  "name" : "EngineeMonitor",
+  "assembly" : {
+    "ReadSpeed" : {
+      "pattern" : "EventStream",
+      "configuration" : {
+        "childStreams" : [ "UpdateSystemStatus" ],
+        "inboundResource" : "types",
+        "inboundResourceId" : "EngineSpeed",
+        "op" : null,
+        "outboundResource" : "topics",
+        "outboundResourceId" : null,
+        "upsert" : false
+      }
+    },
+    "ReadTemp" : {
+      "pattern" : "EventStream",
+      "configuration" : {
+        "childStreams" : [ "UpdateSystemStatus" ],
+        "inboundResource" : "types",
+        "inboundResourceId" : "EngineTemp",
+        "op" : null,
+        "outboundResource" : "topics",
+        "outboundResourceId" : null,
+        "upsert" : false
+      }
+    },
+    "UpdateSystemStatus" : {
+      "pattern" : "Merge",
+      "configuration" : {
+        "childStreams" : [ "logInfo", "UpdateSystemHub" ],
+        "outboundResource" : "types",
+        "outboundResourceId" : "SystemStatus",
+        "upsert" : true
+      }
+    },
+    "logInfo" : {
+      "pattern" : "LogStream",
+      "configuration" : {
+        "level" : "info"
+      }
+    },
+    "UpdateSystemHub" : {
+      "pattern" : "Transformation",
+      "configuration" : {
+        "childStreams" : null,
+        "outboundResource" : "types",
+        "outboundResourceId" : "SystemHUD",
+        "transformation" : {
+          "alertMsg" : {
+            "type" : "expression",
+            "expression" : "((event.temperature >= 210) && (event.speed >= 45)) ?\n    \"Your engine is overheating, please reduce your speed.\" :\n    (((event.temperature >= 210) && (event.speed < 45)) ?\n    \"Your engine is overheating: check for a malfunctioning fan or a coolant leak.\" : \"\")"
+          },
+          "systemId" : {
+            "type" : "expression",
+            "expression" : "event.systemId"
+          }
+        },
+        "upsert" : true
+      }
+    }
+  },
+  "collaboratorRoles" : [ ],
+  "entityRoles" : [ ],
+  "keyTypes" : [ "system.collaborations" ],
+  "active" : true,
+  "appType" : true,
+  "currentState" : {
+    "code" : "success"
+  }
+}

@@ -1,0 +1,25 @@
+PROCEDURE mgGetDynamicMapPoints(phoneNum String)
+//date("2018/05/23 13:06:56")
+ //var cnDate = format("{0, date, yyyy-MM-dd HH:mm}","2018/05/23 13:06:56")
+//var s = stringify(now())
+//return  format("2018-05-23T08:27:53.773Z")
+//split("2018/05/23 13:06:56"," ")
+/*var data = select * FROM MG_POC_Data with limit = 2900
+var aa =[]
+for(i in data){
+    if(length(i.creDate) > 18){
+       
+     	 var t1 = i.creDate
+        var t2 = t1.replace("  ","T")
+        var t3 = t2.replace("/","-")
+        var t4 = t3 + ".000Z"
+		   aa.push(t4)
+        //var t = getTime(toDate("2018-05-23T08:27:53.773Z"))
+        var t = getTime(toDate(t4)) 
+		 update MG_POC_Data(dateTime:t) where creDate  ==i.creDate
+}
+    
+}*/
+var record = select x,y,creDate FROM MG_POC_Data  where dateTime > (getTime(now()) -1000*60*60*24*15) and dateTime < getTime(now()) 
+publish record to TOPIC "/mgGetDynamicMapPoints"
+return record

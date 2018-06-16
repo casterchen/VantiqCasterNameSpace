@@ -1,0 +1,14 @@
+{
+  "name" : "AREmail_Out",
+  "type" : "EMAIL",
+  "active" : true,
+  "messageType" : "NXType",
+  "activationConstraint" : "",
+  "config" : {
+    "username" : "system@dashuoinfo.cn",
+    "password" : "13579-ab",
+    "port" : 465,
+    "host" : "smtp.qiye.163.com"
+  },
+  "direction" : "SINK"
+}

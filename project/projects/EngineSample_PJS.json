@@ -1,0 +1,222 @@
+{
+  "name" : "EngineSample_PJS",
+  "options" : {
+    "v" : 2,
+    "filterMask" : 4294967295,
+    "showGrid" : true,
+    "isModeloProject" : true
+  },
+  "type" : "dev",
+  "resources" : [ {
+    "name" : "EngineMonitor_PJS",
+    "type" : 12,
+    "label" : "EngineMonitor_PJS",
+    "timestamp" : "2018-04-27T10:20:30.783Z",
+    "inventory" : {
+      "types" : [ "EngineTemperature_PJS", "EngineSpeed_PJS", "SystemStatus_PJS", "SystemHUD_PJS" ],
+      "typeHash" : [ "out", "out", "out", "out" ],
+      "sources" : [ ],
+      "sourceHash" : [ ],
+      "topics" : [ ],
+      "topicHash" : [ ],
+      "procedures" : [ ],
+      "procedureHash" : [ ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 367.85429883503656,
+      "y" : 22.135102899266585
+    }
+  }, {
+    "name" : "EngineSimulation_PJS",
+    "type" : 15,
+    "timestamp" : "2018-04-27T10:58:02.299Z",
+    "node" : {
+      "x" : 513.3244731848611,
+      "y" : 302.3671162450971
+    }
+  }, {
+    "name" : "EngineSpeed_PJS",
+    "type" : 1,
+    "label" : "EngineSpeed_PJS",
+    "timestamp" : "2018-04-25T14:54:27.848Z",
+    "node" : {
+      "x" : 116.37857545596404,
+      "y" : 79.60935802829758
+    }
+  }, {
+    "name" : "EngineTemperature_PJS",
+    "type" : 1,
+    "label" : "EngineTemperature_PJS",
+    "timestamp" : "2018-04-25T14:53:04.005Z",
+    "node" : {
+      "x" : 524.9665281087708,
+      "y" : 86.96256134785025
+    }
+  }, {
+    "name" : "SystemHUD_PJS",
+    "type" : 1,
+    "label" : "SystemHUD_PJS",
+    "timestamp" : "2018-04-25T15:04:17.871Z",
+    "node" : {
+      "x" : 369.6830910452711,
+      "y" : 196.26346289766786
+    }
+  }, {
+    "name" : "SystemHUD_PJS",
+    "type" : 9,
+    "timestamp" : "2018-04-27T10:53:05.903Z",
+    "inventory" : {
+      "types" : [ "SystemHUD_PJS" ],
+      "typeHash" : [ "in" ],
+      "sources" : [ ],
+      "sourceHash" : [ ],
+      "topics" : [ ],
+      "topicHash" : [ ],
+      "procedures" : [ ],
+      "procedureHash" : [ ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 276.3554825801524,
+      "y" : 307.898369267555
+    }
+  }, {
+    "name" : "SystemStatus_PJS",
+    "type" : 1,
+    "label" : "SystemStatus_PJS",
+    "timestamp" : "2018-04-27T08:10:42.166Z",
+    "node" : {
+      "x" : 76.59173916844128,
+      "y" : 273.6038683922683
+    }
+  } ],
+  "links" : [ {
+    "source" : "app/EngineMonitor_PJS",
+    "target" : "type/EngineTemperature_PJS"
+  }, {
+    "source" : "app/EngineMonitor_PJS",
+    "target" : "type/EngineSpeed_PJS"
+  }, {
+    "source" : "app/EngineMonitor_PJS",
+    "target" : "type/SystemStatus_PJS"
+  }, {
+    "source" : "app/EngineMonitor_PJS",
+    "target" : "type/SystemHUD_PJS"
+  }, {
+    "source" : "type/SystemHUD_PJS",
+    "target" : "subscription/SystemHUD_PJS"
+  } ],
+  "tools" : [ {
+    "name" : "Project Resource Graph",
+    "type" : 1,
+    "toolOptions" : {
+      "scaleAndTranslationState" : {
+        "scale" : 0.8281706613345458,
+        "translate" : [ 35.98313989857107, 27.312018777540374 ],
+        "lastZoomRequest" : 0
+      }
+    },
+    "pane" : {
+      "x" : 20,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "EngineMonitor_PJS",
+    "type" : 15,
+    "resourceKey" : "app/EngineMonitor_PJS",
+    "pane" : {
+      "x" : 20,
+      "y" : 860,
+      "h" : 500,
+      "w" : 640
+    }
+  }, {
+    "name" : "Data Generators",
+    "type" : 47,
+    "pane" : {
+      "x" : 670,
+      "y" : 860,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "Log Messages",
+    "type" : 12,
+    "pane" : {
+      "x" : 20,
+      "y" : 440,
+      "h" : 400,
+      "w" : 1280
+    }
+  }, {
+    "name" : "EngineTemperature_PJS",
+    "type" : 6,
+    "resourceKey" : "type/EngineTemperature_PJS",
+    "pane" : {
+      "x" : 640,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "Project Contents",
+    "type" : 2,
+    "pane" : {
+      "x" : 20,
+      "y" : 1380,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "EngineSpeed_PJS",
+    "type" : 6,
+    "resourceKey" : "type/EngineSpeed_PJS",
+    "pane" : {
+      "x" : 20,
+      "y" : 2220,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "Find Records",
+    "type" : 41,
+    "pane" : {
+      "x" : 20,
+      "y" : 2640,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "SystemHUD_PJS",
+    "type" : 7,
+    "resourceKey" : "subscription/SystemHUD_PJS",
+    "pane" : {
+      "x" : 20,
+      "y" : 1800,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "EngineSimulation_PJS",
+    "type" : 63,
+    "toolOptions" : {
+      "isRunning" : true
+    },
+    "resourceKey" : "client/EngineSimulation_PJS",
+    "pane" : {
+      "x" : 0,
+      "y" : 2900,
+      "h" : 700,
+      "w" : 1000
+    }
+  } ],
+  "views" : [ {
+    "name" : "Main",
+    "projectToolKeys" : [ "graph/Project Resource Graph", "app/EngineMonitor_PJS", "datagenerators/Data Generators", "logviewer/Log Messages", "subtypeeditor/EngineTemperature_PJS", "list/Project Contents", "subtypeeditor/EngineSpeed_PJS", "findrecords/Find Records", "subsubscribeeditor/SystemHUD_PJS", "client/EngineSimulation_PJS" ]
+  } ]
+}

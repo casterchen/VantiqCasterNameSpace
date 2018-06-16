@@ -1,0 +1,12 @@
+{
+  "name" : "WXPostMsg",
+  "type" : "REMOTE",
+  "active" : true,
+  "messageType" : "WXPostMsgResponse",
+  "activationConstraint" : "",
+  "config" : {
+    "pollingInterval" : 0,
+    "uri" : "https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=VNLwbZm7FJieBm-D9stVxFW7uuz7obAtnb3-OTxdDtcShvID7x23Fe5QywOq9rpTGp3sxSk7sWKIY0KzM0lyLwGrC8Sgwr9-jVZYmZcbcDoZwEio2_vmYMLaxwarprRgfXRnOtRanhwBfa7NzoMIek3Tmp4v8nIaOypBfHunLT7mV2Ydp0eT6oEW45lJ1kyVqiH-2Abio3Himlea3ayqKQ"
+  },
+  "direction" : "BOTH"
+}

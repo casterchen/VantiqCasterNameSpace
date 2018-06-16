@@ -1,0 +1,38 @@
+{
+  "name" : "GateWayCollaboration",
+  "assembly" : {
+    "Initiate" : {
+      "pattern" : "InitiateCollaboration",
+      "configuration" : {
+        "entityRole" : "gateway",
+        "initialTrigger" : "WHEN UPDATE OCCURS ON Gateway"
+      },
+      "instanceParameters" : [ "class", "gateway" ],
+      "additionalBehaviors" : [ {
+        "name" : null,
+        "condition" : "WHEN UPDATE OCCURS ON Gateway",
+        "behaviors" : [ {
+          "type" : "service",
+          "name" : "CollaborationUtils.closeCollaboration",
+          "parameters" : [ ]
+        } ]
+      } ],
+      "continuationCondition" : [ ],
+      "completionCondition" : [ ],
+      "cancellationCondition" : [ ]
+    }
+  },
+  "collaboratorRoles" : [ "class" ],
+  "entityRoles" : [ {
+    "type" : "Gateway",
+    "name" : "gateway"
+  } ],
+  "keyTypes" : [ "system.collaborations" ],
+  "active" : true,
+  "appType" : false,
+  "currentState" : {
+    "code" : "io.vantiq.collaborationType.GateWayCollaboration.Initiate.ActivityPattern.generateInitiateCollaborationActivity.failure",
+    "message" : "The following errors were encountered parsing the rulesets: \n\tline 11: 'occurs' encountered when a THEN clause was expected.\n\tline 11: use of undeclared variable 'WHEN'\n",
+    "params" : [ "\n\tline 11: 'occurs' encountered when a THEN clause was expected.\n\tline 11: use of undeclared variable 'WHEN'\n" ]
+  }
+}

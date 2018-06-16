@@ -1,0 +1,18 @@
+// This rule was generated to produce events for the task: begin in the app: testtest
+RULE testtest_begin_Stream HIDDEN WITH ars_dependentResource="/collaborationtypes/testtest"
+WHEN  EVENT OCCURS ON "/eventstreams/testtest_begin" AS event
+
+event = event.value
+
+log.debug("app.testtest.begin.producer:  Producing outbound event for: {}", [event])
+
+try {
+      
+    PUBLISH event TO TOPIC "/apps/testtest/begin"
+    log.debug("app.testtest.begin.producer:  produced outbound event: {}", [event])
+} catch (ex) {
+    exception("io.vantiq.app.testtest.begin.testtest_begin_Stream.failed",
+              "The generated rule: {0} failed because: {1}", ["testtest_begin_Stream", ex.message])
+}
+
+log.debug("app.testtest.begin.producer:  Done")

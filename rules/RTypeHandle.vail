@@ -1,0 +1,4 @@
+RULE RTypeHandle
+when UPDATE OCCURS ON RType 
+var myType = select class FROM RType where name == "tom"
+publish myType to TOPIC "/newTopicForMytype"

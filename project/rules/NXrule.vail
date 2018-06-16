@@ -1,0 +1,9 @@
+RULE NXrule
+WHEN MESSAGE ARRIVES FROM 	AREmail_Out
+//
+// Load objects of type 'NXType' from the database.
+// The result set can be accessed using the correlation variable 's'.
+//
+publish AREmail_Out to TOPIC "/NXTopic" 
+EXECUTE NXInPro("AREmail_Out")
+PUBLISH "/NXTopic" WITH AREmail_Out

@@ -1,0 +1,3 @@
+RULE ___Rule___Test___iceboxStartSendData
+WHEN MESSAGE ARRIVES FROM ___Test___iceboxStartSendData
+PUBLISH "/___Test___iceboxStartSendData/message/rawData" WITH ___Test___iceboxStartSendData

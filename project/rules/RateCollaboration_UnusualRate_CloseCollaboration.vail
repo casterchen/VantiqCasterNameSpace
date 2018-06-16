@@ -1,0 +1,5 @@
+RULE RateCollaboration_UnusualRate_CloseCollaboration HIDDEN WITH ars_dependentResource="/collaborationtypes/RateCollaboration"
+WHEN UPDATE OCCURS ON ArsCollaboration as collaboration WHERE collaboration.collaborationType == "RateCollaboration" AND collaboration.status == "closed"
+log.debug("collaboration.RateCollaboration.UnusualRate_CloseCollaboration: Collaboration with id: {} was just closed", [collaboration.id])
+CollaborationGeneration.deleteDependentCollaborationResources(collaboration.id)
+log.debug("collaboration.RateCollaboration.UnusualRate_CloseCollaboration: Successfully deleted dependent resources for collaboration with id: {}", [collaboration.id])

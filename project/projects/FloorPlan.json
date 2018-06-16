@@ -1,0 +1,83 @@
+{
+  "name" : "FloorPlan",
+  "options" : {
+    "v" : 2,
+    "filterMask" : 4294967295,
+    "showGrid" : true,
+    "isModeloProject" : true
+  },
+  "type" : "dev",
+  "resources" : [ {
+    "name" : "Resident",
+    "type" : 15,
+    "label" : "Resident",
+    "timestamp" : "2018-03-20T04:15:10.228Z",
+    "node" : {
+      "x" : 325.81444144058037,
+      "y" : 262.88045704482806
+    }
+  }, {
+    "name" : "Resident",
+    "type" : 1,
+    "label" : "Resident",
+    "timestamp" : "2018-03-20T03:33:50.954Z",
+    "node" : {
+      "x" : 297.89219750939156,
+      "y" : 182.43398001833444
+    }
+  } ],
+  "links" : [ ],
+  "tools" : [ {
+    "name" : "Project Resource Graph",
+    "type" : 1,
+    "toolOptions" : {
+      "scaleAndTranslationState" : {
+        "scale" : 1.6471820345351462,
+        "translate" : [ -307.4046317150154, -171.20016949470894 ],
+        "lastZoomRequest" : 0
+      }
+    },
+    "pane" : {
+      "x" : 20,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "Resident",
+    "type" : 6,
+    "resourceKey" : "type/Resident",
+    "pane" : {
+      "x" : 640,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "Data Generators",
+    "type" : 47,
+    "pane" : {
+      "x" : 20,
+      "y" : 440,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "Resident",
+    "type" : 63,
+    "toolOptions" : {
+      "isRunning" : false
+    },
+    "resourceKey" : "client/Resident",
+    "pane" : {
+      "x" : 20,
+      "y" : 860,
+      "h" : 700,
+      "w" : 1000
+    }
+  } ],
+  "views" : [ {
+    "name" : "Main",
+    "projectToolKeys" : [ "graph/Project Resource Graph", "subtypeeditor/Resident", "datagenerators/Data Generators", "client/Resident" ]
+  } ]
+}

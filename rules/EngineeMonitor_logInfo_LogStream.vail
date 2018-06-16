@@ -1,0 +1,17 @@
+// This rule was generated for the LogStream: logInfo in the app: EngineeMonitor
+RULE EngineeMonitor_logInfo_LogStream HIDDEN WITH ars_dependentResource="/collaborationtypes/EngineeMonitor"
+WHEN  EVENT OCCURS ON "/types/SystemStatus/insert" as event OR  EVENT OCCURS ON "/types/SystemStatus/update" AS event
+
+event = event.value
+
+log.debug("app.EngineeMonitor.logInfo:  initial event: {}", [event])
+
+try {
+    log.info("logInfo Logging Event: {} produced by task: UpdateSystemStatus in app EngineeMonitor", [event])
+    log.debug("app.EngineeMonitor.logInfo:  Successfully logged event at info level: {}", [event])
+} catch (ex) {
+    exception("io.vantiq.app.EngineeMonitor.logInfo.EngineeMonitor_logInfo_LogStream.failed",
+              "The generated rule: {0} failed because: {1}", ["EngineeMonitor_logInfo_LogStream", ex.message])
+}
+
+log.debug("app.EngineeMonitor.logInfo:  Done")

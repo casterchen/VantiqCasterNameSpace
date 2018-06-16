@@ -1,0 +1,15 @@
+{
+  "payload" : {
+    "responseTopic" : "/mytest001",
+    "fields" : [ {
+      "id" : "当前位置1",
+      "type" : "currentLocation"
+    }, {
+      "id" : "地图显示器1",
+      "type" : "map",
+      "maptype" : "satellite"
+    } ]
+  },
+  "title" : "test0001",
+  "body" : ""
+}

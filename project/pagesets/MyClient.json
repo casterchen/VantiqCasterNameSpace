@@ -1,0 +1,107 @@
+{
+  "name" : "MyClient",
+  "options" : {
+    "v" : 2,
+    "showGridWhileEditing" : false,
+    "isLaunchable" : false,
+    "description" : "",
+    "theme" : {
+      "v" : 2,
+      "name" : "light",
+      "label" : "浅色",
+      "backgroundColor" : "#f0f2f5",
+      "foregroundColor" : "#000000",
+      "borderColor" : "#000000",
+      "accentColor1" : "#040fdb"
+    }
+  },
+  "models" : {
+    "dataObjects" : {
+      "__GLOBAL__" : {
+        "properties" : { }
+      },
+      "__PARAMETERS__" : {
+        "properties" : { }
+      }
+    },
+    "dataStreams" : [ {
+      "v" : 1,
+      "uuid" : "0293d4fe-c5dc-4fa8-acc5-fbbed7f28209",
+      "name" : "mqtt",
+      "type" : 3,
+      "updateInterval" : 60,
+      "maxRecords" : 0,
+      "isInsertOp" : false,
+      "isUpdateOp" : false,
+      "isDeleteOp" : false,
+      "advancedWhereClause" : null,
+      "source" : "testMQTT",
+      "sortByProperty" : null,
+      "sortDescending" : false,
+      "dataObjectName" : null,
+      "dataTypeList" : [ ]
+    } ]
+  },
+  "views" : {
+    "Start" : {
+      "fields" : [ ],
+      "bodyChildren" : [ {
+        "type" : "ZingLineChart",
+        "v" : 11,
+        "name" : "线形图1",
+        "x" : 313.5333557128906,
+        "y" : 118.73333740234375,
+        "h" : 300,
+        "w" : 400,
+        "borderWidth" : 2,
+        "borderColor" : "Default",
+        "heightPolicy" : 1,
+        "widthPolicy" : 1,
+        "isSelectable" : true,
+        "isDraggable" : true,
+        "actionMenuTopic" : null,
+        "actionMenuLabel" : null,
+        "vertGravity" : 4,
+        "horzGravity" : 4,
+        "dataType" : null,
+        "propertyName" : null,
+        "operation" : "insert",
+        "dataStreamUUID" : "0293d4fe-c5dc-4fa8-acc5-fbbed7f28209",
+        "dataStreamPropertyList" : [ {
+          "type" : "vl",
+          "label" : "电压",
+          "selected" : false,
+          "isSeries" : false
+        } ],
+        "dataStreamGroupedByFiltersString" : "",
+        "naturalKey" : null,
+        "displayThreshold" : "No",
+        "thresholdValue" : 0,
+        "hasGridLines" : false,
+        "xAxisTimetamp" : true,
+        "xAxisProperty" : null,
+        "isArea" : false,
+        "hasPoints" : false
+      } ],
+      "footerChildren" : [ ],
+      "responseTopic" : "/my/response/topic",
+      "data" : {
+        "properties" : { }
+      }
+    }
+  },
+  "controllers" : {
+    "client" : { },
+    "page" : {
+      "Start" : {
+        "widgets" : { }
+      }
+    },
+    "dataStream" : {
+      "mqtt" : { }
+    }
+  },
+  "ars_properties" : {
+    "tags" : [ ]
+  }
+}

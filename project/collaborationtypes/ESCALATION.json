@@ -1,0 +1,27 @@
+{
+  "name" : "ESCALATION",
+  "assembly" : {
+    "INIT" : {
+      "pattern" : "EventStream",
+      "configuration" : {
+        "childStreams" : null,
+        "inboundResource" : "sources",
+        "inboundResourceId" : "GetHeartRate",
+        "op" : null,
+        "outboundResource" : "topics",
+        "outboundResourceId" : null,
+        "upsert" : false,
+        "parentStreams" : [ ]
+      },
+      "name" : "INIT"
+    }
+  },
+  "collaboratorRoles" : [ ],
+  "entityRoles" : [ ],
+  "keyTypes" : [ "system.collaborations" ],
+  "active" : true,
+  "appType" : true,
+  "currentState" : {
+    "code" : "success"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name" : "NXSubscription",
+  "properties" : [ {
+    "selected" : true,
+    "name" : "T1",
+    "type" : "String"
+  }, {
+    "selected" : true,
+    "name" : "T2",
+    "type" : "String"
+  } ],
+  "type" : "NXType",
+  "operation" : "update"
+}

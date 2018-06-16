@@ -1,0 +1,60 @@
+{
+  "name" : "chris_test",
+  "options" : {
+    "v" : 2,
+    "filterMask" : 4294967295,
+    "showGrid" : true,
+    "isModeloProject" : true
+  },
+  "type" : "dev",
+  "resources" : [ {
+    "name" : "EngineSpeed",
+    "type" : 1,
+    "timestamp" : "2018-03-14T08:45:39.422Z",
+    "node" : {
+      "x" : 407.01602741788304,
+      "y" : 166.43774603607864
+    }
+  } ],
+  "links" : [ ],
+  "tools" : [ {
+    "name" : "Project Resource Graph",
+    "type" : 1,
+    "toolOptions" : {
+      "scaleAndTranslationState" : {
+        "scale" : 1.5319266317400055,
+        "translate" : [ -309.53579956005984, -99.6385425953248 ],
+        "lastZoomRequest" : 0
+      }
+    },
+    "pane" : {
+      "x" : 20,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "EngineSpeed",
+    "type" : 6,
+    "resourceKey" : "type/EngineSpeed",
+    "pane" : {
+      "x" : 640,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "Add Record",
+    "type" : 43,
+    "pane" : {
+      "x" : 20,
+      "y" : 860,
+      "h" : 400,
+      "w" : 600
+    }
+  } ],
+  "views" : [ {
+    "name" : "Main",
+    "projectToolKeys" : [ "graph/Project Resource Graph", "subtypeeditor/EngineSpeed", "addrecord/Add Record" ]
+  } ]
+}

@@ -1,0 +1,19 @@
+// This rule was generated to produce events for the task: UpdateSystemHub in the app: EngineeMonitor
+RULE EngineeMonitor_UpdateSystemHub_Transformation HIDDEN WITH ars_dependentResource="/collaborationtypes/EngineeMonitor"
+WHEN  EVENT OCCURS ON "/eventstreams/EngineeMonitor_UpdateSystemHub" AS event
+
+event = event.value
+
+log.debug("app.EngineeMonitor.UpdateSystemHub.producer:  Producing outbound event for: {}", [event])
+
+try {
+      
+    event = Utils.stripSystemProperties(event)
+    UPSERT SystemHUD(event)
+    log.debug("app.EngineeMonitor.UpdateSystemHub.producer:  produced outbound event: {}", [event])
+} catch (ex) {
+    exception("io.vantiq.app.EngineeMonitor.UpdateSystemHub.EngineeMonitor_UpdateSystemHub_Transformation.failed",
+              "The generated rule: {0} failed because: {1}", ["EngineeMonitor_UpdateSystemHub_Transformation", ex.message])
+}
+
+log.debug("app.EngineeMonitor.UpdateSystemHub.producer:  Done")

@@ -1,0 +1,21 @@
+{
+  "payload" : {
+    "responseTopic" : "/myTestType",
+    "fields" : [ {
+      "id" : "读取条纹码FF1",
+      "type" : "barcode"
+    }, {
+      "id" : "整数输入域2",
+      "type" : "inputInteger"
+    }, {
+      "id" : "组合框1",
+      "type" : "droplist",
+      "values" : [ ]
+    }, {
+      "id" : "复选框1",
+      "type" : "checkbox"
+    } ]
+  },
+  "title" : "test",
+  "body" : ""
+}

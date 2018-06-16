@@ -1,0 +1,193 @@
+{
+  "name" : "RateCollaboration",
+  "assembly" : {
+    "UnusualRate" : {
+      "pattern" : "InitiateCollaboration",
+      "configuration" : {
+        "entityRole" : "ratepatient",
+        "initialTrigger" : "WHEN UPDATE OCCURS ON Patient WHERE Patient.heartRate < 40 OR Patient.heartRate > 150"
+      },
+      "instanceParameters" : [ "ratepatient" ],
+      "additionalBehaviors" : [ {
+        "name" : null,
+        "condition" : "true",
+        "behaviors" : [ {
+          "type" : "activity",
+          "name" : "NotifyPatient",
+          "parameters" : [ {
+            "name" : "collaboration",
+            "type" : "reference",
+            "value" : "collaboration"
+          }, {
+            "name" : "users",
+            "type" : "mixed",
+            "value" : [ {
+              "type" : "expression",
+              "value" : "ratepatient.patientId"
+            } ],
+            "multi" : true
+          }, {
+            "name" : "payloadOverride",
+            "type" : "Object",
+            "value" : null
+          } ]
+        }, {
+          "type" : "activity",
+          "name" : "EscalatePatient",
+          "parameters" : [ {
+            "name" : "collaboration",
+            "type" : "reference",
+            "value" : "collaboration"
+          } ]
+        } ]
+      } ],
+      "continuationCondition" : [ ],
+      "completionCondition" : [ ],
+      "cancellationCondition" : [ ]
+    },
+    "NotifyPatient" : {
+      "pattern" : "Notification",
+      "configuration" : {
+        "body" : "An unusual heart rate (${ratepatient.heartRate}) has been detected",
+        "payload" : {
+          "fields" : [ {
+            "id" : "okbutton",
+            "type" : "inlineButton",
+            "buttonLabel" : "I'm OK",
+            "buttonLabelSize" : 24,
+            "buttonBackgroundColor" : "#1ac405",
+            "value" : 0
+          }, {
+            "id" : "helpbutton",
+            "type" : "inlineButton",
+            "buttonLabel" : "Please Send Help",
+            "buttonLabelSize" : 24,
+            "buttonBackgroundColor" : "#ff0000",
+            "value" : 1
+          } ]
+        },
+        "pushSourceName" : null,
+        "title" : "Heart Rate Alert",
+        "responseBehaviors" : [ {
+          "name" : "response",
+          "condition" : "event.submitValue == 0",
+          "behaviors" : [ {
+            "type" : "service",
+            "name" : "CollaborationUtils.closeCollaboration",
+            "parameters" : [ {
+              "name" : "collaborationId",
+              "type" : "expression",
+              "value" : "collaboration.id"
+            } ]
+          } ]
+        }, {
+          "name" : "response",
+          "condition" : "event.submitValue == 1",
+          "behaviors" : [ {
+            "type" : "service",
+            "name" : "CollaborationUtils.triggerEscalation",
+            "parameters" : [ {
+              "name" : "collaborationId",
+              "type" : "expression",
+              "value" : "collaboration.id"
+            }, {
+              "name" : "activityTypeName",
+              "type" : "String",
+              "value" : "EscalatePatient"
+            } ]
+          } ]
+        } ],
+        "firstResponseBehaviors" : [ ]
+      },
+      "instanceParameters" : [ "ratepatient" ],
+      "additionalBehaviors" : [ ],
+      "continuationCondition" : [ ],
+      "completionCondition" : [ ],
+      "cancellationCondition" : [ ]
+    },
+    "EscalatePatient" : {
+      "pattern" : "Escalation",
+      "configuration" : {
+        "escalationBehaviors" : [ {
+          "name" : "escalate",
+          "condition" : "true",
+          "behaviors" : [ {
+            "type" : "activity",
+            "name" : "FirstResponderEscalate",
+            "parameters" : [ {
+              "name" : "collaboration",
+              "type" : "reference",
+              "value" : "collaboration"
+            }, {
+              "name" : "users",
+              "type" : "mixed",
+              "value" : [ {
+                "type" : "expression",
+                "value" : "ratepatient.patientId"
+              } ],
+              "multi" : true
+            }, {
+              "name" : "payloadOverride",
+              "type" : "Object",
+              "value" : null
+            } ]
+          } ]
+        } ],
+        "escalationTime" : 5
+      },
+      "instanceParameters" : [ "ratepatient" ],
+      "additionalBehaviors" : [ ],
+      "continuationCondition" : [ ],
+      "completionCondition" : [ ],
+      "cancellationCondition" : [ ]
+    },
+    "FirstResponderEscalate" : {
+      "pattern" : "Notification",
+      "configuration" : {
+        "body" : "Please refer to the patient HUD for ‘${ratepatient.patientId}’!",
+        "payload" : {
+          "fields" : [ {
+            "id" : "ackbutton",
+            "type" : "inlineButton",
+            "buttonLabel" : "Acknowledged for ${ratepatient.patientId}",
+            "buttonLabelSize" : 24,
+            "buttonBackgroundColor" : "#1ac405",
+            "value" : 0
+          } ]
+        },
+        "pushSourceName" : null,
+        "responseBehaviors" : [ {
+          "name" : "response",
+          "condition" : "true",
+          "behaviors" : [ {
+            "type" : "service",
+            "name" : "CollaborationUtils.closeCollaboration",
+            "parameters" : [ {
+              "name" : "collaborationId",
+              "type" : "expression",
+              "value" : "collaboration.id"
+            } ]
+          } ]
+        } ],
+        "title" : "${ratepatient.patientId} Heart Rate Alert (${ratepatient.heartRate})",
+        "firstResponseBehaviors" : [ ]
+      },
+      "instanceParameters" : [ "ratepatient" ],
+      "additionalBehaviors" : [ ],
+      "continuationCondition" : [ ],
+      "completionCondition" : [ ],
+      "cancellationCondition" : [ ]
+    }
+  },
+  "collaboratorRoles" : [ ],
+  "entityRoles" : [ {
+    "type" : "Patient",
+    "name" : "ratepatient"
+  } ],
+  "keyTypes" : [ "system.collaborations" ],
+  "active" : true,
+  "appType" : false,
+  "currentState" : {
+    "code" : "success"
+  }
+}

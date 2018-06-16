@@ -1,0 +1,17 @@
+// This rule was generated for the LogStream: LogStatus_PJS in the app: EngineMonitor_PJS
+RULE EngineMonitor_PJS_LogStatus_PJS_LogStream HIDDEN WITH ars_dependentResource="/collaborationtypes/EngineMonitor_PJS"
+WHEN  EVENT OCCURS ON "/types/SystemStatus_PJS/insert" as event OR  EVENT OCCURS ON "/types/SystemStatus_PJS/update" AS event
+
+event = event.value
+
+log.debug("app.EngineMonitor_PJS.LogStatus_PJS:  initial event: {}", [event])
+
+try {
+    log.debug("LogStatus_PJS Logging Event: {} produced by task: UpdateSystemStatus_PJS in app EngineMonitor_PJS", [event])
+    log.debug("app.EngineMonitor_PJS.LogStatus_PJS:  Successfully logged event at debug level: {}", [event])
+} catch (ex) {
+    exception("io.vantiq.app.EngineMonitor_PJS.LogStatus_PJS.EngineMonitor_PJS_LogStatus_PJS_LogStream.failed",
+              "The generated rule: {0} failed because: {1}", ["EngineMonitor_PJS_LogStatus_PJS_LogStream", ex.message])
+}
+
+log.debug("app.EngineMonitor_PJS.LogStatus_PJS:  Done")

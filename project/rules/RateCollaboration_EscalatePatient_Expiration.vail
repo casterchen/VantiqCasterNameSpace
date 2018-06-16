@@ -1,0 +1,9 @@
+RULE RateCollaboration_EscalatePatient_Expiration HIDDEN WITH ars_dependentResource="/collaborationtypes/RateCollaboration"
+WHEN PUBLISH OCCURS ON "/RateCollaboration/EscalatePatient/expiration" as event
+
+var esc = event.newValue
+
+// Mark the escalation that we just got a published event for as expired
+// but restrict the query to only effect "waiting" escalations to avoid
+// updating escalations that have been explicitly cancelled
+UPDATE ArsEscalationDeadline(state: "expired") WHERE  collaborationId == esc.collaborationId AND activityType == esc.activityType AND state == "waiting"

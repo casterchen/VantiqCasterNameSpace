@@ -1,0 +1,73 @@
+PROCEDURE startA_RateCollaboration_FirstResponderEscalate(collaboration, users, payloadOverride) HIDDEN WITH ars_dependentResource="/collaborationtypes/RateCollaboration"
+
+var title = "${ratepatient.patientId} Heart Rate Alert (${ratepatient.heartRate})"
+var body = "Please refer to the patient HUD for ‘${ratepatient.patientId}’!"
+var payload = {}
+
+log.debug("collaboration.RateCollaboration.FirstResponderEscalate: Constructing notification with title: ${ratepatient.patientId} Heart Rate Alert (${ratepatient.heartRate}), body: Please refer to the patient HUD for ‘${ratepatient.patientId}’! for collaboration id: {}", [collaboration.id])
+
+// If a pageSetName was specified use that
+if ("" != "") {
+    payload = SELECT ONE FROM ArsPageSet WHERE name == ""
+    if (!payload) {
+        exception("io.vantiq.collaboration.RateCollaboration.FirstResponderEscalate.notification.pageSet.not.found",
+                  "The notification {0} was configured to send the ArsPageSet {1}, but no ArsPageSet by that name was found.",
+                  ["FirstResponderEscalate", ""])
+    }
+} else {
+    // if no pageSetName was specified try old payload representation
+    // This is just for backwards compatibility, as payload is no longer a configuration
+    // parameter for the notification activity pattern
+    payload = {"fields":[{"id":"ackbutton","type":"inlineButton","buttonLabel":"Acknowledged for ${ratepatient.patientId}","buttonLabelSize":24,"buttonBackgroundColor":"#1ac405","value":0}]}
+
+    // Support payloadOverride as a runtime parameter so users can
+    // construct dynamic payloads in execute activities and have those override the
+    // payload in the configuration parameters
+    if (payloadOverride != null) {
+        payload = payloadOverride
+    }
+}
+
+payload.responseTopic = "/notifications/RateCollaboration/FirstResponderEscalate"
+if (!payload.state) {
+    payload.state = {}
+}
+payload.state.collaborationId = collaboration.id
+
+SELECT EXACTLY ONE FROM collaborationtypes as ct WHERE name == collaboration.collaborationType
+
+var activityType = ct.assembly["FirstResponderEscalate"]
+
+var context = CollaborationGeneration.establishCollaborationContext(collaboration, activityType.instanceParameters)
+
+// substitute any contextual references into the payload
+if ("" == "") {
+    payload = generateResource(payload, context, false)
+}
+body = generateResource(body, context, false)
+title = generateResource(title, context, false)
+
+// Make sure payload has a parameters field
+if (!payload.containsKey("parameters")) {
+    payload.parameters = {}
+}
+
+// add contextual info to payload
+payload.parameters.context = context
+
+log.debug("collaboration.RateCollaboration.FirstResponderEscalate: preparing to send payload: {} to users: {} for collaboration id: {}", [payload, users, collaboration.id])
+
+// Send the payload
+var payloadResult = Notification.sendPayload("VantiqPushNotification", null, title, body, payload, users)
+
+// save payloadResult._id to the results so it can be deleted by _id
+var activityResults = collaboration.results["FirstResponderEscalate"]
+if (!activityResults) {
+    activityResults = {}
+}
+activityResults.payloadId = payloadResult._id
+collaboration.results["FirstResponderEscalate"] = activityResults
+// Save the results object and the changes to the collaborators map
+ALTER collaboration ({results: collaboration.results, id: collaboration.id})
+
+log.debug("collaboration.RateCollaboration.FirstResponderEscalate: Successfully sent out notification for collaboration id: {}", [collaboration.id])

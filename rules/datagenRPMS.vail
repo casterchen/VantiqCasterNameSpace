@@ -1,0 +1,25 @@
+RULE datagenRPMS when PUBLISH OCCURS ON "/gen/rpms"
+
+SELECT FROM democontrol AS dc {
+
+	var rpms
+
+	if (dc.state == 1) {
+		rpms = random(3000,4250)
+	} else if (dc.state == 2) {
+		rpms = random(3000,4250)
+	} else if (dc.state == 3) {
+		rpms = random(4500,5000)
+	} else if (dc.state == 4) {
+		rpms = random(4251,4499)
+	}
+
+	var data = {}
+	data.RPMSSensorID = "rpmsSensor" + dc.id
+	data.RPMS = rpms
+	data.Time = now()
+
+
+	PUBLISH {message : data} TO SOURCE  RPMSMQTT USING { topic: "/Nioces_luo/pump/rpms" }
+
+}

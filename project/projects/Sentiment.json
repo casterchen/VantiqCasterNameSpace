@@ -1,0 +1,71 @@
+{
+  "name" : "Sentiment",
+  "options" : {
+    "v" : 2,
+    "filterMask" : 4294967295,
+    "showGrid" : true,
+    "isModeloProject" : true
+  },
+  "type" : "dev",
+  "resources" : [ {
+    "name" : "Sentiment",
+    "type" : 13,
+    "timestamp" : "2018-03-19T10:32:49.348Z",
+    "node" : {
+      "x" : 350.358193747241,
+      "y" : 146.59315369007274
+    }
+  }, {
+    "name" : "testSentimentOfStatement",
+    "type" : 3,
+    "timestamp" : "2018-03-19T10:16:08.127Z",
+    "inventory" : {
+      "types" : [ ],
+      "typeHash" : [ ],
+      "sources" : [ "Sentiment" ],
+      "sourceHash" : [ "in" ],
+      "topics" : [ ],
+      "topicHash" : [ ],
+      "procedures" : [ ],
+      "procedureHash" : [ ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 326.78756175264743,
+      "y" : 262.7204101941976
+    }
+  } ],
+  "links" : [ ],
+  "tools" : [ {
+    "name" : "Project Resource Graph",
+    "type" : 1,
+    "toolOptions" : {
+      "scaleAndTranslationState" : {
+        "scale" : 0.870550563296124,
+        "translate" : [ 91.39835563410372, -83.14303341194585 ],
+        "lastZoomRequest" : 0
+      }
+    },
+    "pane" : {
+      "x" : 20,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "testSentimentOfStatement",
+    "type" : 24,
+    "resourceKey" : "procedure/testSentimentOfStatement",
+    "pane" : {
+      "x" : 20,
+      "y" : 440,
+      "h" : 400,
+      "w" : 600
+    }
+  } ],
+  "views" : [ {
+    "name" : "Main",
+    "projectToolKeys" : [ "graph/Project Resource Graph", "cmeditorprocedure/testSentimentOfStatement" ]
+  } ]
+}

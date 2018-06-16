@@ -1,0 +1,5 @@
+{
+  "name" : "/GatewayRegister",
+  "description" : "网关注册（联网即触发）",
+  "messageType" : "Gateway"
+}

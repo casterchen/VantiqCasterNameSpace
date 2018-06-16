@@ -1,0 +1,19 @@
+// This rule was generated to produce events for the task: UpdateSystemStatus_PJS in the app: EngineMonitor_PJS
+RULE EngineMonitor_PJS_UpdateSystemStatus_PJS_Merge HIDDEN WITH ars_dependentResource="/collaborationtypes/EngineMonitor_PJS"
+WHEN  EVENT OCCURS ON "/eventstreams/EngineMonitor_PJS_UpdateSystemStatus_PJS" AS event
+
+event = event.value
+
+log.debug("app.EngineMonitor_PJS.UpdateSystemStatus_PJS.producer:  Producing outbound event for: {}", [event])
+
+try {
+      
+    event = Utils.stripSystemProperties(event)
+    UPSERT SystemStatus_PJS(event)
+    log.debug("app.EngineMonitor_PJS.UpdateSystemStatus_PJS.producer:  produced outbound event: {}", [event])
+} catch (ex) {
+    exception("io.vantiq.app.EngineMonitor_PJS.UpdateSystemStatus_PJS.EngineMonitor_PJS_UpdateSystemStatus_PJS_Merge.failed",
+              "The generated rule: {0} failed because: {1}", ["EngineMonitor_PJS_UpdateSystemStatus_PJS_Merge", ex.message])
+}
+
+log.debug("app.EngineMonitor_PJS.UpdateSystemStatus_PJS.producer:  Done")

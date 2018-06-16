@@ -1,0 +1,19 @@
+// This rule was generated to produce events for the task: UpdateSystemStatus in the app: EngineeMonitor
+RULE EngineeMonitor_UpdateSystemStatus_Merge HIDDEN WITH ars_dependentResource="/collaborationtypes/EngineeMonitor"
+WHEN  EVENT OCCURS ON "/eventstreams/EngineeMonitor_UpdateSystemStatus" AS event
+
+event = event.value
+
+log.debug("app.EngineeMonitor.UpdateSystemStatus.producer:  Producing outbound event for: {}", [event])
+
+try {
+      
+    event = Utils.stripSystemProperties(event)
+    UPSERT SystemStatus(event)
+    log.debug("app.EngineeMonitor.UpdateSystemStatus.producer:  produced outbound event: {}", [event])
+} catch (ex) {
+    exception("io.vantiq.app.EngineeMonitor.UpdateSystemStatus.EngineeMonitor_UpdateSystemStatus_Merge.failed",
+              "The generated rule: {0} failed because: {1}", ["EngineeMonitor_UpdateSystemStatus_Merge", ex.message])
+}
+
+log.debug("app.EngineeMonitor.UpdateSystemStatus.producer:  Done")

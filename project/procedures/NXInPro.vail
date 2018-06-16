@@ -1,0 +1,3 @@
+PROCEDURE NXInPro(myname string)
+var myname=myname
+INSERT  NXType(T1="101", T2=myname)

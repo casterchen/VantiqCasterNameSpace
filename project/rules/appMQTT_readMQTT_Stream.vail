@@ -1,0 +1,18 @@
+// This rule was generated to produce events for the task: readMQTT in the app: appMQTT
+RULE appMQTT_readMQTT_Stream HIDDEN WITH ars_dependentResource="/collaborationtypes/appMQTT"
+WHEN  EVENT OCCURS ON "/eventstreams/appMQTT_readMQTT" AS event
+
+event = event.value
+
+log.debug("app.appMQTT.readMQTT.producer:  Producing outbound event for: {}", [event])
+
+try {
+      
+    PUBLISH event TO TOPIC "/testStept1"
+    log.debug("app.appMQTT.readMQTT.producer:  produced outbound event: {}", [event])
+} catch (ex) {
+    exception("io.vantiq.app.appMQTT.readMQTT.appMQTT_readMQTT_Stream.failed",
+              "The generated rule: {0} failed because: {1}", ["appMQTT_readMQTT_Stream", ex.message])
+}
+
+log.debug("app.appMQTT.readMQTT.producer:  Done")

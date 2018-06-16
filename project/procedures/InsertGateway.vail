@@ -1,0 +1,26 @@
+PROCEDURE InsertGateway(msg Object)
+
+var result = ""
+
+var oldData = Select * FROM Gateway where serialno == msg.serialno and mac == null  
+if(oldData){
+    //result = "success"
+    result = { "requestStatus":0, "data":{ "deviceId":oldData.deviceid, "mac":msg.mac } }
+}else{
+    //result = "error"
+    oldData = Select * FROM Gateway where serialno == msg.serialno 
+	 if(oldData){
+          result={"requestStatus":-1, "errcode":9001,"errdes":"serialno: " + msg.serialno +" The resisted device ID is existed"}
+    }else{
+          result={"requestStatus":-1, "errcode":9002,"errdes":"serialno: " + msg.serialno +" There is no device ID in the list, is invalid device"}
+    }
+  
+}
+
+
+UPDATE Gateway(mac:msg.mac, factory:msg.factory, serialno:msg.serialno) where 
+serialno == msg.serialno and mac == null  
+//serialno == msg.serialno
+
+//return msg.serialno ggg
+return result

@@ -1,0 +1,18 @@
+// This rule was generated to produce events for the task: ReadSpeed in the app: EngineeMonitor
+RULE EngineeMonitor_ReadSpeed_Stream HIDDEN WITH ars_dependentResource="/collaborationtypes/EngineeMonitor"
+WHEN  EVENT OCCURS ON "/eventstreams/EngineeMonitor_ReadSpeed" AS event
+
+event = event.value
+
+log.debug("app.EngineeMonitor.ReadSpeed.producer:  Producing outbound event for: {}", [event])
+
+try {
+      
+    PUBLISH event TO TOPIC "/apps/EngineeMonitor/ReadSpeed"
+    log.debug("app.EngineeMonitor.ReadSpeed.producer:  produced outbound event: {}", [event])
+} catch (ex) {
+    exception("io.vantiq.app.EngineeMonitor.ReadSpeed.EngineeMonitor_ReadSpeed_Stream.failed",
+              "The generated rule: {0} failed because: {1}", ["EngineeMonitor_ReadSpeed_Stream", ex.message])
+}
+
+log.debug("app.EngineeMonitor.ReadSpeed.producer:  Done")

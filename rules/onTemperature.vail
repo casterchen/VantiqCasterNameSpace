@@ -1,0 +1,46 @@
+RULE onTemperature when MESSAGE ARRIVES FROM TempMQTT as temperatureReading
+
+log.debug("onTemperature : temperatureReading event" +stringify(temperatureReading))
+
+// Insert the new reading into the time series type
+// This will cause the time series to calculate all of the aggregate properties
+insert into series TempSeries(temperatureReading)
+
+// select the data back out of the series 
+var TempSeriesCurrentState = select exactly one from series TempSeries where TempSensorID == temperatureReading.TempSensorID
+
+log.debug("onTemperature : TempSeriesCurrentState " +stringify(TempSeriesCurrentState))
+
+var newTemp = {}
+newTemp.TempSensorID = temperatureReading.TempSensorID
+// use a built in function to generate a time stamp
+newTemp.Time = now()
+newTemp.Temp = temperatureReading.Temp
+newTemp.TempRise = TempSeriesCurrentState.TempRise
+newTemp.TempMax = TempSeriesCurrentState.TempMax
+newTemp.TempMin = TempSeriesCurrentState.TempMin
+
+
+for (sensor in select * from Sensors)
+{
+    if (sensor.SensorID == temperatureReading.TempSensorID)
+    {
+		newTemp.PumpID = sensor.PumpID
+    }
+}
+
+/*
+select * from Sensors as sensor
+{
+    if (sensor.SensorID == RPMSReading.RPMSSensorID)
+    {
+newRPMS.PumpID = sensor.PumpID
+    }
+}
+*/
+
+
+log.debug("onTemperature : Publish " +stringify(newTemp))
+
+// Publish the new temp event onto the topic we created earlier
+publish newTemp to TOPIC "/stream/temp"

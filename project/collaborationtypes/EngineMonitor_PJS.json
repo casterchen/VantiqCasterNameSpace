@@ -1,0 +1,71 @@
+{
+  "name" : "EngineMonitor_PJS",
+  "assembly" : {
+    "TempReading_PJS" : {
+      "pattern" : "EventStream",
+      "configuration" : {
+        "childStreams" : [ "UpdateSystemStatus_PJS" ],
+        "inboundResource" : "types",
+        "inboundResourceId" : "EngineTemperature_PJS",
+        "op" : "INSERT",
+        "outboundResource" : "topics",
+        "outboundResourceId" : null,
+        "upsert" : false
+      }
+    },
+    "SpeedReading_PJS" : {
+      "pattern" : "EventStream",
+      "configuration" : {
+        "childStreams" : [ "UpdateSystemStatus_PJS" ],
+        "inboundResource" : "types",
+        "inboundResourceId" : "EngineSpeed_PJS",
+        "op" : "INSERT",
+        "outboundResource" : "topics",
+        "outboundResourceId" : null,
+        "upsert" : false
+      }
+    },
+    "UpdateSystemStatus_PJS" : {
+      "pattern" : "Merge",
+      "configuration" : {
+        "childStreams" : [ "LogStatus_PJS", "UpdateSystemHUD_PJS" ],
+        "outboundResource" : "types",
+        "outboundResourceId" : "SystemStatus_PJS",
+        "upsert" : true
+      }
+    },
+    "LogStatus_PJS" : {
+      "pattern" : "LogStream",
+      "configuration" : {
+        "level" : "debug"
+      }
+    },
+    "UpdateSystemHUD_PJS" : {
+      "pattern" : "Transformation",
+      "configuration" : {
+        "childStreams" : null,
+        "outboundResource" : "types",
+        "outboundResourceId" : "SystemHUD_PJS",
+        "transformation" : {
+          "systemId" : {
+            "type" : "expression",
+            "expression" : "event.systemId"
+          },
+          "alertMsg" : {
+            "type" : "expression",
+            "expression" : "((event.temperature >= 210) && (event.speed >= 45)) ?\n    \"Your engine is overheating, please reduce your speed.\" :\n    (((event.temperature >= 210) && (event.speed < 45)) ?\n    \"Your engine is overheating: check for a malfunctioning fan or a coolant leak.\" : \"\")"
+          }
+        },
+        "upsert" : true
+      }
+    }
+  },
+  "collaboratorRoles" : [ ],
+  "entityRoles" : [ ],
+  "keyTypes" : [ "system.collaborations" ],
+  "active" : true,
+  "appType" : true,
+  "currentState" : {
+    "code" : "success"
+  }
+}

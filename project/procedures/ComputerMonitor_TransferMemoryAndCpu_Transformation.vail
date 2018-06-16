@@ -1,0 +1,11 @@
+PROCEDURE ComputerMonitor_TransferMemoryAndCpu_Transformation(event) HIDDEN WITH ars_dependentResource="/collaborationtypes/ComputerMonitor"
+var newEvent = {}
+newEvent.computerId = event.computerId
+newEvent.alertMsg = ((event.memory >= 80) && (event.cpu < 100)) ?
+    "您的内存占用已超过80%，请清理您的电脑！" :
+    ((event.memory < 80) && (event.cpu >= 100)) ?
+    "您的CPU占用已超过100%，请清理您的电脑！" : 
+        (((event.memory >= 80) && (event.cpu >= 100)) ? 
+    "您的内存和CPU均已超标，请清理您的电脑！" : "")
+
+return newEvent

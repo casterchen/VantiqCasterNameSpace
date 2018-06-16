@@ -1,0 +1,17 @@
+{
+  "name" : "test0001",
+  "type" : "REMOTE",
+  "active" : true,
+  "activationConstraint" : "",
+  "config" : {
+    "pollingInterval" : 0,
+    "uri" : "http://uat.jzwimb.com/app/pcfid/postVANTIQData",
+    "requestDefaults" : {
+      "contentType" : "text/plain",
+      "body" : "\"{\\\"a\\\":\\\"b\\\"}\"",
+      "method" : "POST",
+      "responseType" : "text/plain"
+    }
+  },
+  "direction" : "BOTH"
+}

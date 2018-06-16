@@ -1,0 +1,18 @@
+RULE datectSituationCollaborationType_Initiate_NewCollaboration HIDDEN WITH ars_dependentResource="/collaborationtypes/datectSituationCollaborationType"
+WHEN INSERT OCCURS ON ArsCollaboration as collaboration WHERE collaboration.collaborationType == "datectSituationCollaborationType"
+
+log.debug("collaboration.datectSituationCollaborationType.Initiate: New collaboration created: {}", [collaboration])
+SELECT EXACTLY ONE FROM collaborationtypes as ct WHERE name == collaboration.collaborationType
+
+var activityType = ct.assembly["Initiate"]
+
+if (activityType != null AND activityType.additionalBehaviors != null) {
+    var context = CollaborationGeneration.establishCollaborationContext(collaboration, activityType.instanceParameters)
+    IF (true) {
+
+context = CollaborationGeneration.reEstablishCollaborationContext(context)
+startA_datectSituationCollaborationType_pushData(context.collaboration, ["caster"], {"fields":[{"id":"显示器4","type":"image","url":"http://pic.58pic.com/58pic/12/37/43/99d58PICqxF.jpg"},{"id":"按钮1","type":"inlineButton","buttonLabel":"EXIT","value":100}]} )
+
+}
+
+}

@@ -1,0 +1,53 @@
+{
+  "name" : "ComputerMonitor",
+  "assembly" : {
+    "MemoryReading" : {
+      "pattern" : "EventStream",
+      "configuration" : {
+        "childStreams" : [ "UpdateStatus" ],
+        "inboundResource" : "topics",
+        "inboundResourceId" : "/MyTopic",
+        "op" : "INSERT",
+        "outboundResource" : "topics",
+        "outboundResourceId" : null,
+        "upsert" : false
+      }
+    },
+    "TransferMemoryAndCpu" : {
+      "pattern" : "Transformation",
+      "configuration" : {
+        "childStreams" : null,
+        "outboundResource" : "types",
+        "outboundResourceId" : "ComputerHUD",
+        "transformation" : {
+          "computerId" : {
+            "type" : "expression",
+            "expression" : "event.computerId"
+          },
+          "alertMsg" : {
+            "type" : "expression",
+            "expression" : "((event.memory >= 80) && (event.cpu < 100)) ?\n    \"您的内存占用已超过80%，请清理您的电脑！\" :\n    ((event.memory < 80) && (event.cpu >= 100)) ?\n    \"您的CPU占用已超过100%，请清理您的电脑！\" : \n        (((event.memory >= 80) && (event.cpu >= 100)) ? \n    \"您的内存和CPU均已超标，请清理您的电脑！\" : \"\")"
+          }
+        },
+        "upsert" : true
+      }
+    },
+    "UpdateStatus" : {
+      "pattern" : "Merge",
+      "configuration" : {
+        "childStreams" : [ "TransferMemoryAndCpu" ],
+        "outboundResource" : "types",
+        "outboundResourceId" : "ComputerStatus",
+        "upsert" : true
+      }
+    }
+  },
+  "collaboratorRoles" : [ ],
+  "entityRoles" : [ ],
+  "keyTypes" : [ "system.collaborations" ],
+  "active" : true,
+  "appType" : true,
+  "currentState" : {
+    "code" : "success"
+  }
+}

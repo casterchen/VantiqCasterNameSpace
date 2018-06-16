@@ -1,0 +1,114 @@
+{
+  "name" : "JDicebox",
+  "options" : {
+    "v" : 2,
+    "filterMask" : 4294967295,
+    "showGrid" : true,
+    "isModeloProject" : true
+  },
+  "type" : "dev",
+  "resources" : [ {
+    "name" : "BindingIcebox",
+    "type" : 3,
+    "label" : "BindingIcebox",
+    "timestamp" : "2018-03-26T05:49:19.854Z",
+    "inventory" : {
+      "types" : [ "icebox" ],
+      "typeHash" : [ "both" ],
+      "sources" : [ ],
+      "sourceHash" : [ ],
+      "topics" : [ ],
+      "topicHash" : [ ],
+      "procedures" : [ ],
+      "procedureHash" : [ ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 358.0481066893734,
+      "y" : 191.76114612386726
+    }
+  }, {
+    "name" : "updataWorkStatus",
+    "type" : 3,
+    "label" : "updataWorkStatus",
+    "timestamp" : "2018-03-26T05:47:25.212Z",
+    "inventory" : {
+      "types" : [ "icebox" ],
+      "typeHash" : [ "both" ],
+      "sources" : [ ],
+      "sourceHash" : [ ],
+      "topics" : [ ],
+      "topicHash" : [ ],
+      "procedures" : [ ],
+      "procedureHash" : [ ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 173.76842010951646,
+      "y" : 271.075068971366
+    }
+  }, {
+    "name" : "user",
+    "type" : 1,
+    "label" : "user",
+    "timestamp" : "2018-03-23T10:04:50.643Z",
+    "node" : {
+      "x" : 120.80716330966635,
+      "y" : 145.71154528497925
+    }
+  } ],
+  "links" : [ ],
+  "tools" : [ {
+    "name" : "Project Resource Graph",
+    "type" : 1,
+    "toolOptions" : {
+      "scaleAndTranslationState" : {
+        "scale" : 0.6479704827166667,
+        "translate" : [ 295.3279456423741, 44.3175254574719 ],
+        "lastZoomRequest" : 0
+      }
+    },
+    "pane" : {
+      "x" : 650,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "updataWorkStatus",
+    "type" : 24,
+    "resourceKey" : "procedure/updataWorkStatus",
+    "pane" : {
+      "x" : 20,
+      "y" : 440,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "BindingIcebox",
+    "type" : 24,
+    "resourceKey" : "procedure/BindingIcebox",
+    "pane" : {
+      "x" : 650,
+      "y" : 440.00001525878906,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "user",
+    "type" : 6,
+    "resourceKey" : "type/user",
+    "pane" : {
+      "x" : 0,
+      "y" : 0,
+      "h" : 400,
+      "w" : 600
+    }
+  } ],
+  "views" : [ {
+    "name" : "Main",
+    "projectToolKeys" : [ "graph/Project Resource Graph", "cmeditorprocedure/updataWorkStatus", "cmeditorprocedure/BindingIcebox", "subtypeeditor/user" ]
+  } ]
+}

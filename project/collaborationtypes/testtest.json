@@ -1,0 +1,55 @@
+{
+  "name" : "testtest",
+  "assembly" : {
+    "testJoin" : {
+      "pattern" : "Join",
+      "configuration" : {
+        "order" : null,
+        "withinDuration" : null,
+        "constraints" : null,
+        "outboundResource" : null,
+        "outboundResourceId" : null,
+        "outboundResourceConfig" : null,
+        "upsert" : null,
+        "parentStreams" : [ "begin", "NewStream" ]
+      },
+      "name" : "testJoin"
+    },
+    "begin" : {
+      "pattern" : "EventStream",
+      "configuration" : {
+        "childStreams" : [ "testJoin" ],
+        "inboundResource" : "sources",
+        "inboundResourceId" : "RPMSMQTT",
+        "op" : null,
+        "outboundResource" : "topics",
+        "outboundResourceId" : null,
+        "upsert" : false,
+        "parentStreams" : [ ]
+      },
+      "name" : "begin"
+    },
+    "NewStream" : {
+      "pattern" : "EventStream",
+      "configuration" : {
+        "childStreams" : [ "testJoin" ],
+        "inboundResource" : "sources",
+        "inboundResourceId" : "RPMSMQTT",
+        "op" : null,
+        "outboundResource" : "topics",
+        "outboundResourceId" : null,
+        "upsert" : false,
+        "parentStreams" : [ ]
+      },
+      "name" : "NewStream"
+    }
+  },
+  "collaboratorRoles" : [ ],
+  "entityRoles" : [ ],
+  "keyTypes" : [ "system.collaborations" ],
+  "active" : true,
+  "appType" : true,
+  "currentState" : {
+    "code" : "success"
+  }
+}

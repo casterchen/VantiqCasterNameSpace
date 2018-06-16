@@ -1,0 +1,7 @@
+{
+  "name" : "ComputerMonitor_1__DebugMode",
+  "type" : "log",
+  "value" : "DEBUG",
+  "resources" : [ "/collaborationtypes/ComputerMonitor_1" ],
+  "isGlobal" : false
+}

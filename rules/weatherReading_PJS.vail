@@ -1,0 +1,3 @@
+RULE weatherReading_PJS
+WHEN MESSAGE ARRIVES FROM weather
+UPDATE weatherReading_PJS(tempK:weather.main.temp) WHERE location == weather.name

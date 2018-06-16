@@ -1,0 +1,201 @@
+{
+  "name" : "ComputerMonitor",
+  "options" : {
+    "v" : 2,
+    "filterMask" : 4294967295,
+    "showGrid" : true,
+    "isModeloProject" : true
+  },
+  "type" : "dev",
+  "resources" : [ {
+    "name" : "/MyTopic",
+    "type" : 10,
+    "label" : "/MyTopic",
+    "node" : {
+      "x" : 106.09331166211234,
+      "y" : 398.88212578434064
+    }
+  }, {
+    "name" : "ComputerCpu",
+    "type" : 1,
+    "label" : "ComputerCpu",
+    "timestamp" : "2018-05-01T14:47:31.849Z",
+    "node" : {
+      "x" : 596.0266854618493,
+      "y" : 288.64995618139574
+    }
+  }, {
+    "name" : "ComputerHUD",
+    "type" : 9,
+    "label" : "ComputerHUD",
+    "timestamp" : "2018-05-01T14:55:35.751Z",
+    "inventory" : {
+      "types" : [ "ComputerHUD" ],
+      "typeHash" : [ "in" ],
+      "sources" : [ ],
+      "sourceHash" : [ ],
+      "topics" : [ ],
+      "topicHash" : [ ],
+      "procedures" : [ ],
+      "procedureHash" : [ ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 536.2174131369901,
+      "y" : 137.10807908105278
+    }
+  }, {
+    "name" : "ComputerHUD",
+    "type" : 1,
+    "label" : "ComputerHUD",
+    "timestamp" : "2018-05-01T14:53:17.545Z",
+    "node" : {
+      "x" : 406.27250993337555,
+      "y" : 227.78123211295065
+    }
+  }, {
+    "name" : "ComputerMemory",
+    "type" : 1,
+    "label" : "ComputerMemory",
+    "timestamp" : "2018-05-01T14:46:09.721Z",
+    "node" : {
+      "x" : 362.4891657879241,
+      "y" : 363.50412272756944
+    }
+  }, {
+    "name" : "ComputerMonitor",
+    "type" : 12,
+    "label" : "ComputerMonitor",
+    "timestamp" : "2018-05-01T15:27:27.220Z",
+    "inventory" : {
+      "types" : [ "ComputerHUD", "ComputerStatus" ],
+      "typeHash" : [ "out", "out" ],
+      "sources" : [ ],
+      "sourceHash" : [ ],
+      "topics" : [ "/MyTopic" ],
+      "topicHash" : [ "in" ],
+      "procedures" : [ ],
+      "procedureHash" : [ ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 116.33790553821058,
+      "y" : 328.7985508741731
+    }
+  }, {
+    "name" : "ComputerStatus",
+    "type" : 1,
+    "label" : "ComputerStatus",
+    "timestamp" : "2018-05-01T15:25:51.432Z",
+    "node" : {
+      "x" : 329.2366822026121,
+      "y" : 78.7517253458885
+    }
+  }, {
+    "name" : "MonitorMessage",
+    "type" : 3,
+    "label" : "MonitorMessage",
+    "timestamp" : "2018-05-01T15:27:00.589Z",
+    "inventory" : {
+      "types" : [ "ComputerMemory", "ComputerCpu" ],
+      "typeHash" : [ "out", "out" ],
+      "sources" : [ ],
+      "sourceHash" : [ ],
+      "topics" : [ "/MyTopic" ],
+      "topicHash" : [ "out" ],
+      "procedures" : [ ],
+      "procedureHash" : [ ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 400.8022655005903,
+      "y" : 437.1150154431555
+    }
+  } ],
+  "links" : [ {
+    "source" : "procedure/MonitorMessage",
+    "target" : "type/ComputerMemory"
+  }, {
+    "source" : "procedure/MonitorMessage",
+    "target" : "type/ComputerCpu"
+  }, {
+    "source" : "type/ComputerHUD",
+    "target" : "subscription/ComputerHUD"
+  }, {
+    "source" : "procedure/MonitorMessage",
+    "target" : "topic//MyTopic"
+  }, {
+    "source" : "topic//MyTopic",
+    "target" : "app/ComputerMonitor"
+  }, {
+    "source" : "app/ComputerMonitor",
+    "target" : "type/ComputerHUD"
+  }, {
+    "source" : "app/ComputerMonitor",
+    "target" : "type/ComputerStatus"
+  } ],
+  "tools" : [ {
+    "name" : "Project Resource Graph",
+    "type" : 1,
+    "toolOptions" : {
+      "scaleAndTranslationState" : {
+        "scale" : 0.5946035575013604,
+        "translate" : [ 52.35291939668849, 52.208130166970335 ],
+        "lastZoomRequest" : 0
+      }
+    },
+    "pane" : {
+      "x" : 20,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "MonitorMessage",
+    "type" : 24,
+    "resourceKey" : "procedure/MonitorMessage",
+    "pane" : {
+      "x" : 20,
+      "y" : 440,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "ComputerMonitor",
+    "type" : 15,
+    "resourceKey" : "app/ComputerMonitor",
+    "pane" : {
+      "x" : 630,
+      "y" : 20,
+      "h" : 420,
+      "w" : 730
+    }
+  }, {
+    "name" : "/MyTopic",
+    "type" : 8,
+    "resourceKey" : "topic//MyTopic",
+    "pane" : {
+      "x" : 20,
+      "y" : 860,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "/MyTopic",
+    "type" : 11,
+    "resourceKey" : "topic//MyTopic",
+    "pane" : {
+      "x" : 640,
+      "y" : 860,
+      "h" : 400,
+      "w" : 600
+    }
+  } ],
+  "views" : [ {
+    "name" : "Main",
+    "projectToolKeys" : [ "graph/Project Resource Graph", "cmeditorprocedure/MonitorMessage", "app/ComputerMonitor", "subtopiceditor//MyTopic", "dataviewer//MyTopic" ]
+  } ]
+}

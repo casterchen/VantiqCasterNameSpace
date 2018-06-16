@@ -1,0 +1,273 @@
+{
+  "name" : "TrainingListener",
+  "options" : {
+    "v" : 2,
+    "filterMask" : 4294967295,
+    "showGrid" : true,
+    "isModeloProject" : true
+  },
+  "type" : "dev",
+  "resources" : [ {
+    "name" : "/helloworld",
+    "type" : 10,
+    "label" : "/helloworld",
+    "node" : {
+      "x" : 242.33334542573346,
+      "y" : 246.6028474247443
+    }
+  }, {
+    "name" : "/newTopicForMytype",
+    "type" : 10,
+    "node" : {
+      "x" : 703.8534010250335,
+      "y" : 238.88993881948517
+    }
+  }, {
+    "name" : "/testTest",
+    "type" : 10,
+    "node" : {
+      "x" : 254.34900018916682,
+      "y" : 342.0563150969027
+    }
+  }, {
+    "name" : "Helloworld",
+    "type" : 3,
+    "label" : "Helloworld",
+    "timestamp" : "2018-04-14T14:43:56.267Z",
+    "inventory" : {
+      "types" : [ ],
+      "typeHash" : [ ],
+      "sources" : [ ],
+      "sourceHash" : [ ],
+      "topics" : [ "/helloworld" ],
+      "topicHash" : [ "out" ],
+      "procedures" : [ ],
+      "procedureHash" : [ ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 324.35566303496154,
+      "y" : 109.8682831468784
+    }
+  }, {
+    "name" : "RType",
+    "type" : 1,
+    "timestamp" : "2018-04-27T09:32:42.206Z",
+    "node" : {
+      "x" : 424.06080654343083,
+      "y" : 58.38985627714791
+    }
+  }, {
+    "name" : "RTypeHandle",
+    "type" : 2,
+    "timestamp" : "2018-04-27T10:01:36.127Z",
+    "inventory" : {
+      "types" : [ "RType" ],
+      "typeHash" : [ "in" ],
+      "sources" : [ ],
+      "sourceHash" : [ ],
+      "topics" : [ "/newTopicForMytype" ],
+      "topicHash" : [ "out" ],
+      "procedures" : [ ],
+      "procedureHash" : [ ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 695.6003029775542,
+      "y" : 92.35925948132146
+    }
+  }, {
+    "name" : "dddd",
+    "type" : 3,
+    "label" : "dddd",
+    "timestamp" : "2018-04-27T09:37:02.616Z",
+    "inventory" : {
+      "types" : [ ],
+      "typeHash" : [ ],
+      "sources" : [ ],
+      "sourceHash" : [ ],
+      "topics" : [ ],
+      "topicHash" : [ ],
+      "procedures" : [ ],
+      "procedureHash" : [ ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 297.97726300398745,
+      "y" : 182.48607549740976
+    }
+  }, {
+    "name" : "eeee",
+    "type" : 2,
+    "timestamp" : "2018-04-27T09:43:54.905Z",
+    "inventory" : {
+      "types" : [ "RType" ],
+      "typeHash" : [ "out" ],
+      "sources" : [ ],
+      "sourceHash" : [ ],
+      "topics" : [ "/helloworld", "/testTest" ],
+      "topicHash" : [ "in", "out" ],
+      "procedures" : [ ],
+      "procedureHash" : [ ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 390.1028257241852,
+      "y" : 274.75309748396614
+    }
+  } ],
+  "links" : [ {
+    "source" : "procedure/Helloworld",
+    "target" : "topic//helloworld"
+  }, {
+    "source" : "topic//helloworld",
+    "target" : "rule/eeee"
+  }, {
+    "source" : "rule/eeee",
+    "target" : "topic//testTest"
+  }, {
+    "source" : "rule/eeee",
+    "target" : "type/RType"
+  }, {
+    "source" : "type/RType",
+    "target" : "rule/RTypeHandle"
+  }, {
+    "source" : "rule/RTypeHandle",
+    "target" : "topic//newTopicForMytype"
+  } ],
+  "tools" : [ {
+    "name" : "Project Resource Graph",
+    "type" : 1,
+    "toolOptions" : {
+      "scaleAndTranslationState" : {
+        "scale" : 0.3789291416275996,
+        "translate" : [ 244.54707089318833, 162.99298476646987 ],
+        "lastZoomRequest" : 0
+      }
+    },
+    "pane" : {
+      "x" : 20,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "dddd",
+    "type" : 24,
+    "resourceKey" : "procedure/dddd",
+    "pane" : {
+      "x" : 640,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "/helloworld",
+    "type" : 8,
+    "resourceKey" : "topic//helloworld",
+    "pane" : {
+      "x" : 20,
+      "y" : 860,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "Helloworld",
+    "type" : 24,
+    "resourceKey" : "procedure/Helloworld",
+    "pane" : {
+      "x" : 20,
+      "y" : 440,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "/helloworld",
+    "type" : 11,
+    "resourceKey" : "topic//helloworld",
+    "pane" : {
+      "x" : 640,
+      "y" : 860,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "eeee",
+    "type" : 3,
+    "resourceKey" : "rule/eeee",
+    "pane" : {
+      "x" : 640,
+      "y" : 440,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "/testTest",
+    "type" : 8,
+    "resourceKey" : "topic//testTest",
+    "pane" : {
+      "x" : 20,
+      "y" : 1280,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "RType",
+    "type" : 6,
+    "resourceKey" : "type/RType",
+    "pane" : {
+      "x" : 0,
+      "y" : 2470,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "/testTest",
+    "type" : 11,
+    "resourceKey" : "topic//testTest",
+    "pane" : {
+      "x" : 640,
+      "y" : 1280,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "/newTopicForMytype",
+    "type" : 8,
+    "resourceKey" : "topic//newTopicForMytype",
+    "pane" : {
+      "x" : 20,
+      "y" : 1710,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "/newTopicForMytype",
+    "type" : 11,
+    "resourceKey" : "topic//newTopicForMytype",
+    "pane" : {
+      "x" : 650,
+      "y" : 1710,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "RTypeHandle",
+    "type" : 3,
+    "resourceKey" : "rule/RTypeHandle",
+    "pane" : {
+      "x" : 0,
+      "y" : 2890,
+      "h" : 400,
+      "w" : 600
+    }
+  } ],
+  "views" : [ {
+    "name" : "Main",
+    "projectToolKeys" : [ "graph/Project Resource Graph", "cmeditorprocedure/dddd", "subtopiceditor//helloworld", "cmeditorprocedure/Helloworld", "dataviewer//helloworld", "cmeditorrule/eeee", "subtopiceditor//testTest", "subtypeeditor/RType", "dataviewer//testTest", "findrecordresults/All Objects of type RType", "subtopiceditor//newTopicForMytype", "dataviewer//newTopicForMytype", "cmeditorrule/RTypeHandle" ]
+  } ]
+}

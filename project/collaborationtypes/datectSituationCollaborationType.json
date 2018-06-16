@@ -1,0 +1,87 @@
+{
+  "name" : "datectSituationCollaborationType",
+  "assembly" : {
+    "Initiate" : {
+      "pattern" : "InitiateCollaboration",
+      "configuration" : {
+        "entityRole" : "speed",
+        "initialTrigger" : "WHEN INSERT OCCURS ON EngineSpeed1"
+      },
+      "instanceParameters" : [ "speed" ],
+      "additionalBehaviors" : [ {
+        "name" : "",
+        "condition" : "true",
+        "behaviors" : [ {
+          "type" : "activity",
+          "name" : "pushData",
+          "parameters" : [ {
+            "name" : "collaboration",
+            "type" : "reference",
+            "value" : "collaboration"
+          }, {
+            "name" : "users",
+            "type" : "mixed",
+            "value" : [ {
+              "type" : "String",
+              "value" : "caster"
+            } ],
+            "multi" : true
+          }, {
+            "name" : "payloadOverride",
+            "type" : "Object",
+            "value" : {
+              "fields" : [ {
+                "id" : "显示器4",
+                "type" : "image",
+                "url" : "http://pic.58pic.com/58pic/12/37/43/99d58PICqxF.jpg"
+              }, {
+                "id" : "按钮1",
+                "type" : "inlineButton",
+                "buttonLabel" : "EXIT",
+                "value" : 100
+              } ]
+            }
+          } ]
+        } ]
+      } ],
+      "continuationCondition" : [ ],
+      "completionCondition" : [ ],
+      "cancellationCondition" : [ ]
+    },
+    "pushData" : {
+      "pattern" : "Notification",
+      "configuration" : {
+        "body" : "aa",
+        "firstResponseBehaviors" : [ ],
+        "payload" : { },
+        "pushSourceName" : null,
+        "responseBehaviors" : [ ],
+        "title" : "asd"
+      },
+      "instanceParameters" : [ "speed" ],
+      "additionalBehaviors" : [ {
+        "name" : "",
+        "condition" : "true",
+        "behaviors" : [ {
+          "type" : "service",
+          "name" : "CollaborationUtils.closeCollaboration",
+          "parameters" : [ ]
+        } ]
+      } ],
+      "continuationCondition" : [ ],
+      "completionCondition" : [ ],
+      "cancellationCondition" : [ ]
+    }
+  },
+  "collaboratorRoles" : [ ],
+  "entityRoles" : [ {
+    "type" : "EngineSpeed",
+    "name" : "speed"
+  } ],
+  "keyTypes" : [ "system.collaborations" ],
+  "active" : true,
+  "appType" : false,
+  "currentState" : {
+    "code" : "success"
+  }
+}

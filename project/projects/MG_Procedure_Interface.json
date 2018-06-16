@@ -1,0 +1,228 @@
+{
+  "name" : "MG_Procedure_Interface",
+  "options" : {
+    "v" : 2,
+    "filterMask" : 4294967295,
+    "showGrid" : true,
+    "isModeloProject" : true
+  },
+  "type" : "dev",
+  "resources" : [ {
+    "name" : "/mgGetAppStaticMapPoints",
+    "type" : 10,
+    "label" : "/mgGetAppStaticMapPoints",
+    "node" : {
+      "x" : 306.06112347228003,
+      "y" : 390.4175633672368
+    }
+  }, {
+    "name" : "/mgGetDynamicMapPoints",
+    "type" : 10,
+    "node" : {
+      "x" : 486.8208026069594,
+      "y" : 283.0600890539382
+    }
+  }, {
+    "name" : "/test01",
+    "type" : 10,
+    "label" : "/test01",
+    "node" : {
+      "x" : 243.96618355977697,
+      "y" : 57.701819267581406
+    }
+  }, {
+    "name" : "/test02",
+    "type" : 10,
+    "label" : "/test02",
+    "node" : {
+      "x" : 249.00626051476073,
+      "y" : 176.32799588150618
+    }
+  }, {
+    "name" : "MG_POC_Data",
+    "type" : 1,
+    "label" : "MG_POC_Data",
+    "timestamp" : "2018-05-23T10:06:19.711Z",
+    "node" : {
+      "x" : 397.22499331566837,
+      "y" : 259.7209184177885
+    }
+  }, {
+    "name" : "MG_POC_DataShow",
+    "type" : 15,
+    "label" : "MG_POC_DataShow",
+    "timestamp" : "2018-05-30T01:29:46.954Z",
+    "node" : {
+      "x" : 530.4357726692565,
+      "y" : 165.206180529034
+    }
+  }, {
+    "name" : "mgCollectDataChannel",
+    "type" : 3,
+    "label" : "mgCollectDataChannel",
+    "timestamp" : "2018-05-24T09:58:02.072Z",
+    "inventory" : {
+      "types" : [ "MG_POC_Data" ],
+      "typeHash" : [ "out" ],
+      "sources" : [ ],
+      "sourceHash" : [ ],
+      "topics" : [ "/test01", "/test02" ],
+      "topicHash" : [ "out", "out" ],
+      "procedures" : [ "stringify", "getTime" ],
+      "procedureHash" : [ "out", "out" ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 386.90633711084604,
+      "y" : 109.1736495531375
+    }
+  }, {
+    "name" : "mgGetAppStaticMapPoints",
+    "type" : 3,
+    "label" : "mgGetAppStaticMapPoints",
+    "timestamp" : "2018-05-30T06:06:14.847Z",
+    "inventory" : {
+      "types" : [ "MG_POC_Data" ],
+      "typeHash" : [ "in" ],
+      "sources" : [ ],
+      "sourceHash" : [ ],
+      "topics" : [ "/mgGetAppStaticMapPoints" ],
+      "topicHash" : [ "out" ],
+      "procedures" : [ "JsonData.push" ],
+      "procedureHash" : [ "out" ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 232.24375970080595,
+      "y" : 266.2843436616963
+    }
+  }, {
+    "name" : "mgGetDynamicMapPoints",
+    "type" : 3,
+    "timestamp" : "2018-05-28T07:57:04.494Z",
+    "inventory" : {
+      "types" : [ "MG_POC_Data" ],
+      "typeHash" : [ "in" ],
+      "sources" : [ ],
+      "sourceHash" : [ ],
+      "topics" : [ "/mgGetDynamicMapPoints" ],
+      "topicHash" : [ "out" ],
+      "procedures" : [ ],
+      "procedureHash" : [ ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 393.38078302775847,
+      "y" : 406.0636266841579
+    }
+  } ],
+  "links" : [ {
+    "source" : "procedure/mgCollectDataChannel",
+    "target" : "topic//test01"
+  }, {
+    "source" : "procedure/mgCollectDataChannel",
+    "target" : "topic//test02"
+  }, {
+    "source" : "procedure/mgCollectDataChannel",
+    "target" : "type/MG_POC_Data"
+  }, {
+    "source" : "type/MG_POC_Data",
+    "target" : "procedure/mgGetAppStaticMapPoints"
+  }, {
+    "source" : "procedure/mgGetAppStaticMapPoints",
+    "target" : "topic//mgGetAppStaticMapPoints"
+  }, {
+    "source" : "type/MG_POC_Data",
+    "target" : "procedure/mgGetDynamicMapPoints"
+  }, {
+    "source" : "procedure/mgGetDynamicMapPoints",
+    "target" : "topic//mgGetDynamicMapPoints"
+  } ],
+  "tools" : [ {
+    "name" : "Project Resource Graph",
+    "type" : 1,
+    "toolOptions" : {
+      "scaleAndTranslationState" : {
+        "scale" : 0.8705505632961241,
+        "translate" : [ -34.156012761620445, 13.366471893832852 ],
+        "lastZoomRequest" : 0
+      }
+    },
+    "pane" : {
+      "x" : 20,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "mgCollectDataChannel",
+    "type" : 24,
+    "resourceKey" : "procedure/mgCollectDataChannel",
+    "pane" : {
+      "x" : 640,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "/test01",
+    "type" : 8,
+    "resourceKey" : "topic//test01",
+    "pane" : {
+      "x" : 20,
+      "y" : 440,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "/test01",
+    "type" : 11,
+    "resourceKey" : "topic//test01",
+    "pane" : {
+      "x" : 640,
+      "y" : 440,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "/test02",
+    "type" : 8,
+    "resourceKey" : "topic//test02",
+    "pane" : {
+      "x" : 20,
+      "y" : 860,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "/test02",
+    "type" : 11,
+    "resourceKey" : "topic//test02",
+    "pane" : {
+      "x" : 640,
+      "y" : 860,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "MG_POC_DataShow",
+    "type" : 63,
+    "toolOptions" : {
+      "isRunning" : true
+    },
+    "resourceKey" : "client/MG_POC_DataShow",
+    "pane" : {
+      "x" : 20,
+      "y" : 1280,
+      "h" : 700,
+      "w" : 1000
+    }
+  } ],
+  "views" : [ {
+    "name" : "Main",
+    "projectToolKeys" : [ "graph/Project Resource Graph", "cmeditorprocedure/mgCollectDataChannel", "subtopiceditor//test01", "dataviewer//test01", "subtopiceditor//test02", "dataviewer//test02", "client/MG_POC_DataShow" ]
+  } ]
+}

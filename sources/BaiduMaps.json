@@ -1,0 +1,16 @@
+{
+  "name" : "BaiduMaps",
+  "type" : "REMOTE",
+  "active" : true,
+  "activationConstraint" : "",
+  "config" : {
+    "accessToken" : "AIzaSyCyGS4r3-XGfOdXbwB2EUrU7dm-cPtUZWc",
+    "pollingInterval" : 0,
+    "uri" : "https://maps.googleapis.com",
+    "requestDefaults" : {
+      "contentType" : "application/json",
+      "responseType" : "application/json"
+    }
+  },
+  "direction" : "BOTH"
+}

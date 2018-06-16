@@ -1,0 +1,44 @@
+{
+  "name" : "ghj",
+  "assembly" : {
+    "yhggy" : {
+      "pattern" : "Transformation",
+      "configuration" : {
+        "childStreams" : null,
+        "outboundResource" : "topics",
+        "outboundResourceId" : "/rex",
+        "transformation" : {
+          "rex" : {
+            "type" : "expression",
+            "expression" : "event.a"
+          }
+        },
+        "upsert" : false,
+        "parentStreams" : [ "fgh" ]
+      },
+      "name" : "yhggy"
+    },
+    "fgh" : {
+      "pattern" : "EventStream",
+      "configuration" : {
+        "childStreams" : [ "yhggy" ],
+        "inboundResource" : "topics",
+        "inboundResourceId" : "/fghfgh",
+        "op" : null,
+        "outboundResource" : "topics",
+        "outboundResourceId" : null,
+        "upsert" : false,
+        "parentStreams" : [ ]
+      },
+      "name" : "fgh"
+    }
+  },
+  "collaboratorRoles" : [ ],
+  "entityRoles" : [ ],
+  "keyTypes" : [ "system.collaborations" ],
+  "active" : true,
+  "appType" : true,
+  "currentState" : {
+    "code" : "success"
+  }
+}

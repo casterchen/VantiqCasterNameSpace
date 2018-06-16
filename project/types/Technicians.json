@@ -1,0 +1,64 @@
+{
+  "name" : "Technicians",
+  "adminAccessLevel" : "ars_readWrite",
+  "userAccessLevel" : "ars_readOnly",
+  "role" : "standard",
+  "volatile" : false,
+  "naturalKey" : [ "Username" ],
+  "foreignKeys" : null,
+  "audited" : false,
+  "groupEnabled" : false,
+  "groupRequired" : false,
+  "encapsulated" : false,
+  "metadata" : false,
+  "indexes" : [ {
+    "keys" : [ "Username" ],
+    "options" : {
+      "unique" : true
+    }
+  }, {
+    "keys" : [ "#Location" ],
+    "options" : { }
+  } ],
+  "maxStorage" : 0,
+  "maxObjects" : 0,
+  "properties" : {
+    "Location" : {
+      "type" : "GeoJSON",
+      "unique" : false,
+      "required" : false,
+      "multi" : false,
+      "encrypted" : false
+    },
+    "Phone" : {
+      "type" : "String",
+      "unique" : false,
+      "required" : false,
+      "multi" : false,
+      "encrypted" : false
+    },
+    "Username" : {
+      "type" : "String",
+      "unique" : false,
+      "required" : false,
+      "multi" : false,
+      "encrypted" : false
+    },
+    "ars_group" : {
+      "type" : "String",
+      "system" : true,
+      "required" : false,
+      "unique" : false,
+      "scale" : null,
+      "multi" : false
+    },
+    "ars_properties" : {
+      "type" : "Object",
+      "system" : true,
+      "required" : false,
+      "unique" : false,
+      "scale" : null,
+      "multi" : false
+    }
+  }
+}

@@ -1,0 +1,49 @@
+RULE RateCollaboration_EscalatePatient_EscalationTrigger HIDDEN WITH ars_dependentResource="/collaborationtypes/RateCollaboration"
+WHEN UPDATE OCCURS ON ArsEscalationDeadline as deadline WHERE deadline.state == "expired" AND deadline.collaborationType == "RateCollaboration" AND deadline.activityType == "EscalatePatient"
+
+log.debug("collaboration.RateCollaboration.EscalatePatient.escalate: Escalation just expired: {}", [deadline])
+
+var collaboration = SELECT ONE FROM collaborations WHERE id == deadline.collaborationId
+
+if (!collaboration) {
+    exception("io.vantiq.collaboration.RateCollaboration.EscalatePatient.collaboration.not.found",
+              "No collaboration instance with the id: {0} was found when the following escalation expired: {1}",
+              [deadline.collaborationId, deadline.toString()])
+}
+
+var ct = SELECT ONE FROM collaborationtypes WHERE name == collaboration.collaborationType
+
+if (!ct) {
+    exception("io.vantiq.collaboration.RateCollaboration.EscalatePatient.collaborationType.not.found",
+              "No collaboration type with the name: {0} was found when the following escalation expired: {1}",
+              [collaboration.collaborationType, deadline.toString()])
+}
+
+if (collaboration) {
+    var activityResults = collaboration.results[deadline.activityType]
+    if (!activityResults) {
+        activityResults = {}
+    }
+    activityResults.state = "expired"
+    activityResults.updateTime = now()
+    collaboration.results[deadline.activityType] = activityResults
+    // Save the change to results
+    ALTER collaboration ({results: collaboration.results, id: collaboration.id})
+    log.debug("collaboration.RateCollaboration.EscalatePatient.escalate: Updated collaboration with id: {} to reflect escalation expiration", [collaboration.id])
+} else {
+    log.debug("collaboration.RateCollaboration.EscalatePatient.escalate: Could not find associated collaboration with id: {}", [deadline.collaborationId])
+}
+
+var activityType = ct.assembly["EscalatePatient"]
+var context = CollaborationGeneration.establishCollaborationContext(collaboration, activityType.instanceParameters)
+// Add the updated ArsEscalationDeadline object to the context
+context.event = deadline
+log.debug("collaboration.RateCollaboration.EscalatePatient.escalate: About to execute on escalation behaviors for collaboration id: {}", [collaboration.id])
+IF (true) {
+
+context = CollaborationGeneration.reEstablishCollaborationContext(context)
+startA_RateCollaboration_FirstResponderEscalate(context.collaboration, [context.ratepatient.patientId], null )
+
+}
+
+log.debug("collaboration.RateCollaboration.EscalatePatient.escalate: Successfully executed on escalation behaviors for collaboration id: {}", [collaboration.id])

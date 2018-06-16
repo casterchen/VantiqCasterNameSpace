@@ -1,0 +1,7 @@
+{
+  "name" : "appMQTT__DebugMode",
+  "type" : "log",
+  "value" : "DEBUG",
+  "resources" : [ "/collaborationtypes/appMQTT" ],
+  "isGlobal" : false
+}

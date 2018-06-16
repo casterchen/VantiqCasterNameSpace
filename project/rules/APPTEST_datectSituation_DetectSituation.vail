@@ -1,0 +1,33 @@
+// This rule was generated for the detect situation activity: datectSituation in the app: APPTEST
+RULE APPTEST_datectSituation_DetectSituation HIDDEN WITH ars_dependentResource="/collaborationtypes/APPTEST"
+WHEN EVENT OCCURS ON "/eventstreams/APPTEST_test" AS event  
+
+event = event.value
+
+log.debug("app.APPTEST.datectSituation:  initial event: {}", [event])
+
+try {
+    var sit = {name: "APPTEST_datectSituation", relatedEntities: {event: event}}
+    var existingSituation = null
+
+    if ("") {
+        var entity = null
+        sit.entity = Utils.buildResourceRef("", entity)
+        // Check for an existing situation if there is an associated entity
+        existingSituation = SELECT ONE FROM situations WHERE name == sit.name AND entity == sit.entity AND state == "open"
+    } else {
+        sit.entity = null
+    }
+
+    if (existingSituation) {
+        log.debug("app.APPTEST.datectSituation:  An existing active situation for event {} already exists: {}", [event, existingSituation])
+    } else {
+        log.debug("app.APPTEST.datectSituation:  Generating situation: {}", [sit])
+        INSERT ArsSituation(sit)
+    }
+} catch (ex) {
+    exception("io.vantiq.app.APPTEST.datectSituation.APPTEST_datectSituation_DetectSituation.failed",
+              "The generated rule: {0} failed because: {1}", ["APPTEST_datectSituation_DetectSituation", ex.message])
+}
+
+log.debug("app.APPTEST.datectSituation:  Done")

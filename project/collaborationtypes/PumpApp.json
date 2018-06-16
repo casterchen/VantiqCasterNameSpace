@@ -1,0 +1,118 @@
+{
+  "name" : "PumpApp",
+  "assembly" : {
+    "TempStream" : {
+      "pattern" : "EventStream",
+      "configuration" : {
+        "childStreams" : [ "TempLog", "EnrichTemp" ],
+        "inboundResource" : "topics",
+        "inboundResourceId" : "/stream/temp",
+        "op" : null,
+        "outboundResource" : "topics",
+        "outboundResourceId" : null,
+        "upsert" : false
+      }
+    },
+    "RPMSStream" : {
+      "pattern" : "EventStream",
+      "configuration" : {
+        "childStreams" : [ "RPMLog", "JoinStreams" ],
+        "inboundResource" : "topics",
+        "inboundResourceId" : "/stream/rpms",
+        "op" : null,
+        "outboundResource" : "topics",
+        "outboundResourceId" : null,
+        "upsert" : false
+      }
+    },
+    "TempLog" : {
+      "pattern" : "LogStream",
+      "configuration" : {
+        "level" : null
+      }
+    },
+    "RPMLog" : {
+      "pattern" : "LogStream",
+      "configuration" : {
+        "level" : null
+      }
+    },
+    "EnrichTemp" : {
+      "pattern" : "Enrich",
+      "configuration" : {
+        "associatedType" : "PumpDetails",
+        "childStreams" : [ "JoinStreams" ],
+        "foreignKeys" : [ {
+          "type" : "String",
+          "value" : "PumpID"
+        } ],
+        "outboundResource" : "topics",
+        "outboundResourceId" : null,
+        "upsert" : false
+      }
+    },
+    "JoinStreams" : {
+      "pattern" : "Join",
+      "configuration" : {
+        "childStreams" : [ "LogStream", "loTran" ],
+        "constraints" : [ {
+          "type" : "VAIL",
+          "value" : "EnrichTemp.PumpID == RPMSStream.PumpID"
+        } ],
+        "order" : null,
+        "outboundResource" : "topics",
+        "outboundResourceId" : null,
+        "upsert" : false,
+        "withinDuration" : "11 seconds"
+      }
+    },
+    "LogStream" : {
+      "pattern" : "Enrich",
+      "configuration" : {
+        "associatedType" : null,
+        "foreignKeys" : null,
+        "outboundResource" : null,
+        "outboundResourceId" : null,
+        "outboundResourceConfig" : null,
+        "upsert" : null
+      }
+    },
+    "loTran" : {
+      "pattern" : "Transformation",
+      "configuration" : {
+        "childStreams" : null,
+        "outboundResource" : "topics",
+        "outboundResourceId" : null,
+        "transformation" : {
+          "PumpID" : {
+            "type" : "expression",
+            "expression" : "event.EnrichTemp.PumpID"
+          },
+          "Temp" : {
+            "type" : "expression",
+            "expression" : "event.EnrichTemp.Temp"
+          },
+          "TempRise" : {
+            "type" : "expression",
+            "expression" : "event.EnrichTemp.TempRise"
+          },
+          "RPMS" : {
+            "type" : "expression",
+            "expression" : "event.RPMSStream.RPMS"
+          }
+        },
+        "upsert" : false
+      }
+    }
+  },
+  "collaboratorRoles" : [ ],
+  "entityRoles" : [ ],
+  "keyTypes" : [ "system.collaborations" ],
+  "active" : true,
+  "appType" : true,
+  "currentState" : {
+    "code" : "io.vantiq.collaborationType.PumpApp.LogStream.ActivityPattern.generateEnrichActivityPattern.failure",
+    "message" : "The template input: [associatedType:null, foreignKeys:null, outboundResource:null, outboundResourceId:null, outboundResourceConfig:null, upsert:null, parentStreams:[JoinStreams], name:LogStream, spacelessName:LogStream, streamName:PumpApp_LogStream, ruleName:PumpApp_LogStream_Enrich, collaborationType:PumpApp, errorPrefix:io.vantiq.app.PumpApp.LogStream, logPrefix:app.PumpApp.LogStream: ] did not contain the required key associatedType.",
+    "params" : [ "[associatedType:null, foreignKeys:null, outboundResource:null, outboundResourceId:null, outboundResourceConfig:null, upsert:null, parentStreams:[JoinStreams], name:LogStream, spacelessName:LogStream, streamName:PumpApp_LogStream, ruleName:PumpApp_LogStream_Enrich, collaborationType:PumpApp, errorPrefix:io.vantiq.app.PumpApp.LogStream, logPrefix:app.PumpApp.LogStream: ]", "associatedType" ]
+  }
+}

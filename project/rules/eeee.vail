@@ -1,0 +1,11 @@
+RULE eeee
+when PUBLISH OCCURS ON "/eeeetrew6565" 
+
+var name = {}
+   name = event.newValue.empName
+
+publish name to TOPIC "/testTest"
+UPSERT RType(name) 
+//var demo = {}
+//publish demo to TOPIC "/demoTest"
+//UPSERT RType(demo) 

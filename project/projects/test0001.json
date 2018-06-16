@@ -1,0 +1,122 @@
+{
+  "name" : "test0001",
+  "options" : {
+    "v" : 2,
+    "filterMask" : 4294967295,
+    "showGrid" : true,
+    "isModeloProject" : true
+  },
+  "type" : "dev",
+  "resources" : [ {
+    "name" : "GateWayCollaboration",
+    "type" : 11,
+    "timestamp" : "2018-05-09T03:28:09.232Z",
+    "inventory" : {
+      "types" : [ "Gateway" ],
+      "typeHash" : [ "in" ],
+      "sources" : [ ],
+      "sourceHash" : [ ],
+      "topics" : [ ],
+      "topicHash" : [ ],
+      "procedures" : [ ],
+      "procedureHash" : [ ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 361.981693179519,
+      "y" : 127.78890593606525
+    }
+  }, {
+    "name" : "Gateway",
+    "type" : 1,
+    "timestamp" : "2018-03-21T10:18:34.969Z",
+    "node" : {
+      "x" : 230.402761523196,
+      "y" : 217.46617739723058
+    }
+  }, {
+    "name" : "Patient",
+    "type" : 1,
+    "timestamp" : "2018-03-19T04:18:55.154Z",
+    "node" : {
+      "x" : 154.22629334310014,
+      "y" : 141.1620158548845
+    }
+  }, {
+    "name" : "RateCollaboration",
+    "type" : 11,
+    "timestamp" : "2018-04-21T07:20:31.836Z",
+    "inventory" : {
+      "types" : [ "Patient" ],
+      "typeHash" : [ "in" ],
+      "sources" : [ ],
+      "sourceHash" : [ ],
+      "topics" : [ ],
+      "topicHash" : [ ],
+      "procedures" : [ ],
+      "procedureHash" : [ ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 260.9514308178467,
+      "y" : 27.346573055703765
+    }
+  }, {
+    "name" : "test0001",
+    "type" : 4,
+    "label" : "test0001",
+    "timestamp" : "2018-05-08T14:01:55.986Z",
+    "node" : {
+      "x" : 297.97738382121383,
+      "y" : 182.4861494878253
+    }
+  } ],
+  "links" : [ {
+    "source" : "type/Gateway",
+    "target" : "collaborationtype/GateWayCollaboration"
+  }, {
+    "source" : "type/Patient",
+    "target" : "collaborationtype/RateCollaboration"
+  } ],
+  "tools" : [ {
+    "name" : "Project Resource Graph",
+    "type" : 1,
+    "toolOptions" : {
+      "scaleAndTranslationState" : {
+        "scale" : 1,
+        "translate" : [ 0, 0 ],
+        "lastZoomRequest" : 0
+      }
+    },
+    "pane" : {
+      "x" : 20,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "RateCollaboration",
+    "type" : 14,
+    "toolOptions" : {
+      "scaleAndTranslationState" : {
+        "scale" : 1,
+        "translate" : [ 523.6746915236056, -5.186728809012834 ],
+        "lastZoomRequest" : 0
+      },
+      "propertyPaneWidth" : 250
+    },
+    "resourceKey" : "collaborationtype/RateCollaboration",
+    "pane" : {
+      "x" : 640,
+      "y" : 20,
+      "h" : 500,
+      "w" : 800
+    }
+  } ],
+  "views" : [ {
+    "name" : "Main",
+    "projectToolKeys" : [ "graph/Project Resource Graph", "collaborationgraph/RateCollaboration" ]
+  } ]
+}

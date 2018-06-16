@@ -1,0 +1,33 @@
+{
+  "name" : "APPTEST",
+  "assembly" : {
+    "test" : {
+      "pattern" : "EventStream",
+      "configuration" : {
+        "childStreams" : [ "datectSituation" ],
+        "inboundResource" : "types",
+        "inboundResourceId" : "EngineSpeed",
+        "op" : null,
+        "outboundResource" : "topics",
+        "outboundResourceId" : null,
+        "upsert" : false
+      }
+    },
+    "datectSituation" : {
+      "pattern" : "DetectSituation",
+      "configuration" : {
+        "condition" : null,
+        "entityType" : null,
+        "entityConstraint" : null
+      }
+    }
+  },
+  "collaboratorRoles" : [ ],
+  "entityRoles" : [ ],
+  "keyTypes" : [ "system.collaborations" ],
+  "active" : true,
+  "appType" : true,
+  "currentState" : {
+    "code" : "success"
+  }
+}

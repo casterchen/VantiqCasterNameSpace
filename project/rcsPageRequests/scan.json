@@ -1,0 +1,11 @@
+{
+  "payload" : {
+    "responseTopic" : "/scan/barcode",
+    "fields" : [ {
+      "id" : "读取条纹码FF2",
+      "type" : "barcode"
+    } ]
+  },
+  "title" : "scan",
+  "body" : "ScanBarcode"
+}

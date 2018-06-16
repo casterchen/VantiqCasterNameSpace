@@ -1,0 +1,15 @@
+{
+  "name" : "weather",
+  "type" : "REMOTE",
+  "active" : true,
+  "activationConstraint" : "",
+  "config" : {
+    "pollingInterval" : 15,
+    "uri" : "http://api.openweathermap.org/data/2.5/weather?zip=94549,us&APPID=6566769a1d5620cb93e74703bd6bb21d",
+    "query" : {
+      "contentType" : "application/json"
+    }
+  },
+  "direction" : "BOTH",
+  "messageType" : "SystemHUD"
+}

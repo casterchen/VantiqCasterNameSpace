@@ -1,0 +1,51 @@
+{
+  "name" : "Training_kalorr",
+  "options" : {
+    "v" : 2,
+    "filterMask" : 4294967295,
+    "showGrid" : true,
+    "isModeloProject" : true
+  },
+  "type" : "dev",
+  "resources" : [ {
+    "name" : "myType_a",
+    "type" : 1,
+    "timestamp" : "2018-03-26T02:53:44.450Z",
+    "node" : {
+      "x" : 298.093843699095,
+      "y" : 182.55747139290136
+    }
+  } ],
+  "links" : [ ],
+  "tools" : [ {
+    "name" : "Project Resource Graph",
+    "type" : 1,
+    "toolOptions" : {
+      "scaleAndTranslationState" : {
+        "scale" : 0.8705505632961245,
+        "translate" : [ 34.08239840666499, 27.90499663639625 ],
+        "lastZoomRequest" : 0
+      }
+    },
+    "pane" : {
+      "x" : 20,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "myType_a",
+    "type" : 6,
+    "resourceKey" : "type/myType_a",
+    "pane" : {
+      "x" : 640,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  } ],
+  "views" : [ {
+    "name" : "Main",
+    "projectToolKeys" : [ "graph/Project Resource Graph", "subtypeeditor/myType_a" ]
+  } ]
+}

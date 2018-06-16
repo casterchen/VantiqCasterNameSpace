@@ -1,0 +1,65 @@
+{
+  "name" : "EngineMonitor_demo",
+  "assembly" : {
+    "TempReading_t" : {
+      "pattern" : "EventStream",
+      "configuration" : {
+        "childStreams" : [ "UpdateSystemStatus_t" ],
+        "inboundResource" : "types",
+        "inboundResourceId" : "EngineTemp_demo",
+        "op" : "INSERT",
+        "outboundResource" : "topics",
+        "outboundResourceId" : null,
+        "upsert" : false
+      }
+    },
+    "SpeedReading_t" : {
+      "pattern" : "EventStream",
+      "configuration" : {
+        "childStreams" : [ "UpdateSystemStatus_t" ],
+        "inboundResource" : "types",
+        "inboundResourceId" : "EngineSpeed_demo",
+        "op" : "INSERT",
+        "outboundResource" : "topics",
+        "outboundResourceId" : null,
+        "upsert" : false
+      }
+    },
+    "UpdateSystemStatus_t" : {
+      "pattern" : "Merge",
+      "configuration" : {
+        "childStreams" : [ "UpdateSystemHUD_t" ],
+        "outboundResource" : "types",
+        "outboundResourceId" : "SystemStatus_demo",
+        "upsert" : true
+      }
+    },
+    "UpdateSystemHUD_t" : {
+      "pattern" : "Transformation",
+      "configuration" : {
+        "childStreams" : null,
+        "outboundResource" : "types",
+        "outboundResourceId" : "SystemHUD_demo",
+        "transformation" : {
+          "alertMsg" : {
+            "type" : "expression",
+            "expression" : "((event.temperature >= 210) && (event.speed >= 45)) ?\n    \"Your engine is overheating, please reduce your speed.\" :\n    (((event.temperature >= 210) && (event.speed < 45)) ?\n    \"Your engine is overheating: check for a malfunctioning fan or a coolant leak.\" : \"\")"
+          },
+          "systemId" : {
+            "type" : "expression",
+            "expression" : "event.systemId"
+          }
+        },
+        "upsert" : true
+      }
+    }
+  },
+  "collaboratorRoles" : [ ],
+  "entityRoles" : [ ],
+  "keyTypes" : [ "system.collaborations" ],
+  "active" : true,
+  "appType" : true,
+  "currentState" : {
+    "code" : "success"
+  }
+}

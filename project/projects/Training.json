@@ -1,0 +1,194 @@
+{
+  "name" : "Training",
+  "options" : {
+    "v" : 2,
+    "filterMask" : 4294967295,
+    "showGrid" : true,
+    "isModeloProject" : true
+  },
+  "type" : "dev",
+  "resources" : [ {
+    "name" : "/MyTopic",
+    "type" : 10,
+    "label" : "/MyTopic",
+    "node" : {
+      "x" : 533.6714565851667,
+      "y" : 62.50130740229554
+    }
+  }, {
+    "name" : "/testGetName",
+    "type" : 10,
+    "label" : "/testGetName",
+    "node" : {
+      "x" : 572.8356987045156,
+      "y" : 154.72100243495436
+    }
+  }, {
+    "name" : "UpdateName",
+    "type" : 3,
+    "label" : "UpdateName",
+    "timestamp" : "2018-04-10T08:27:43.763Z",
+    "inventory" : {
+      "types" : [ "myType" ],
+      "typeHash" : [ "out" ],
+      "sources" : [ ],
+      "sourceHash" : [ ],
+      "topics" : [ "/MyTopic" ],
+      "topicHash" : [ "out" ],
+      "procedures" : [ ],
+      "procedureHash" : [ ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 326.67480296627076,
+      "y" : 262.7415506728553
+    }
+  }, {
+    "name" : "joinClass",
+    "type" : 12,
+    "label" : "joinClass",
+    "timestamp" : "2018-05-01T09:40:15.079Z",
+    "inventory" : {
+      "types" : [ "myType" ],
+      "typeHash" : [ "out" ],
+      "sources" : [ ],
+      "sourceHash" : [ ],
+      "topics" : [ "/MyTopic", "/testGetName" ],
+      "topicHash" : [ "in", "in" ],
+      "procedures" : [ ],
+      "procedureHash" : [ ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 542.3473705890456,
+      "y" : 244.64132648935538
+    }
+  }, {
+    "name" : "myCalendar",
+    "type" : 1,
+    "label" : "myCalendar",
+    "timestamp" : "2018-04-10T08:06:24.512Z",
+    "node" : {
+      "x" : 301.44971423656705,
+      "y" : 80.35872938520062
+    }
+  }, {
+    "name" : "myType",
+    "type" : 1,
+    "label" : "myType",
+    "timestamp" : "2018-03-26T02:26:10.354Z",
+    "node" : {
+      "x" : 297.97726300398745,
+      "y" : 182.48607549740976
+    }
+  } ],
+  "links" : [ {
+    "source" : "procedure/UpdateName",
+    "target" : "type/myType"
+  }, {
+    "source" : "app/joinClass",
+    "target" : "type/myType"
+  }, {
+    "source" : "topic//testGetName",
+    "target" : "app/joinClass"
+  }, {
+    "source" : "procedure/UpdateName",
+    "target" : "topic//MyTopic"
+  }, {
+    "source" : "topic//MyTopic",
+    "target" : "app/joinClass"
+  } ],
+  "tools" : [ {
+    "name" : "Project Resource Graph",
+    "type" : 1,
+    "toolOptions" : {
+      "scaleAndTranslationState" : {
+        "scale" : 1.2710316893056668,
+        "translate" : [ -242.97009159474698, -7.243255833597885 ],
+        "lastZoomRequest" : 0
+      }
+    },
+    "pane" : {
+      "x" : 20,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "UpdateName",
+    "type" : 24,
+    "resourceKey" : "procedure/UpdateName",
+    "pane" : {
+      "x" : 650,
+      "y" : 449.99998474121094,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "myType",
+    "type" : 6,
+    "resourceKey" : "type/myType",
+    "pane" : {
+      "x" : 20,
+      "y" : 440,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "joinClass",
+    "type" : 15,
+    "resourceKey" : "app/joinClass",
+    "pane" : {
+      "x" : 20,
+      "y" : 840,
+      "h" : 490,
+      "w" : 840
+    }
+  }, {
+    "name" : "/testGetName",
+    "type" : 11,
+    "resourceKey" : "topic//testGetName",
+    "pane" : {
+      "x" : 20,
+      "y" : 1340.0000457763672,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "/MyTopic",
+    "type" : 8,
+    "resourceKey" : "topic//MyTopic",
+    "pane" : {
+      "x" : 640,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "/testGetName",
+    "type" : 8,
+    "resourceKey" : "topic//testGetName",
+    "pane" : {
+      "x" : 20,
+      "y" : 1350,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "/MyTopic",
+    "type" : 11,
+    "resourceKey" : "topic//MyTopic",
+    "pane" : {
+      "x" : 20,
+      "y" : 1770,
+      "h" : 400,
+      "w" : 600
+    }
+  } ],
+  "views" : [ {
+    "name" : "Main",
+    "projectToolKeys" : [ "graph/Project Resource Graph", "cmeditorprocedure/UpdateName", "subtypeeditor/myType", "app/joinClass", "dataviewer//testGetName", "subtopiceditor//MyTopic", "subtopiceditor//testGetName", "dataviewer//MyTopic" ]
+  } ]
+}

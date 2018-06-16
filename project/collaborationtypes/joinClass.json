@@ -1,0 +1,98 @@
+{
+  "name" : "joinClass",
+  "assembly" : {
+    "getName" : {
+      "pattern" : "EventStream",
+      "configuration" : {
+        "childStreams" : [ "TransferName" ],
+        "inboundResource" : "types",
+        "inboundResourceId" : "myType",
+        "op" : null,
+        "outboundResource" : "topics",
+        "outboundResourceId" : null,
+        "upsert" : false
+      }
+    },
+    "TransferName" : {
+      "pattern" : "Transformation",
+      "configuration" : {
+        "childStreams" : [ "joinMsg" ],
+        "outboundResource" : "topics",
+        "outboundResourceId" : null,
+        "transformation" : {
+          "myTransferName" : {
+            "type" : "expression",
+            "expression" : "event.name + \"san\""
+          },
+          "id" : {
+            "type" : "expression",
+            "expression" : "event.id"
+          }
+        },
+        "upsert" : false
+      }
+    },
+    "getClass" : {
+      "pattern" : "EventStream",
+      "configuration" : {
+        "childStreams" : [ "joinMsg" ],
+        "inboundResource" : "topics",
+        "inboundResourceId" : "/MyTopic",
+        "op" : null,
+        "outboundResource" : "topics",
+        "outboundResourceId" : null,
+        "upsert" : false
+      }
+    },
+    "joinMsg" : {
+      "pattern" : "Join",
+      "configuration" : {
+        "childStreams" : [ "TransferNameAndClass" ],
+        "constraints" : [ {
+          "type" : "VAIL",
+          "value" : "TransferName.id == getClass.id"
+        } ],
+        "order" : null,
+        "outboundResource" : "topics",
+        "outboundResourceId" : "/testGetName",
+        "upsert" : false,
+        "withinDuration" : null
+      }
+    },
+    "TransferNameAndClass" : {
+      "pattern" : "Transformation",
+      "configuration" : {
+        "childStreams" : null,
+        "outboundResource" : "topics",
+        "outboundResourceId" : null,
+        "transformation" : {
+          "id" : {
+            "type" : "expression",
+            "expression" : "event.getClass.id"
+          },
+          "name" : {
+            "type" : "expression",
+            "expression" : "event.TransferName.myTransferName"
+          },
+          "class" : {
+            "type" : "expression",
+            "expression" : "event.getClass.classname"
+          },
+          "Date" : {
+            "type" : "expression",
+            "expression" : "event.getClass.classdate"
+          }
+        },
+        "upsert" : false
+      }
+    }
+  },
+  "collaboratorRoles" : [ ],
+  "entityRoles" : [ ],
+  "keyTypes" : [ "system.collaborations" ],
+  "active" : true,
+  "appType" : true,
+  "currentState" : {
+    "code" : "success"
+  }
+}

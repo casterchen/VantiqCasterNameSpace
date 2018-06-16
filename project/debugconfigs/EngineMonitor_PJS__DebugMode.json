@@ -1,0 +1,7 @@
+{
+  "name" : "EngineMonitor_PJS__DebugMode",
+  "type" : "log",
+  "value" : "DEBUG",
+  "resources" : [ "/collaborationtypes/EngineMonitor_PJS" ],
+  "isGlobal" : false
+}

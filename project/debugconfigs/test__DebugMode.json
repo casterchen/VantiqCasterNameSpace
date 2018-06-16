@@ -1,0 +1,7 @@
+{
+  "name" : "test__DebugMode",
+  "type" : "log",
+  "value" : "DEBUG",
+  "resources" : [ "/collaborationtypes/test" ],
+  "isGlobal" : false
+}

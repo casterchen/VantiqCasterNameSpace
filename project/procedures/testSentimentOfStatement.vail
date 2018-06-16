@@ -1,0 +1,27 @@
+PROCEDURE testSentimentOfStatement(msg)
+
+// Construct the request body
+// see the Request/Response docs for more details on how this is formulated
+var payload = {"Inputs": { "input1": { "ColumnNames": ["tweet_text"], "Values": [[msg]]}}, "GlobalParameters": {}}
+
+// Request the prediction from the source
+var prediction = SELECT FROM SOURCE Sentiment WITH body = payload
+
+log.info("Prediction result: {}", [prediction])
+
+// Grab the result field
+var result = prediction[0].Results
+
+// Get the values from output1 (the name of the final activity in the experiment)
+var output = result["output1"]
+var values = output.value.Values
+// values is actually an array, so get the first index
+values = values[0]
+
+// values is an array of length 2
+// first value is the direction (positive, neutral, or negative)
+// second value is the score
+var polarity = values[0]
+var score = values[1]
+
+return {polarity: polarity, score: score}

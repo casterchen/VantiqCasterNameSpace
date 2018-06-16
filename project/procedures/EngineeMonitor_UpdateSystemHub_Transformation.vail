@@ -1,0 +1,9 @@
+PROCEDURE EngineeMonitor_UpdateSystemHub_Transformation(event) HIDDEN WITH ars_dependentResource="/collaborationtypes/EngineeMonitor"
+var newEvent = {}
+newEvent.alertMsg = ((event.temperature >= 210) && (event.speed >= 45)) ?
+    "Your engine is overheating, please reduce your speed." :
+    (((event.temperature >= 210) && (event.speed < 45)) ?
+    "Your engine is overheating: check for a malfunctioning fan or a coolant leak." : "")
+newEvent.systemId = event.systemId
+
+return newEvent

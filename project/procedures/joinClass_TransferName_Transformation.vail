@@ -1,0 +1,6 @@
+PROCEDURE joinClass_TransferName_Transformation(event) HIDDEN WITH ars_dependentResource="/collaborationtypes/joinClass"
+var newEvent = {}
+newEvent.myTransferName = event.name + "san"
+newEvent.id = event.id
+
+return newEvent

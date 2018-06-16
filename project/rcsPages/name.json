@@ -1,0 +1,17 @@
+{
+  "payload" : {
+    "responseTopic" : "/getName",
+    "fields" : [ {
+      "id" : "name",
+      "type" : "text",
+      "label" : "name:",
+      "align" : "left"
+    }, {
+      "id" : "按钮5",
+      "type" : "inlineButton",
+      "buttonLabel" : "发送",
+      "value" : 100
+    } ]
+  },
+  "name" : "name"
+}

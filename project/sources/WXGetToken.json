@@ -1,0 +1,15 @@
+{
+  "name" : "WXGetToken",
+  "type" : "REMOTE",
+  "active" : true,
+  "messageType" : "WXAccessToken",
+  "activationConstraint" : "",
+  "config" : {
+    "pollingInterval" : 0,
+    "uri" : "https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=wwc3e84680e440421c&corpsecret=awJZ0AgCOJpR0lKyRQrXEG052xYb4ykZASgEiS-xgoc",
+    "query" : {
+      "responseType" : "application/json"
+    }
+  },
+  "direction" : "BOTH"
+}

@@ -1,0 +1,18 @@
+{
+  "name" : "testMQTT",
+  "type" : "MQTT",
+  "active" : true,
+  "activationConstraint" : "",
+  "config" : {
+    "contentType" : "application/json",
+    "username" : "11111",
+    "password" : "Nioces_luo",
+    "keepAliveInterval" : 15,
+    "connectionTimeout" : 15,
+    "cleanSession" : true,
+    "automaticReconnect" : true,
+    "serverURIs" : [ "tcp://public.vantiq.com:1883" ],
+    "topics" : [ "com.vantiq.sensor.sample" ]
+  },
+  "direction" : "BOTH"
+}

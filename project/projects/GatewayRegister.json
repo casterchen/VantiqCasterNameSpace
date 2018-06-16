@@ -1,0 +1,95 @@
+{
+  "name" : "GatewayRegister",
+  "options" : {
+    "v" : 2,
+    "filterMask" : 4294967295,
+    "showGrid" : true,
+    "isModeloProject" : true
+  },
+  "type" : "dev",
+  "resources" : [ {
+    "name" : "Gateway",
+    "type" : 1,
+    "label" : "Gateway",
+    "timestamp" : "2018-03-21T10:18:34.969Z",
+    "node" : {
+      "x" : 297.9299675716894,
+      "y" : 182.45711101286332
+    }
+  }, {
+    "name" : "InsertGateway",
+    "type" : 3,
+    "label" : "InsertGateway",
+    "timestamp" : "2018-04-12T02:54:54.798Z",
+    "inventory" : {
+      "types" : [ "Gateway" ],
+      "typeHash" : [ "both" ],
+      "sources" : [ ],
+      "sourceHash" : [ ],
+      "topics" : [ ],
+      "topicHash" : [ ],
+      "procedures" : [ ],
+      "procedureHash" : [ ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 298.3212979356391,
+      "y" : 48.58451579385435
+    }
+  } ],
+  "links" : [ {
+    "source" : "procedure/InsertGateway",
+    "target" : "type/Gateway"
+  } ],
+  "tools" : [ {
+    "name" : "Project Resource Graph",
+    "type" : 1,
+    "toolOptions" : {
+      "scaleAndTranslationState" : {
+        "scale" : 0.9373819888990628,
+        "translate" : [ -60.578260635895106, 4.558943875317084 ],
+        "lastZoomRequest" : 0
+      }
+    },
+    "pane" : {
+      "x" : 20,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "Gateway",
+    "type" : 6,
+    "resourceKey" : "type/Gateway",
+    "pane" : {
+      "x" : 640,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "InsertGateway",
+    "type" : 24,
+    "resourceKey" : "procedure/InsertGateway",
+    "pane" : {
+      "x" : 20,
+      "y" : 430,
+      "h" : 770,
+      "w" : 600
+    }
+  }, {
+    "name" : "Add Record",
+    "type" : 43,
+    "pane" : {
+      "x" : 20,
+      "y" : 1800,
+      "h" : 400,
+      "w" : 600
+    }
+  } ],
+  "views" : [ {
+    "name" : "Main",
+    "projectToolKeys" : [ "graph/Project Resource Graph", "subtypeeditor/Gateway", "cmeditorprocedure/InsertGateway", "addrecord/Add Record", "findrecordresults/All Objects of type Gateway", "updaterecord/Gateway with _id: 5ab20bffe6c9eb45dc675150" ]
+  } ]
+}

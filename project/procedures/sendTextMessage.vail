@@ -1,0 +1,9 @@
+PROCEDURE sendTextMessage(message String, username String)
+
+var msg = { body: message }
+
+log.debug("sendTextMessage : sending " + stringify(msg) + " to : " + username)
+
+SELECT ONE FROM Technicians AS technician WHERE username EQ username
+
+PUBLISH msg TO SOURCE TwilioSMS USING { to: technician.phone }

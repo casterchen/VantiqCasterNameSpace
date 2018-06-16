@@ -1,0 +1,7 @@
+{
+  "name" : "~SnapshotTracing",
+  "isGlobal" : false,
+  "type" : "trace",
+  "value" : "enabled",
+  "resources" : [ "/rules/weatherReading_PJS", "/rules/ReadingMQTT" ]
+}

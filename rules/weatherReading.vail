@@ -1,0 +1,13 @@
+RULE weatherReading
+
+WHEN MESSAGE ARRIVES FROM weather
+//insert weatherReading(
+/*var msgWeather = {}
+msgWeather.date=weather.date
+msgWeather.location=weather.city
+//msgWeather.pm10=weather.data.pm10
+msgWeather.pm25=weather.data.pm25
+msgWeather.wendu=weather.data.wendu
+msgWeather.shidu=weather.data.shidu
+publish msgWeather to TOPIC "/MyWeather" */
+//WHERE location == weather.city

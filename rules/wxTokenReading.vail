@@ -1,0 +1,4 @@
+RULE wxTokenReading
+
+WHEN MESSAGE ARRIVES FROM WXGetToken 
+UPDATE WXAccessToken(access_token:WXGetToken.access_token) WHERE errmsg == WXGetToken.errmsg

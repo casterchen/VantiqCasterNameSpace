@@ -1,0 +1,33 @@
+// This rule was generated for the detect situation activity: ACTION in the app: PatineService
+RULE PatineService_ACTION_DetectSituation HIDDEN WITH ars_dependentResource="/collaborationtypes/PatineService"
+WHEN EVENT OCCURS ON "/eventstreams/PatineService_INIT" AS event  
+
+event = event.value
+
+log.debug("app.PatineService.ACTION:  initial event: {}", [event])
+
+try {
+    var sit = {name: "PatineService_ACTION", relatedEntities: {event: event}}
+    var existingSituation = null
+
+    if ("") {
+        var entity = null
+        sit.entity = Utils.buildResourceRef("", entity)
+        // Check for an existing situation if there is an associated entity
+        existingSituation = SELECT ONE FROM situations WHERE name == sit.name AND entity == sit.entity AND state == "open"
+    } else {
+        sit.entity = null
+    }
+
+    if (existingSituation) {
+        log.debug("app.PatineService.ACTION:  An existing active situation for event {} already exists: {}", [event, existingSituation])
+    } else {
+        log.debug("app.PatineService.ACTION:  Generating situation: {}", [sit])
+        INSERT ArsSituation(sit)
+    }
+} catch (ex) {
+    exception("io.vantiq.app.PatineService.ACTION.PatineService_ACTION_DetectSituation.failed",
+              "The generated rule: {0} failed because: {1}", ["PatineService_ACTION_DetectSituation", ex.message])
+}
+
+log.debug("app.PatineService.ACTION:  Done")

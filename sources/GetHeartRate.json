@@ -1,0 +1,16 @@
+{
+  "name" : "GetHeartRate",
+  "type" : "MQTT",
+  "active" : true,
+  "activationConstraint" : "",
+  "config" : {
+    "contentType" : "application/json",
+    "keepAliveInterval" : 15,
+    "connectionTimeout" : 15,
+    "cleanSession" : true,
+    "automaticReconnect" : true,
+    "serverURIs" : [ "tcp://public.vantiq.cn:1883" ],
+    "topics" : [ "/HeartRate" ]
+  },
+  "direction" : "BOTH"
+}

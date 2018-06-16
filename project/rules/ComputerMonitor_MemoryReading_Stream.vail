@@ -1,0 +1,18 @@
+// This rule was generated to produce events for the task: MemoryReading in the app: ComputerMonitor
+RULE ComputerMonitor_MemoryReading_Stream HIDDEN WITH ars_dependentResource="/collaborationtypes/ComputerMonitor"
+WHEN  EVENT OCCURS ON "/eventstreams/ComputerMonitor_MemoryReading" AS event
+
+event = event.value
+
+log.debug("app.ComputerMonitor.MemoryReading.producer:  Producing outbound event for: {}", [event])
+
+try {
+      
+    PUBLISH event TO TOPIC "/apps/ComputerMonitor/MemoryReading"
+    log.debug("app.ComputerMonitor.MemoryReading.producer:  produced outbound event: {}", [event])
+} catch (ex) {
+    exception("io.vantiq.app.ComputerMonitor.MemoryReading.ComputerMonitor_MemoryReading_Stream.failed",
+              "The generated rule: {0} failed because: {1}", ["ComputerMonitor_MemoryReading_Stream", ex.message])
+}
+
+log.debug("app.ComputerMonitor.MemoryReading.producer:  Done")

@@ -1,0 +1,31 @@
+{
+  "name" : "TEST",
+  "assembly" : {
+    "TTLOG" : {
+      "pattern" : "LogStream",
+      "configuration" : {
+        "level" : "info"
+      }
+    },
+    "TTT" : {
+      "pattern" : "EventStream",
+      "configuration" : {
+        "childStreams" : [ "TTLOG" ],
+        "inboundResource" : "types",
+        "inboundResourceId" : "EngineSpeed",
+        "op" : null,
+        "outboundResource" : "topics",
+        "outboundResourceId" : null,
+        "upsert" : false
+      }
+    }
+  },
+  "collaboratorRoles" : [ ],
+  "entityRoles" : [ ],
+  "keyTypes" : [ "system.collaborations" ],
+  "active" : false,
+  "appType" : true,
+  "currentState" : {
+    "code" : "success"
+  }
+}

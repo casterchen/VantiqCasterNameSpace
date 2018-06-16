@@ -1,0 +1,18 @@
+// This rule was generated to produce events for the task: SpeedReading_t in the app: EngineMonitor_demo
+RULE EngineMonitor_demo_SpeedReading_t_Stream HIDDEN WITH ars_dependentResource="/collaborationtypes/EngineMonitor_demo"
+WHEN  EVENT OCCURS ON "/eventstreams/EngineMonitor_demo_SpeedReading_t" AS event
+
+event = event.value
+
+log.debug("app.EngineMonitor_demo.SpeedReading_t.producer:  Producing outbound event for: {}", [event])
+
+try {
+      
+    PUBLISH event TO TOPIC "/apps/EngineMonitor_demo/SpeedReading_t"
+    log.debug("app.EngineMonitor_demo.SpeedReading_t.producer:  produced outbound event: {}", [event])
+} catch (ex) {
+    exception("io.vantiq.app.EngineMonitor_demo.SpeedReading_t.EngineMonitor_demo_SpeedReading_t_Stream.failed",
+              "The generated rule: {0} failed because: {1}", ["EngineMonitor_demo_SpeedReading_t_Stream", ex.message])
+}
+
+log.debug("app.EngineMonitor_demo.SpeedReading_t.producer:  Done")

@@ -1,0 +1,17 @@
+PROCEDURE mgCollectDataChannel(data object)
+
+publish data to TOPIC "/test01"
+
+var jsonStr = stringify(data)
+//时间格式转换(Low)
+var dateTime = getTime(toDate(data.time))
+var newdata = {"JsonData":jsonStr,"x":data.x,"y":data.y,"phone":data.phone,"creDate":data.time,"dateTime":dateTime}
+publish newdata to TOPIC "/test02"
+
+//将数据更新到表中
+//upsert MG_POC_Data(newdata)
+insert MG_POC_Data(newdata) 
+
+var results = {"code":"successful","msg":"数据采集成功！"}
+
+return results

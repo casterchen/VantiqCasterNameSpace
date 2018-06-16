@@ -1,0 +1,5 @@
+PROCEDURE appMQTT_MQTransfer_Transformation(event) HIDDEN WITH ars_dependentResource="/collaborationtypes/appMQTT"
+var newEvent = {}
+newEvent.newValue = event.vl *3
+
+return newEvent

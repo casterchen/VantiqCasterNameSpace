@@ -1,0 +1,7 @@
+{
+  "name" : "RateCollaboration__DebugMode",
+  "type" : "log",
+  "value" : "DEBUG",
+  "resources" : [ "/collaborationtypes/RateCollaboration" ],
+  "isGlobal" : false
+}

@@ -1,0 +1,25 @@
+PROCEDURE mgGetStaticMapPoints(staDate DateTime,endDate DateTime,phoneNum String)
+var record = select x,y,creDate FROM MG_POC_Data  where dateTime > getTime(staDate) and dateTime < getTime(endDate)
+
+//delete record["_id"];
+//and phone == phoneNum group by creDate
+var sArr =[]
+for(s in record){
+    var jlist = {"x":s.x,"y":s.y,"creDate":s.creDate}
+    sArr.push(jlist)    
+}
+
+/*var removeArr =[]
+for(i in record){
+    if(i.location.coordinates[0]==0){
+       removeArr.push(i)   
+    }
+}
+for(i in removeArr){
+    removeElement(record,i)
+}
+
+
+record =reverse(sort(record,"count")) */
+publish staDate to TOPIC "/mgGetStaticMapPoints"
+return sArr

@@ -1,0 +1,19 @@
+// This rule was generated to produce events for the task: UpdateStatus in the app: ComputerMonitor
+RULE ComputerMonitor_UpdateStatus_Merge HIDDEN WITH ars_dependentResource="/collaborationtypes/ComputerMonitor"
+WHEN  EVENT OCCURS ON "/eventstreams/ComputerMonitor_UpdateStatus" AS event
+
+event = event.value
+
+log.debug("app.ComputerMonitor.UpdateStatus.producer:  Producing outbound event for: {}", [event])
+
+try {
+      
+    event = Utils.stripSystemProperties(event)
+    UPSERT ComputerStatus(event)
+    log.debug("app.ComputerMonitor.UpdateStatus.producer:  produced outbound event: {}", [event])
+} catch (ex) {
+    exception("io.vantiq.app.ComputerMonitor.UpdateStatus.ComputerMonitor_UpdateStatus_Merge.failed",
+              "The generated rule: {0} failed because: {1}", ["ComputerMonitor_UpdateStatus_Merge", ex.message])
+}
+
+log.debug("app.ComputerMonitor.UpdateStatus.producer:  Done")

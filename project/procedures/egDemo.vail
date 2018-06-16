@@ -1,0 +1,7 @@
+PROCEDURE egDemo(inputEmp object)  //演示示例
+var dd= "变量"   //定义变量
+var  cls = {"b":"",c:""}
+cls.b="参数1"  //直接赋值
+cls.c=dd  //转入变量
+inputEmp.class=cls   //赋入list
+return inputEmp  //返回入参

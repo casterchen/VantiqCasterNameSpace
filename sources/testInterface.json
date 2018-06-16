@@ -1,0 +1,18 @@
+{
+  "name" : "testInterface",
+  "type" : "REMOTE",
+  "active" : true,
+  "activationConstraint" : "",
+  "config" : {
+    "username" : "Nioces_luo",
+    "password" : "Nioces_luo",
+    "uri" : "http://uat.jzwimb.com/app/pcfid/sendVantiqData",
+    "requestDefaults" : {
+      "contentType" : "application/json",
+      "body" : "{\\\"ID\\\":\\ \"66\\\",\\ \"IP\\\":\\\"12.12.12.12\\\",\\ \"Port\\\":\\ \"3000\\\"}",
+      "method" : "POST",
+      "responseType" : "application/json"
+    }
+  },
+  "direction" : "BOTH"
+}

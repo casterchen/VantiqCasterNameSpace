@@ -1,0 +1,19 @@
+{
+  "name" : "Sentiment",
+  "type" : "REMOTE",
+  "active" : true,
+  "activationConstraint" : "",
+  "config" : {
+    "accessToken" : "ZdTI2i3VkOELbnLFn1iwpbouBFawn6ylm/1Nm9sddwLdigPwzqqwERKZKTnjyXu3oYkQXrG4vuZeJX2BcXIOJg==",
+    "pollingInterval" : 0,
+    "uri" : "https://ussouthcentral.services.azureml.net/workspaces/2185f5edaa9948ccaa0e4ddc6ab0c0b5/services/01d55b5e309e470faad956a4a1f263fd/execute?api-version=2.0&details=true",
+    "requestDefaults" : {
+      "contentType" : "application/json",
+      "method" : "POST"
+    }
+  },
+  "direction" : "BOTH",
+  "ars_properties" : {
+    "tags" : [ "#analytics", "#mmlstudio" ]
+  }
+}

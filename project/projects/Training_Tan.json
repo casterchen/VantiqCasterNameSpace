@@ -1,0 +1,133 @@
+{
+  "name" : "Training_Tan",
+  "options" : {
+    "v" : 2,
+    "filterMask" : 4294967295,
+    "showGrid" : true,
+    "isModeloProject" : true
+  },
+  "type" : "dev",
+  "resources" : [ {
+    "name" : "insertname",
+    "type" : 3,
+    "label" : "insertname",
+    "timestamp" : "2018-04-02T09:13:27.776Z",
+    "inventory" : {
+      "types" : [ "mytype_tan" ],
+      "typeHash" : [ "out" ],
+      "sources" : [ ],
+      "sourceHash" : [ ],
+      "topics" : [ ],
+      "topicHash" : [ ],
+      "procedures" : [ ],
+      "procedureHash" : [ ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 172.61947297117217,
+      "y" : 143.6495809672264
+    }
+  }, {
+    "name" : "invoice",
+    "type" : 15,
+    "label" : "invoice",
+    "timestamp" : "2018-04-04T09:46:38.989Z",
+    "node" : {
+      "x" : 7.9374701940690215,
+      "y" : 244.58365001085485
+    }
+  }, {
+    "name" : "invoice",
+    "type" : 1,
+    "label" : "invoice",
+    "timestamp" : "2018-04-04T06:32:17.752Z",
+    "node" : {
+      "x" : 23.73481612794933,
+      "y" : 177.17307732783314
+    }
+  }, {
+    "name" : "mytype_tan",
+    "type" : 1,
+    "label" : "mytype_tan",
+    "timestamp" : "2018-04-02T09:26:48.926Z",
+    "node" : {
+      "x" : 138.88603004984088,
+      "y" : 48.652034711575936
+    }
+  } ],
+  "links" : [ {
+    "source" : "procedure/insertname",
+    "target" : "type/mytype_tan"
+  } ],
+  "tools" : [ {
+    "name" : "Project Resource Graph",
+    "type" : 1,
+    "toolOptions" : {
+      "scaleAndTranslationState" : {
+        "scale" : 0.620921323059155,
+        "translate" : [ 232.91494183586207, 91.46184981321184 ],
+        "lastZoomRequest" : 2
+      }
+    },
+    "pane" : {
+      "x" : 20,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "mytype_tan",
+    "type" : 6,
+    "resourceKey" : "type/mytype_tan",
+    "pane" : {
+      "x" : 640,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "insertname",
+    "type" : 24,
+    "resourceKey" : "procedure/insertname",
+    "pane" : {
+      "x" : 1260,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "Log Messages",
+    "type" : 12,
+    "pane" : {
+      "x" : 30,
+      "y" : 460,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "invoice",
+    "type" : 6,
+    "resourceKey" : "type/invoice",
+    "pane" : {
+      "x" : 650,
+      "y" : 460,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "invoice",
+    "type" : 63,
+    "resourceKey" : "client/invoice",
+    "pane" : {
+      "x" : 30,
+      "y" : 880,
+      "h" : 700,
+      "w" : 1000
+    }
+  } ],
+  "views" : [ {
+    "name" : "Main",
+    "projectToolKeys" : [ "graph/Project Resource Graph", "subtypeeditor/mytype_tan", "cmeditorprocedure/insertname", "logviewer/Log Messages", "subtypeeditor/invoice", "client/invoice", "errorqueryresults/Unseen Errors @ 下午10:33:10" ]
+  } ]
+}

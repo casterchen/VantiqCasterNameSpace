@@ -1,0 +1,16 @@
+RULE aaatest
+//绑定第一个topics
+when PUBLISH OCCURS ON "/egDemo2"   //检查第一个入参
+
+//获取egDemo2入参
+var intputObject = event.newValue
+
+//写表参数
+var egdata = {"id":"12324","name":"bbb","class":"abcd"}
+egdata = intputObject.inputEmp
+
+//参数发布到第二个topics
+publish egdata to TOPIC "/showegDemo2"   //检查第二个入参
+
+//将数据更新到表中
+upsert RType(egdata)

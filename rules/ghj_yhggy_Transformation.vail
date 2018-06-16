@@ -1,0 +1,18 @@
+// This rule was generated to produce events for the task: yhggy in the app: ghj
+RULE ghj_yhggy_Transformation HIDDEN WITH ars_dependentResource="/collaborationtypes/ghj"
+WHEN  EVENT OCCURS ON "/eventstreams/ghj_yhggy" AS event
+
+event = event.value
+
+log.debug("app.ghj.yhggy.producer:  Producing outbound event for: {}", [event])
+
+try {
+      
+    PUBLISH event TO TOPIC "/rex"
+    log.debug("app.ghj.yhggy.producer:  produced outbound event: {}", [event])
+} catch (ex) {
+    exception("io.vantiq.app.ghj.yhggy.ghj_yhggy_Transformation.failed",
+              "The generated rule: {0} failed because: {1}", ["ghj_yhggy_Transformation", ex.message])
+}
+
+log.debug("app.ghj.yhggy.producer:  Done")

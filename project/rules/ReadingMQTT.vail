@@ -1,0 +1,3 @@
+RULE ReadingMQTT when MESSAGE ARRIVES FROM testMQTT as MQTTReading
+log.debug("onMQTTReading" +stringify(MQTTReading))
+publish MQTTReading to TOPIC "/MQTTReading"

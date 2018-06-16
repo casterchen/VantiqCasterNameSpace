@@ -1,0 +1,14 @@
+{
+  "name" : "ComputerHUD",
+  "properties" : [ {
+    "selected" : true,
+    "name" : "alertMsg",
+    "type" : "String"
+  }, {
+    "selected" : true,
+    "name" : "computerId",
+    "type" : "String"
+  } ],
+  "type" : "ComputerHUD",
+  "operation" : "update"
+}

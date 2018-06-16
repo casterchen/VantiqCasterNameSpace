@@ -1,0 +1,7 @@
+{
+  "name" : "APPTEST__DebugMode",
+  "type" : "log",
+  "value" : "DEBUG",
+  "resources" : [ "/collaborationtypes/APPTEST" ],
+  "isGlobal" : false
+}

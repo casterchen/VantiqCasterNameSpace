@@ -1,0 +1,128 @@
+{
+  "name" : "Patient",
+  "options" : {
+    "v" : 2,
+    "filterMask" : 4294967295,
+    "showGrid" : true,
+    "isModeloProject" : true
+  },
+  "type" : "dev",
+  "resources" : [ {
+    "name" : "Patient",
+    "type" : 1,
+    "label" : "Patient",
+    "timestamp" : "2018-03-19T04:18:55.154Z",
+    "node" : {
+      "x" : 297.97726300398745,
+      "y" : 182.48607549740976
+    }
+  }, {
+    "name" : "RateCollaboration",
+    "type" : 11,
+    "label" : "RateCollaboration",
+    "timestamp" : "2018-03-20T08:24:50.758Z",
+    "inventory" : {
+      "types" : [ "Patient" ],
+      "typeHash" : [ "in" ],
+      "sources" : [ ],
+      "sourceHash" : [ ],
+      "topics" : [ ],
+      "topicHash" : [ ],
+      "procedures" : [ ],
+      "procedureHash" : [ ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 297.9229033982612,
+      "y" : 322.1212010884433
+    }
+  }, {
+    "name" : "UpdatePatient",
+    "type" : 3,
+    "label" : "UpdatePatient",
+    "timestamp" : "2018-03-19T04:28:07.112Z",
+    "inventory" : {
+      "types" : [ "Patient" ],
+      "typeHash" : [ "out" ],
+      "sources" : [ ],
+      "sourceHash" : [ ],
+      "topics" : [ ],
+      "topicHash" : [ ],
+      "procedures" : [ ],
+      "procedureHash" : [ ],
+      "collaborations" : [ ],
+      "collaborationHash" : [ ]
+    },
+    "node" : {
+      "x" : 298.18401541367774,
+      "y" : 48.48957487812583
+    }
+  } ],
+  "links" : [ {
+    "source" : "procedure/UpdatePatient",
+    "target" : "type/Patient"
+  }, {
+    "source" : "type/Patient",
+    "target" : "collaborationtype/RateCollaboration"
+  } ],
+  "tools" : [ {
+    "name" : "Project Resource Graph",
+    "type" : 1,
+    "toolOptions" : {
+      "scaleAndTranslationState" : {
+        "scale" : 1.7411011265922514,
+        "translate" : [ -222.02175361540503, -129.99189220425404 ],
+        "lastZoomRequest" : 0
+      }
+    },
+    "pane" : {
+      "x" : 20,
+      "y" : 20,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "UpdatePatient",
+    "type" : 24,
+    "resourceKey" : "procedure/UpdatePatient",
+    "pane" : {
+      "x" : 20,
+      "y" : 440,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "Patient",
+    "type" : 6,
+    "resourceKey" : "type/Patient",
+    "pane" : {
+      "x" : 640,
+      "y" : 440,
+      "h" : 400,
+      "w" : 600
+    }
+  }, {
+    "name" : "RateCollaboration",
+    "type" : 14,
+    "toolOptions" : {
+      "scaleAndTranslationState" : {
+        "scale" : 0.7965308513863903,
+        "translate" : [ 371.1623450836945, 115.7700208567355 ],
+        "lastZoomRequest" : 0
+      },
+      "propertyPaneWidth" : 250
+    },
+    "resourceKey" : "collaborationtype/RateCollaboration",
+    "pane" : {
+      "x" : 20,
+      "y" : 860,
+      "h" : 500,
+      "w" : 980
+    }
+  } ],
+  "views" : [ {
+    "name" : "Main",
+    "projectToolKeys" : [ "graph/Project Resource Graph", "cmeditorprocedure/UpdatePatient", "subtypeeditor/Patient", "collaborationgraph/RateCollaboration" ]
+  } ]
+}

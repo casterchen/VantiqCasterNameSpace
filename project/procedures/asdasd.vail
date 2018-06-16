@@ -1,0 +1,4 @@
+PROCEDURE asdasd()
+var a = select * from situations 
+
+return a

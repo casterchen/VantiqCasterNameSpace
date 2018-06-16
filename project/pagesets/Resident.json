@@ -1,0 +1,162 @@
+{
+  "name" : "Resident",
+  "options" : {
+    "v" : 2,
+    "showGridWhileEditing" : false,
+    "isLaunchable" : false,
+    "description" : "",
+    "theme" : {
+      "v" : 2,
+      "name" : "light",
+      "label" : "浅色",
+      "backgroundColor" : "#f0f2f5",
+      "foregroundColor" : "#000000",
+      "borderColor" : "#000000",
+      "accentColor1" : "#040fdb"
+    }
+  },
+  "models" : {
+    "dataObjects" : {
+      "__GLOBAL__" : {
+        "properties" : { }
+      },
+      "__PARAMETERS__" : {
+        "properties" : { }
+      }
+    },
+    "dataStreams" : [ {
+      "v" : 1,
+      "uuid" : "aafb0487-c04a-443a-8599-0a7839c34f7e",
+      "name" : "Resident",
+      "type" : 1,
+      "updateInterval" : 60,
+      "maxRecords" : 0,
+      "isInsertOp" : true,
+      "isUpdateOp" : false,
+      "isDeleteOp" : false,
+      "advancedWhereClause" : null,
+      "property" : "name",
+      "sortByProperty" : null,
+      "sortDescending" : false,
+      "dataObjectName" : null,
+      "dataTypeList" : [ {
+        "type" : "Resident",
+        "label" : null,
+        "isSeries" : false
+      } ]
+    } ]
+  },
+  "views" : {
+    "Start" : {
+      "fields" : [ ],
+      "bodyChildren" : [ {
+        "type" : "FloorPlanWidget",
+        "v" : 11,
+        "name" : "平面图1",
+        "x" : 142.0500030517578,
+        "y" : 49.04998779296875,
+        "h" : 244,
+        "w" : 300,
+        "borderWidth" : 0,
+        "borderColor" : "Default",
+        "heightPolicy" : 0,
+        "widthPolicy" : 0,
+        "isSelectable" : true,
+        "isDraggable" : true,
+        "actionMenuTopic" : null,
+        "actionMenuLabel" : null,
+        "vertGravity" : 4,
+        "horzGravity" : 4,
+        "dataType" : null,
+        "propertyName" : "location",
+        "operation" : "insert",
+        "dataStreamUUID" : "aafb0487-c04a-443a-8599-0a7839c34f7e",
+        "dataStreamPropertyList" : [ ],
+        "dataStreamGroupedByFiltersString" : "",
+        "url" : "../cmn/img/floorplan.png",
+        "isScaleable" : false,
+        "scale" : 1,
+        "flwidth" : 30,
+        "flheight" : 25,
+        "naturalKey" : null,
+        "labelName" : "name",
+        "filterObject" : "{\"floor\":\"one\"}"
+      }, {
+        "type" : "FloorPlanWidget",
+        "v" : 11,
+        "name" : "平面图2",
+        "x" : 524.0500183105469,
+        "y" : 46.05000305175781,
+        "h" : 244,
+        "w" : 300,
+        "borderWidth" : 0,
+        "borderColor" : "Default",
+        "heightPolicy" : 0,
+        "widthPolicy" : 0,
+        "isSelectable" : true,
+        "isDraggable" : true,
+        "actionMenuTopic" : null,
+        "actionMenuLabel" : null,
+        "vertGravity" : 4,
+        "horzGravity" : 4,
+        "dataType" : null,
+        "propertyName" : "location",
+        "operation" : "insert",
+        "dataStreamUUID" : "aafb0487-c04a-443a-8599-0a7839c34f7e",
+        "dataStreamPropertyList" : [ ],
+        "dataStreamGroupedByFiltersString" : "",
+        "url" : "../cmn/img/floorplan.png",
+        "isScaleable" : false,
+        "scale" : 1,
+        "flwidth" : 1,
+        "flheight" : 1,
+        "naturalKey" : null,
+        "labelName" : null,
+        "filterObject" : "{\"floor\":\"two\"}"
+      }, {
+        "type" : "BaiduMapWidget",
+        "v" : 11,
+        "name" : "百度地图2",
+        "x" : 332,
+        "y" : 315,
+        "h" : 200,
+        "w" : 200,
+        "borderWidth" : 2,
+        "borderColor" : "Default",
+        "heightPolicy" : 1,
+        "widthPolicy" : 1,
+        "isSelectable" : true,
+        "isDraggable" : true,
+        "actionMenuTopic" : null,
+        "actionMenuLabel" : null,
+        "vertGravity" : 4,
+        "horzGravity" : 4,
+        "dataType" : null,
+        "propertyName" : null,
+        "operation" : "insert",
+        "dataStreamUUID" : "",
+        "dataStreamPropertyList" : [ ],
+        "dataStreamGroupedByFiltersString" : "",
+        "naturalKey" : null,
+        "_mapType" : "normal",
+        "_pinCenter" : true
+      } ],
+      "footerChildren" : [ ],
+      "responseTopic" : "/my/response/topic",
+      "data" : {
+        "properties" : { }
+      }
+    }
+  },
+  "controllers" : {
+    "client" : { },
+    "page" : {
+      "Start" : {
+        "widgets" : { }
+      }
+    },
+    "dataStream" : {
+      "Resident" : { }
+    }
+  }
+}

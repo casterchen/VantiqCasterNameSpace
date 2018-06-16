@@ -1,0 +1,5 @@
+{
+  "name" : "/Gateway/api/Register",
+  "description" : "from tujia gateway register",
+  "messageType" : "Gateway"
+}
