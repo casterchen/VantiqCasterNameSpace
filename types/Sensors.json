@@ -1,0 +1,54 @@
+{
+  "name" : "Sensors",
+  "adminAccessLevel" : "ars_readWrite",
+  "userAccessLevel" : "ars_readOnly",
+  "role" : "standard",
+  "volatile" : false,
+  "naturalKey" : [ "SensorID" ],
+  "foreignKeys" : null,
+  "audited" : false,
+  "groupEnabled" : false,
+  "groupRequired" : false,
+  "encapsulated" : false,
+  "metadata" : false,
+  "indexes" : [ {
+    "keys" : [ "SensorID" ],
+    "options" : {
+      "unique" : true
+    }
+  } ],
+  "maxStorage" : 0,
+  "maxObjects" : 0,
+  "properties" : {
+    "PumpID" : {
+      "type" : "String",
+      "unique" : false,
+      "required" : true,
+      "multi" : false,
+      "encrypted" : false
+    },
+    "SensorID" : {
+      "type" : "String",
+      "unique" : false,
+      "required" : true,
+      "multi" : false,
+      "encrypted" : false
+    },
+    "ars_group" : {
+      "type" : "String",
+      "system" : true,
+      "required" : false,
+      "unique" : false,
+      "scale" : null,
+      "multi" : false
+    },
+    "ars_properties" : {
+      "type" : "Object",
+      "system" : true,
+      "required" : false,
+      "unique" : false,
+      "scale" : null,
+      "multi" : false
+    }
+  }
+}

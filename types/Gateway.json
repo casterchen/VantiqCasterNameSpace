@@ -1,0 +1,63 @@
+{
+  "name" : "Gateway",
+  "adminAccessLevel" : "ars_readWrite",
+  "userAccessLevel" : "ars_readOnly",
+  "role" : "standard",
+  "volatile" : false,
+  "naturalKey" : [ ],
+  "foreignKeys" : null,
+  "audited" : false,
+  "groupEnabled" : false,
+  "groupRequired" : false,
+  "encapsulated" : false,
+  "metadata" : false,
+  "indexes" : [ ],
+  "maxStorage" : 0,
+  "maxObjects" : 0,
+  "properties" : {
+    "deviceid" : {
+      "type" : "String",
+      "unique" : false,
+      "required" : false,
+      "multi" : false,
+      "encrypted" : false
+    },
+    "factory" : {
+      "type" : "String",
+      "unique" : false,
+      "required" : false,
+      "multi" : false,
+      "encrypted" : false
+    },
+    "mac" : {
+      "type" : "String",
+      "unique" : false,
+      "required" : false,
+      "multi" : false,
+      "encrypted" : false
+    },
+    "serialno" : {
+      "type" : "String",
+      "unique" : false,
+      "required" : true,
+      "multi" : false,
+      "encrypted" : false
+    },
+    "ars_group" : {
+      "type" : "String",
+      "system" : true,
+      "required" : false,
+      "unique" : false,
+      "scale" : null,
+      "multi" : false
+    },
+    "ars_properties" : {
+      "type" : "Object",
+      "system" : true,
+      "required" : false,
+      "unique" : false,
+      "scale" : null,
+      "multi" : false
+    }
+  }
+}
